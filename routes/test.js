@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
     res.sendFile('/Users/andreas/Developer/Web/FlagPriming/public/sites/test.html');
 });
 
-// Posting form daty
+// Posting form data
 router.post('/', function(req, res) {
     let data = req.body;
     console.log(data);
