@@ -1,0 +1,196 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/*Header Stuff*/
+#header {
+    position: fixed;
+    top: 0;
+    margin-bottom: 100px;
+    width: auto;
+    left: 10px;
+    right: 10px;
+}
+
+#headerLogo {
+  max-height: 100px;
+}
+
+.badgeRow {
+    background-color: white;
+}
+
+.badgeContainer {
+    margin: auto 10px;
+}
+
+.badgeImage {
+    height: 50px;
+    width: auto;
+}
+
+
+/* App and App Container Stuff */
+
+.hidden {
+    display: none !important;
+}
+.appContainer {
+    width: auto;
+    margin: auto;
+    margin-top: 100px;
+
+    background-color: #f8f9fa;
+}
+
+.questionnaireContainer {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+}
+
+
+#flagContainer {
+    width: 100px;
+    height: 80px;
+    background-color: #fff;
+
+    position: fixed;
+    right: 10px;
+}
+
+#flagContainer img {
+    max-height: 80px;
+}
+#app {
+   max-width: 1080px;
+}
+.itemBlock {
+  max-width: 100%;
+}
+
+.itemBlockIntro {
+    margin-bottom: 30px;
+}
+
+.itemBlockExplanation {
+  max-width: 100%;
+}
+
+.itemBlockImage {
+  max-width: 100%;
+}
+
+.itemBlockForm {
+    margin-bottom: 30px;
+}
+
+.itemBlockForm .itemContainer {
+    margin: 20px auto;
+}
+
+.continueButton {
+    background-color: green;
+    color: white;
+}
+
+.continueButton:disabled {
+    background-color: #c5c5c5;
+    color: #f3f3f3;
+}
+
+/*Radio items*/
+.verticalRadioItemContainer {
+    margin-top: 10px;
+    margin-left: 20px !important;
+}
+
+.verticalRadioItemContainer .radioItem {
+    margin: auto 5px;
+}
+
+.radioItem {
+
+}
+
+/*Slider Items*/
+.sliderItem {
+    width: 40vw;
+}
+
+/*Audit Items*/
+/* entire container, keeps perspective */
+.flip-container {
+    perspective: 1000px;
+}
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+    transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+    height: 140px;
+    width: 90px;
+}
+
+/* flip speed goes here */
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+    backface-visibility: hidden;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(180deg);
+}
+
+.auditItem {
+    height: 140px;
+    width: 90px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+.auditItemText {}
+
+
+/*
+Footer
+ */
+
+.myFooter {
+    position: fixed;
+    bottom: 0;
+    width: 200px;
+
+    background-color: #c5c5c5;
+
+}
