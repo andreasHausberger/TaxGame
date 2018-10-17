@@ -1,6 +1,6 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-family: 'Rubik', sans-serif;
 }
 
 a {
@@ -75,17 +75,25 @@ a {
 
 .itemBlockIntro {
     margin-bottom: 30px;
+    text-align: center;
 }
 
+.itemBlockImage {
+    margin: auto;
+    max-width: 761px;
+    width: 100%;
+}
+.itemBlockIntro p {
+    text-align: left;
+}
 .itemBlockExplanation {
   max-width: 100%;
 }
 
-.itemBlockImage {
-  max-width: 100%;
-}
+
 
 .itemBlockForm {
+    width: 100%;
     margin-bottom: 30px;
 }
 
@@ -194,3 +202,20 @@ Footer
     background-color: #c5c5c5;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

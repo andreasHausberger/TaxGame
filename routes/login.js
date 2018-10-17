@@ -2,19 +2,37 @@ let express = require('express');
 let request = require('request');
 let router = express.Router();
 let mongodb = require('mongodb');
-let config = require('../database/mdb');
+let user = require('../database/mdb');
 
 /* Get login page */
 
 router.get('/', function (req, res, next) {
     console.log("Login site reached!");
-    res.sendFile('/Users/andreas/Developer/Web/FlagPrimingNew/public/sites/login.html');
+    res.render('../public/generated/login.ejs');
 });
 
 
 /* Post login data */
-router.post('/', function(req, res) {
-    console.log(req.body);
-})
+router.post('/', function(req, res, next) {
+    let data = req.body;
+    console.log("reached post site for login" );
+    console.log("user: " + data.username);
+
+    if (data.username && data.password) {
+        user.authenticate(data.username, data.password, function(error, user) {
+           if (error || !user) {
+               var err = new Error('Fehler bei der Eingabe des Usernamens.');
+               err.status = 401;
+               res.redirect('/fail');
+               return next(err);
+           }
+           else {
+               req.session.userId = user._id;
+               return res.redirect('/test');
+           }
+        });
+    }
+
+});
 
 module.exports = router;

@@ -1,7 +1,7 @@
 let likertSeven = [
     {
-    "value": "correct",
-    "content": "Ich stimme überhaupt nicht zu"
+        "value": "correct",
+        "content": "Ich stimme überhaupt nicht zu"
     },
     {
         "value": "correct",
@@ -27,7 +27,6 @@ let likertSeven = [
         "value": "correct",
         "content": "Ich stimme vollkommen zu"
     }];
-
 let badges = [
     {
         "id": 0,
@@ -72,7 +71,6 @@ let badges = [
         "image": "../images/badges/badge_completion@3x.png",
     },
 ];
-
 let educationLevels = [
     {
         "id": 1,
@@ -172,7 +170,7 @@ let data = {
             "iblock": 101,
             "title": "Fragebogen Flag Priming und Tax Compliance",
             "explanationText": "Vielen Dank für dein Interesse und deiner Teilnahme am Fragebogen 'Flag Priming und Tax Compliance'! In diesem Fragebogen werden einige demographische Daten erhoben, und temporär zu Forschungszwecken gespeichert. Es werden keine personenbezogenen Daten gespeichert, und ein Rückschluss auf deine Identität ist nicht möglich. Die Daten werden im Rahmen einer Masterarbeit im Bereich der Wirtschaftspsychologie veröffentlicht. Du bestätigst mit dem Klicken auf das Item unterhalb, dass du die Teilnahmebedingungen gelesen hast, und mit ihnen einverstanden bist.",
-            "image": "null",
+            "image": "../images/banners/Welcome@2x.png",
             "maximumValue": 0,
             "role": "intro",
             "questions": [
@@ -188,17 +186,17 @@ let data = {
                         }]
                 }
             ],
-            "reward": {
-                "type": "none",
-                "number": 0,
-                "condition": true
-            }
+            "reward": [{
+                "type": "ecobucks",
+                "number": 10,
+                "condition": {"variable": "gameScore", "operator": "=", "value": 100}
+            }]
         },
         {
             "iblock": 102,
             "title": "Tutorial - EcoBucks",
             "explanationText": "In diesem Fragebogen kannst du durch gute Leistungen virtuelles Geld (sog. EcoBucks mit Währungszeichen §) verdienen. Dein Kontostand wird in der rechten oberen Ecke angezeigt. Wenn du mit einer Frage Geld verdienen kannst, wirst du vorher darauf hingewiesen. Am Ende des Fragebogens kannst du dir mit deinem verdienten Geld Lose für ein Gewinnspiel kaufen - eine gute Leistung zahlt sich somit aus. ;)",
-            "image": "null",
+            "image": "../images/banners/Tutorial@2x.png",
             "maximumValue": 0,
             "role": "tutorial",
             "questions": [
@@ -218,17 +216,17 @@ let data = {
                         }]
                 }
             ],
-            "reward": {
+            "reward": [{
                 "type": "ecobucks",
                 "number": 100,
-                "condition": true
-            }
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }]
         },
         {
             "iblock": 103,
             "title": "Tutorial - Badges",
             "explanationText": "Für besondere Leistungen bekommst du Badges, kleine Abzeichen, die oben in der Mitte dargestellt werden. Badges sind 'Sammelobjekte', die du dir dazuverdienen kannst. Sie haben keinen Wert in EcoBucks, und sind optional. Schaffst du es, alle fünf Badges zu erlangen?",
-            "image": "null",
+            "image": "../images/banners/Tutorial@2x.png",
             "maximumValue": 0,
             "role": "tutorial",
             "questions": [
@@ -251,24 +249,24 @@ let data = {
                         }]
                 }
             ],
-            "reward": {
+            "reward": [{
                 "type": "badge",
                 "number": 1,
-                "condition": true
-            }
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }]
         },
         {
             "iblock": 104,
             "title": "Tutorial",
             "explanationText": "Das waren alle Erklärungen, die ich loswerden wollte. Du bist nun bereit, am Fragebogen teilzunehmen!",
-            "image": "null",
+            "image": "../images/banners/Tutorial@2x.png",
             "maximumValue": 0,
             "role": "tutorial",
             "questions": [],
             "reward": {
                 "type": "none",
                 "number": 0,
-                "condition": true
+                "condition": {"variable": "all", "operator": "==", "value": true}
             }
         },
         {
@@ -276,7 +274,7 @@ let data = {
             "iblock": 105,
             "title": "Persönliche Daten",
             "explanationText": "Bitte fülle die Fragen aus. Wie bereits gesagt, die Daten werden gespeichert. Ein Rückschluss auf deine Person ist jedoch nicht möglich.",
-            "image": "null",
+            "image": "../images/banners/Personal@2x.png",
             "maximumValue": 0,
             "role": "items",
             "questions": [
@@ -300,7 +298,7 @@ let data = {
                         "content": "Weiblich"
                     }, {
                         "value": "correct",
-                        "content":"Andere"
+                        "content": "Andere"
                     }]
                 },
                 {
@@ -318,11 +316,11 @@ let data = {
                     "items": educationLevels
                 }
             ],
-            "reward": {
+            "reward": [{
                 "type": "none",
                 "number": 0,
-                "condition": true
-            }
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }]
         },
         {
             /*Item Block 2 - Flag Priming Qestions*/
@@ -355,18 +353,18 @@ let data = {
                     "items": likertSeven
                 }
             ],
-            "reward": {
+            "reward": [{
                 "type": "none",
                 "number": 0,
-                "condition": true
-            }
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }]
         },
         {
             /* */
             "iblock": 106,
             "title": "Politische Einstellungen",
             "explanationText": "In diesem Teil geht es darum, einige politische Einstellungen anzugeben. Du wirst einige Aussagen präsentiert bekommen, und sollst angeben, wie sehr du diesen Aussagen zustimmen würdest. Dabei gibt es keine richtigen und falschen Antworten - uns interessiert lediglich deine Meinung! Für die Beantwortung der Fragen bekommst du 200 § gutgeschrieben!",
-            "image": "null",
+            "image": "../images/banners/Political@2x.png",
             "maximumValue": 0,
             "role": "natPat",
             questions: [
@@ -413,20 +411,203 @@ let data = {
                     "items": likertSeven
                 }
             ],
-            "reward": {
-                "type": "ecoBucks",
+            "reward": [{
+                "type": "ecobucks",
                 "number": 200,
-                "condition": true
-            }
+                "condition": {
+                    "variable": "all", 
+                    "operator": "==", 
+                    "value": true}
+            }]
         },
         {
             /* Item Block 3 - Slider items */
             "iblock": 107,
             "title": "Slider-Aufgaben",
             "explanationText": "Lorem ipsum dolor sit",
-            "image": "null",
+            "image": "../images/banners/Slider@2x.png",
             "maximumValue": 1,
             "role": "items",
+            "questions": [
+                {
+                    "id": 1,
+                    "qname": "slider1",
+                    "qtype": "SliderItem",
+                    "content": "Stellen Sie den Slider so ein, dass der Wert auf genau 60% steht!",
+                    "sliderGoal": 60
+                },
+                {
+                    "id": 2,
+                    "qname": "slider2",
+                    "qtype": "SliderItem",
+                    "content": "Stellen Sie den Slider so ein, dass der Wert auf genau 35% steht!",
+                    "sliderGoal": 35
+                },
+                {
+                    "id": 3,
+                    "qname": "slider3",
+                    "qtype": "SliderItem",
+                    "content": "Stellen Sie den Slider so ein, dass der Wert auf genau 10% steht!",
+                    "sliderGoal": 10
+                }
+            ],
+            "reward": [{
+                "type": "badge",
+                "number": 4,
+                "condition": {
+                    "variable": "this.props.gameScore",
+                    "operator": ">",
+                    "value": 1000
+                }
+            }]
+        },
+        {
+            /* Item Block 4 - Audit */
+            "iblock": 108,
+            "title": "Steuerprüfung",
+            "explanationText": "Deine Einkünfte sollten nun versteuert werden! Im Fragebogen solltest du auf freiwilliger Basis angeben, wie viel du verdient hast. " +
+                "Von der Summe, die du im Textfeld unten angibst, werden automatisch 20% abgezogen. Achtung: Für 10% aller Teilnehmer/innen wird eine automatische Steuerprüfung durchgeführt!" +
+                "Sollte sich zeigen, dass du weniger Geld versteuert hast, als du verdient hast, musst du eine Strafzahlung von 4000 § ableisten. Die Strafzahlung wird automatisch von deinem Konto abgezogen.",
+            "image": "../images/banners/Audit@2x.png",
+            "role": "audit",
+            "questions": [],
+            "reward": {
+                "type": "badge",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            /* Item Block 5 - End */
+            "iblock": 109,
+            "title": "Ende",
+            "explanationText": "Vielen Dank für Ihre Teilnahme!!",
+            "image": "../images/banners/Done@2x.png",
+            "role": "end",
+            "questions": [],
+            "reward": [
+                {
+                    "type": "badge",
+                    "number": 2,
+                    "condition": {"variable": "honesty", "operator": "==", "value": true}
+                },
+                {
+                    "type": "badge",
+                    "number": 3,
+                    "condition": {"variable": "honesty", "operator": "==", "value": false}
+
+                }
+                ]
+        }
+    ]
+}
+
+let newData = {
+    "title": "Tax Questionnaire",
+    "designs": ["plain", "rich", "gamified"],
+    "modes": ["noFlag", "noFit", "flagFit"],
+    "itemBlocks": [
+        {
+            /*Item Block 1 - Introduction */
+            "iblock": 101,
+            "title": "Fragebogen Gamification und Tax Experiments",
+            "explanationText": "Vielen Dank für dein Interesse und deiner Teilnahme am Fragebogen 'Tax Experiments'! In diesem Fragebogen werden einige demographische Daten erhoben, und temporär zu Forschungszwecken gespeichert. Es werden keine personenbezogenen Daten gespeichert, und ein Rückschluss auf deine Identität ist nicht möglich. Die Daten werden im Rahmen einer Masterarbeit im Bereich der Wirtschaftspsychologie veröffentlicht. Du bestätigst mit dem Klicken auf das Item unterhalb, dass du die Teilnahmebedingungen gelesen hast, und mit ihnen einverstanden bist.",
+            "image": "../images/banners/Welcome@2x.png",
+            "maximumValue": 0,
+            "timer": 10,
+            "role": "intro",
+            "questions": [
+                {
+                    "id": 1,
+                    "qname": "agb_confirm",
+                    "qtype": "RadioItem",
+                    "content": "",
+                    "items": [
+                        {
+                            "value": "correct",
+                            "content": "Ich habe die Teilnahmebedingungen gelesen und bin mit ihnen einverstanden."
+                        }]
+                }
+            ],
+            "reward": [{
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "gameScore", "operator": "=", "value": 100}
+            }]
+        },
+        {
+            "iblock": 102,
+            "title": "Tutorial - EcoBucks",
+            "explanationText": "In diesem Fragebogen kannst du durch gute Leistungen virtuelles Geld (sog. EcoBucks mit Währungszeichen §) verdienen. Dein Kontostand wird in der rechten oberen Ecke angezeigt. Wenn du mit einer Frage Geld verdienen kannst, wirst du vorher darauf hingewiesen. Am Ende des Fragebogens kannst du dir mit deinem verdienten Geld Lose für ein Gewinnspiel kaufen - eine gute Leistung zahlt sich somit aus. ;)",
+            "image": "../images/banners/Tutorial@2x.png",
+            "maximumValue": 0,
+            "timer": 15,
+            "role": "tutorial",
+            "questions": [
+                {
+                    "id": 1,
+                    "qname": "tut1_confirm",
+                    "qtype": "RadioItem",
+                    "content": "Welche Aussage stimmt? Beantworte die Frage richtig, um 100 § zu verdienen!",
+                    "items": [
+                        {
+                            "value": "false",
+                            "content": "EcoBucks sind absolut sinnlos."
+                        },
+                        {
+                            "value": "correct",
+                            "content": "Man sollte versuchen, möglichst viele EcoBucks zu erlangen."
+                        }]
+                }
+            ],
+            "reward": [{
+                "type": "ecobucks",
+                "number": 100,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }]
+        },
+        {
+            "iblock": 103,
+            "title": "Tutorial - Badges",
+            "explanationText": "Für besondere Leistungen bekommst du Badges, kleine Abzeichen, die oben in der Mitte dargestellt werden. Badges sind 'Sammelobjekte', die du dir dazuverdienen kannst. Sie haben keinen Wert in EcoBucks, und sind optional. Schaffst du es, alle fünf Badges zu erlangen?",
+            "image": "../images/banners/Tutorial@2x.png",
+            "maximumValue": 0,
+            "timer": 0,
+            "role": "tutorial",
+            "questions": [
+                {
+                    "id": 1,
+                    "qname": "tut2_confirm",
+                    "qtype": "RadioItem",
+                    "content": "Welche Aussage stimmt? Beantworte die Frage richtig, um deine erste Badge zu verdienen!",
+                    "items": [
+                        {
+                            "value": "false",
+                            "content": "Jede Badge ist 1250 § wert"
+                        },
+                        {
+                            "value": "correct",
+                            "content": "Badges sind zusätzliche Ziele, die nicht zwangsweise erfüllt werden müssen."
+                        }, {
+                            "value": "false",
+                            "content": "Ich brauche alle fünf Badges, um Pokemon-Meister zu werden."
+                        }]
+                }
+            ],
+            "reward": [{
+                "type": "badge",
+                "number": 1,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }]
+        },
+        {
+            "iblock": 104,
+            "title": "Tutorial - Slider Tasks",
+            "explanationText": "In diesem Experiment hast du 'Slider' gegeben, die du auf einen bestimmten Zielwert bringen sollst. Der Zielwert ist immer in der Angabe gegeben. Wenn du den Slider absetzt, siehst du den aktuellen Wert. Für einen richtig gelösten Slider (dein gewählter Wert entspricht genau dem Zielwert) bekommst du 100 §. Wenn du in der Nähe des Zielwertes bist, bekommst du einige Teilpunkte.",
+            "image": "../images/banners/Tutorial@2x.png",
+            "maximumValue": 0,
+            "timer": 0,
+            "role": "tutorial",
             "questions": [
                 {
                     "id": 1,
@@ -453,40 +634,65 @@ let data = {
             "reward": {
                 "type": "none",
                 "number": 0,
-                "condition": true
+                "condition": {"variable": "all", "operator": "==", "value": true}
             }
         },
         {
-            /* Item Block 4 - Audit */
-            "iblock": 108,
-            "title": "Steuerprüfung",
-            "explanationText": "Deine Einkünfte sollten nun versteuert werden! Im Fragebogen solltest du auf freiwilliger Basis angeben, wie viel du verdient hast. " +
-                "Von der Summe, die du im Textfeld unten angibst, werden automatisch 20% abgezogen. Achtung: Für 10% aller Teilnehmer/innen wird eine automatische Steuerprüfung durchgeführt!" +
-                "Sollte sich zeigen, dass du weniger Geld versteuert hast, als du verdient hast, musst du eine Strafzahlung von 4000 § ableisten. Die Strafzahlung wird automatisch von deinem Konto abgezogen.",
-            "image": "null",
-            "role": "audit",
-            "questions": [],
-            "reward": {
+            "iblock": 105,
+            "title": "Tutorial - Slider mit Zeitbegrenzung",
+            "explanationText": "In der folgenden Aufgabe wirst du wieder Slider-Aufgaben lösen müssen. Dabei gibt es ein Zeitlimit, das in der oberen rechten Ecke angezeigt wird. Sobald das Zeitlimit abgelaufen ist, werden alle Slider deaktiviert und ausgewertet. Klicke auf 'Weiter', wenn du bereit bist. ",
+            "image": "../images/banners/Tutorial@2x.png",
+            "maximumValue": 0,
+            "timer": 0,
+            "role": "tutorial",
+            "questions": []
+        },
+        {
+            /* Item Block 3 - Slider items */
+            "iblock": 107,
+            "title": "Slider-Aufgaben",
+            "explanationText": "Löse die Slider-Aufgaben, bevor das Zeitlimit abgelaufen ist!",
+            "image": "../images/banners/Slider@2x.png",
+            "maximumValue": 1,
+            "timer": 30,
+            "role": "items",
+            "questions": [
+                {
+                    "id": 1,
+                    "qname": "slider1",
+                    "qtype": "SliderItem",
+                    "content": "Stellen Sie den Slider so ein, dass der Wert auf genau 60% steht!",
+                    "sliderGoal": 60
+                },
+                {
+                    "id": 2,
+                    "qname": "slider2",
+                    "qtype": "SliderItem",
+                    "content": "Stellen Sie den Slider so ein, dass der Wert auf genau 35% steht!",
+                    "sliderGoal": 35
+                },
+                {
+                    "id": 3,
+                    "qname": "slider3",
+                    "qtype": "SliderItem",
+                    "content": "Stellen Sie den Slider so ein, dass der Wert auf genau 10% steht!",
+                    "sliderGoal": 10
+                }
+            ],
+            "reward": [{
                 "type": "badge",
-                "number": 0,
-                "condition": true
-            }
+                "number": 4,
+                "condition": {
+                    "variable": "this.props.gameScore",
+                    "operator": ">",
+                    "value": 1000
+                }
+            }]
         },
-        {
-            /* Item Block 5 - End */
-            "iblock": 109,
-            "title": "Ende",
-            "explanationText": "Vielen Dank für Ihre Teilnahme!!",
-            "image": "null",
-            "role": "end",
-            "questions": [],
-            "reward": {
-                "type": "none",
-                "number": 0,
-                "condition": true
-            }
-        }
     ]
+
+}
+let results = {
 }
 
 class Game extends React.Component {
@@ -506,7 +712,7 @@ class Game extends React.Component {
         let data = this.props.data;
         let modes = data.modes;
         console.log(modes);
-        let mode = "noFlag"; //modes[Math.floor(Math.random() * modes.length)]; //selects a random mode.
+        let mode = "noFit"; //modes[Math.floor(Math.random() * modes.length)]; //selects a random mode.
 
 
         var badgeArray = [];
@@ -518,7 +724,8 @@ class Game extends React.Component {
             gameScore: 100,
             mode: mode.valueOf(),
             badgeArray: badgeArray,
-            currentFlag: null
+            currentFlag: null,
+            timer: 0
         };
 
         console.log(this.state.mode);
@@ -529,15 +736,24 @@ class Game extends React.Component {
         this.handleAudit = this.handleAudit.bind(this);
         this.changeFlagDisplay = this.changeFlagDisplay.bind(this);
         this.activateBadge = this.activateBadge.bind(this);
+        this.setTimer = this.setTimer.bind(this);
     }
 
     changeFlagDisplay(flagData) {
         let flagDataJSON = JSON.parse(flagData);
         let imageURL = flagDataJSON.flag;
-        console.log("Reached notifyChanges in G with: " + imageURL.valueOf());
+        console.log("Reached changeFlagDisplay in G with: " + imageURL.valueOf());
 
         this.setState({currentFlag: imageURL});
+    }
 
+    setTimer(time) {
+        console.log("Resetting timer with " + time);
+        if (time >= 0) {
+            this.setState({
+                timer: time
+            });
+        }
     }
 
     increaseScore(number) {
@@ -586,24 +802,24 @@ class Game extends React.Component {
     }
 
     render() {
-        let flagContainer = this.state.mode === "noFlag" ? "" : <div id="flagContainer"><img id="flagThumbnail" src={this.state.currentFlag} alt=""/></div>;
+        let timerContainer = this.state.timer > 0 ? <div id="flagContainer"> <Timer time={this.state.timer}/> </div> : <div id="flagContainer"> No timer for you! </div>
         let badgeArray = this.state.badgeArray;
         return (
             <div>
                 <Header gameScore={this.state.gameScore} badgeArray={badgeArray}/>
-                {flagContainer}
+                {timerContainer}
                 <div className="appContainer">
                     <div className="row questionnaireContainer">
                         <Questionnaire increaseScore={this.increaseScore}
                                        handleAudit={this.handleAudit}
                                        notifyFlagDisplay={this.changeFlagDisplay}
                                        activateBadge={this.activateBadge}
+                                       setTimer={this.setTimer}
+                                       gameScore={this.state.gameScore}
                                        mode={this.state.mode}
                                        flags={this.props.flags}/>
                     </div>
                 </div>
-
-
             </div>
         );
     }
@@ -676,6 +892,46 @@ class Badge extends React.Component {
     }
 }
 
+class Timer extends React.Component {
+    constructor(props) {
+        super(props);
+        let time = this.props.time;
+        this.state = {
+            time: time,
+            interval: null
+        };
+        this.tick = this.tick.bind(this);
+    }
+
+    componentDidMount() {
+        var interval = setInterval(this.tick, 1000);
+        this.setState({interval: interval})
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.state.interval);
+    }
+
+    tick() {
+        if (this.state.time > 0) {
+            let newTime = this.state.time - 1;
+            this.setState({time: newTime.valueOf()});
+        }
+        else {
+            clearInterval(this.state.interval);
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                <div> Current Time: </div>
+                <div> {this.state.time} </div>
+            </div>
+        )
+    }
+}
+
 class Questionnaire extends React.Component {
     /*
     Properties:
@@ -697,7 +953,7 @@ class Questionnaire extends React.Component {
         let firstFlag = this.props.flags[0];
 
         this.state = {
-            itemblockdata: data,
+            itemblockdata: newData,
             currentBlockIndex: 0,
             isInProgress: true,
             flag: JSON.stringify(firstFlag)
@@ -707,6 +963,11 @@ class Questionnaire extends React.Component {
         this.handleAudit = this.handleAudit.bind(this);
         this.notifyChanges = this.notifyChanges.bind(this);
         this.activateBadge = this.activateBadge.bind(this);
+    }
+
+    componentDidMount() {
+        let currentTimer = this.state.itemblockdata.itemBlocks[this.state.currentBlockIndex].timer;
+        this.props.setTimer(currentTimer);
     }
 
     handleSubmit() {
@@ -720,6 +981,10 @@ class Questionnaire extends React.Component {
         else {
             console.log("Reached end of questionnaire");
         }
+
+        //reset the timer if necessary
+        let newTimer = this.state.itemblockdata.itemBlocks[newNumber].timer.valueOf();
+        this.props.setTimer(newTimer);
         //Here we call Game's increaseScore
         if (number > 0) {
             this.props.increaseScore(number);
@@ -736,6 +1001,7 @@ class Questionnaire extends React.Component {
 
     notifyChanges(id) {
         console.log("Reached notifyChanges in Q " + id);
+        var flag;
         let mode = this.props.mode;
         if (this.props.mode === "flagFit") {
             var count = 0;
@@ -744,6 +1010,7 @@ class Questionnaire extends React.Component {
                 if (i == id) {
                     let selectedFlag = this.props.flags[i];
                     console.log(mode + " selected: " + JSON.stringify(selectedFlag));
+                    flag = JSON.stringify(selectedFlag);
                     this.setState({flag: JSON.stringify(selectedFlag)});
                 }
             }
@@ -751,14 +1018,15 @@ class Questionnaire extends React.Component {
         else if (this.props.mode === "noFit") {
             let randomFlag = this.props.flags[Math.floor(Math.random() * flags.length)];
             this.setState({flag: JSON.stringify(randomFlag)});
-            console.log(mode + " selected: " + JSON.stringify(randomFlag));
+            flag = JSON.stringify(randomFlag);
+            console.log(mode + " (real: noFit) selected: " + flag);
 
         }
 
         else {
             console.log(mode + " no flag selected!");
         }
-        this.props.notifyFlagDisplay(this.state.flag);
+        this.props.notifyFlagDisplay(flag);
 
     }
 
@@ -779,41 +1047,43 @@ class Questionnaire extends React.Component {
                                        key={number}
                     />;
                 }
-                else if (itemBlock.role === "flags") {
-                        if (this.props.mode === "noFlag") {
-                            return <ItemBlock blockID={itemBlock.iblock}
-                                              title={"Bitte weitergehen!"}
-                                              role={itemBlock.role}
-                                              explanationText="Dieser Abschnitt ist deaktiviert. Bitte klicke auf 'Weiter'"
-                                              image="null"
-                                              flagData="null"
-                                              maximumValue={itemBlock.maximumValue}
-                                              questions={[]}
-                                              reward={itemBlock.reward}
-                                              key={number}
-                                              handleButtonClick={this.handleButtonClick}
-                                              notifyChanges={this.notifyChanges}
-                            />;
-                        }
-                        else {
-                            let flagData = JSON.parse(this.state.flag);
-                            return <ItemBlock blockID={itemBlock.iblock}
-                                              title={itemBlock.title}
-                                              role={itemBlock.role}
-                                              flagData={flagData}
-                                              explanationText={itemBlock.explanationText}
-                                              image={flagData.flag}
-                                              maximumValue={itemBlock.maximumValue}
-                                              questions={itemBlock.questions}
-                                              reward={itemBlock.reward}
-                                              key={number}
-                                              handleButtonClick={this.handleButtonClick}
-                                              notifyChanges={this.notifyChanges}
-                            />;
-                        }
+                /* else if (itemBlock.role === "flags") {
+                    if (this.props.mode === "noFlag") {
+                        return <ItemBlock blockID={itemBlock.iblock}
+                                          title={"Bitte weitergehen!"}
+                                          role={itemBlock.role}
+                                          explanationText="Dieser Abschnitt ist deaktiviert. Bitte klicke auf 'Weiter'"
+                                          image="null"
+                                          flagData="null"
+                                          gameScore={this.props.gameScore}
+                                          maximumValue={itemBlock.maximumValue}
+                                          questions={[]}
+                                          reward={itemBlock.reward}
+                                          key={number}
+                                          handleButtonClick={this.handleButtonClick}
+                                          notifyChanges={this.notifyChanges}
+                        />;
+                    }
+                    else {
+                        let flagData = JSON.parse(this.state.flag);
+                        return <ItemBlock blockID={itemBlock.iblock}
+                                          title={itemBlock.title}
+                                          role={itemBlock.role}
+                                          flagData={flagData}
+                                          explanationText={itemBlock.explanationText}
+                                          image={flagData.flag}
+                                          gameScore={this.props.gameScore}
+                                          maximumValue={itemBlock.maximumValue}
+                                          questions={itemBlock.questions}
+                                          reward={itemBlock.reward}
+                                          key={number}
+                                          handleButtonClick={this.handleButtonClick}
+                                          notifyChanges={this.notifyChanges}
+                        />;
+                    }
 
-                }
-                else if (itemBlock.role === "natPat") {
+                } */
+                /*else if (itemBlock.role === "natPat") {
                     let flagData = JSON.parse(this.state.flag);
                     return <ItemBlock blockID={itemBlock.iblock}
                                       title={itemBlock.title}
@@ -821,6 +1091,7 @@ class Questionnaire extends React.Component {
                                       flagData={flagData}
                                       explanationText={itemBlock.explanationText}
                                       image="null"
+                                      gameScore={this.props.gameScore}
                                       maximumValue={itemBlock.maximumValue}
                                       questions={itemBlock.questions}
                                       reward={itemBlock.reward}
@@ -828,7 +1099,7 @@ class Questionnaire extends React.Component {
                                       handleButtonClick={this.handleButtonClick}
                                       notifyChanges={this.notifyChanges}
                     />;
-                }
+                }*/
 
 
                 else {
@@ -838,7 +1109,9 @@ class Questionnaire extends React.Component {
                                       flagData="null"
                                       explanationText={itemBlock.explanationText}
                                       image={itemBlock.image}
+                                      gameScore={this.props.gameScore}
                                       maximumValue={itemBlock.maximumValue}
+                                      timer={itemBlock.timer}
                                       questions={itemBlock.questions}
                                       reward={itemBlock.reward}
                                       key={number}
@@ -905,7 +1178,6 @@ class ItemBlock extends React.Component {
         var map = this.state.valueMap;
         map.set(id, number);
         this.setState({valueMap: map})
-
     }
 
 
@@ -915,19 +1187,42 @@ class ItemBlock extends React.Component {
             this.state.valueMap.forEach((value, key) =>
                 calculatedScore += value);
         }
-        let reward = this.props.reward;
-        if (reward.condition) {
-            if (reward.type === "ecobucks") {
-                calculatedScore += reward.number;
-            }
-            else if (reward.type === "badge") {
-                console.log("here we get badge number " + reward.number);
-                if (reward.condition) {
-                    this.props.activateBadge(reward.number);
-                }
+        let rewards = this.props.reward;
 
+        for (let i = 0; i < rewards.length; i++) {
+            let reward = rewards[i];
+            var condition = true;
+            let conditionJSON = reward.condition;
+            if (conditionJSON.variable === "all") {
+                condition = true;
+            }
+            else if (conditionJSON.variable === "gameScore") {
+                let variable = this.props.gameScore;
+                let op = {
+                    "<": function(a, b) { return a < b },
+                    "=": function(a, b) { return a == b },
+                    ">": function(a, b) { return a > b }
+                };
+
+                let value = JSON.parse(conditionJSON.value);
+                condition = op[conditionJSON.operator](variable, value);
+            }
+            console.log("trying to unpack " + reward.type);
+            if (reward.condition) {
+                if (reward.type === "ecobucks") {
+                    console.log("Here we get an Ecobucks reward of " + reward.number);
+                    calculatedScore += reward.number;
+                }
+                else if (reward.type === "badge") {
+                    console.log("here we get badge number " + reward.number);
+                    if (reward.condition) {
+                        this.props.activateBadge(reward.number);
+                    }
+
+                }
             }
         }
+
 
         if (this.state.itemsAreValid) {
             this.props.handleButtonClick(calculatedScore);
@@ -963,8 +1258,8 @@ class ItemBlock extends React.Component {
             let person = flagData.person;
             natPatItemContents = [
                 "Es ist wichtig für mich, ein/e " + person + " zu sein.",
-                "Ich denke, ich bin ein/e typische/r " + person +". ",
-                "Der Begriff " +  person + " beschreibt mich gut.",
+                "Ich denke, ich bin ein/e typische/r " + person + ". ",
+                "Der Begriff " + person + " beschreibt mich gut.",
                 "Ich glaube daran, das zu tun, was das Beste für mein Land ist.",
                 "Meinem Land zu dienen bedeutet auch, etwas zu tun, was ich nicht möchte.",
                 "Es ist wichtig, dem Land auszuhelfen, auch wenn es gegen meine persönlichen Wünsche geht."
@@ -1014,7 +1309,7 @@ class ItemBlock extends React.Component {
             <div>
                 <div className="itemBlockIntro">
                     <h1>{this.props.title}</h1>
-                    {this.props.image === "null" ? "" : <img src={this.props.image}/>}
+                    {this.props.image === "null" ? "" : <img className="itemBlockImage" src={this.props.image}/>}
                     <p>{this.props.explanationText} </p>
                 </div>
 
@@ -1055,7 +1350,8 @@ class AuditBlock extends React.Component {
 
         this.state = {
             number: 0,
-            auditIsComplete: false};
+            auditIsComplete: false
+        };
 
         this.handleAudit = this.handleAudit.bind(this);
         this.handleTextInput = this.handleTextInput.bind(this);
@@ -1099,16 +1395,21 @@ class AuditBlock extends React.Component {
         }
         return (
             <div>
-                <h1>{this.props.title}</h1>
-                {this.props.image === "null" ? "" : <img src={this.props.image}/>}
-                <p>{this.props.explanationText} </p>
+                <div className="itemBlockIntro">
+                    <h1>{this.props.title}</h1>
+                    {this.props.image === "null" ? "" : <img className="itemBlockImage" src={this.props.image}/>}
+                    <p>{this.props.explanationText} </p>
+                </div>
+
                 <div>
                     <input type="text" id="auditTextEntry" onChange={this.handleTextInput}/>
                 </div>
                 <div className="row auditItemContainer">
                     {auditItems}
                 </div>
-                <button className="btn continueButton" onClick={this.handleContinue} disabled={!this.state.auditIsComplete}>Weiter</button>
+                <button className="btn continueButton" onClick={this.handleContinue}
+                        disabled={!this.state.auditIsComplete}>Weiter
+                </button>
             </div>
         );
     }
@@ -1126,16 +1427,26 @@ class RadioItem extends React.Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            input: ""
+        }
         this.validateInput = this.validateInput.bind(this);
+        this.reportInput = this.reportInput.bind(this);
     }
 
     componentDidMount() {
         this.props.updateValidity(this.props.number, false);
     }
 
+    reportInput() {
+        this.props.reportInput;
+    }
+
     validateInput(event) {
         if (event.target.accessKey === "correct") {
+            let input = event.target.value;
             this.props.updateValidity(this.props.number, true);
+            this.setState({input: input.valueOf()});
         }
         else if (event.target.accessKey === "false") {
             this.props.updateValidity(this.props.number, false);
@@ -1149,7 +1460,8 @@ class RadioItem extends React.Component {
     render() {
         let items = this.props.items.map((item, number) =>
             <div key={number} className="radioItem">
-                <input type="radio" accessKey={item.value} value={number} name={this.props.name} style={this.buttonStyle} onChange={this.validateInput}/>
+                <input type="radio" accessKey={item.value} value={number} name={this.props.name}
+                       style={this.buttonStyle} onChange={this.validateInput}/>
                 <label htmlFor={number}> {item.content} </label>
             </div>
         );
@@ -1185,9 +1497,14 @@ class SliderItem extends React.Component {
         this.state = {
             proximity: 0,
             testMode: false,
-            score: 0
-        }
+            input: 0
+        };
         this.handleChange = this.handleChange.bind(this);
+        this.reportInput = this.reportInput.bind(this);
+    }
+
+    reportInput() {
+        this.props.reportInput;
     }
 
     handleChange(event) {
@@ -1195,16 +1512,18 @@ class SliderItem extends React.Component {
         let id = event.target.id;
 
         let accuracy = Math.abs(sliderInput - this.props.sliderGoal);
-        var result = 600 - (accuracy * 60);
+        var result = 200 - (accuracy * 20);
         if (result < 0) {
             result = 0;
         }
-        this.setState({score: result.valueOf()});
+        this.setState({input: sliderInput});
         this.props.increaseScore(id, result.valueOf());
     }
 
     render() {
-        let testFeedback = this.state.testMode ? <span>Du bekommst {this.state.score} § für diese Lösung dieser Aufgabe! </span> : "";
+        var testFeedback = this.state.input === 0 ? "" : this.state.input;
+
+
         return (
             <div className="itemContainer slider">
                 <label>
@@ -1212,8 +1531,7 @@ class SliderItem extends React.Component {
                 </label>
                 <br/>
                 <input className="sliderItem" type="range" min="0" max="100" name={this.props.name} id={this.props.id}
-                       onChange={this.handleChange}/>
-                <br/>
+                       onClick={this.handleChange}/>
                 {testFeedback}
             </div>
         )
@@ -1233,13 +1551,19 @@ class TextItem extends React.Component {
 
         this.state = {
             feedback: "",
+            input: ""
         };
 
         this.validateInput = this.validateInput.bind(this);
+        this.reportInput = this.reportInput.bind(this);
     }
 
     componentDidMount() {
         this.props.updateValidity(this.props.number, false);
+    }
+
+    reportInput() {
+        this.props.reportInput();
     }
 
     validateInput(event) {
@@ -1248,6 +1572,7 @@ class TextItem extends React.Component {
         if (reg.test(input)) {
             console.log("Input " + input.valueOf() + " good");
             this.props.updateValidity(this.props.number, true);
+            this.setState({input: input.valueOf()});
         }
         else {
             console.log("Input " + input.valueOf() + " bad");
@@ -1282,15 +1607,26 @@ class DropdownItem extends React.Component {
      */
     constructor(props) {
         super(props);
+        this.state = {
+            input: ""
+        };
         this.notifyChanges = this.notifyChanges.bind(this);
+        this.reportInput = this.reportInput.bind(this);
+
+    }
+
+    reportInput() {
+        this.props.reportInput();
     }
 
     notifyChanges(event) {
-
-        let id = event.target.id;
         let value = event.target.value;
-        console.log("selected: " + value);
-        this.props.notifyChanges(value);
+        console.log("selected id: " + value);
+        this.setState({input: value});
+        if (this.props.name === "nationality") {
+            console.log("selected: " + value);
+            this.props.notifyChanges(value);
+        }
     }
 
     render() {
@@ -1322,8 +1658,10 @@ class AuditItem extends React.Component {
 
     constructor(props) {
         super(props);
-        this.handleClick = this.handleClick.bind(this);
         this.state = {message: "msg"};
+
+        this.handleClick = this.handleClick.bind(this);
+
     }
 
     handleClick(event) {
@@ -1359,4 +1697,4 @@ class AuditItem extends React.Component {
 }
 
 const domContainer = document.querySelector('#app');
-ReactDOM.render(<Game data={data} flags={flags} badges={badges}/>, domContainer);
+ReactDOM.render(<Game data={newData} flags={flags} badges={badges}/>, domContainer);
