@@ -514,7 +514,7 @@ let newData = {
             "explanationText": "Vielen Dank für dein Interesse und deiner Teilnahme am Fragebogen 'Tax Experiments'! In diesem Fragebogen werden einige demographische Daten erhoben, und temporär zu Forschungszwecken gespeichert. Es werden keine personenbezogenen Daten gespeichert, und ein Rückschluss auf deine Identität ist nicht möglich. Die Daten werden im Rahmen einer Masterarbeit im Bereich der Wirtschaftspsychologie veröffentlicht. Du bestätigst mit dem Klicken auf das Item unterhalb, dass du die Teilnahmebedingungen gelesen hast, und mit ihnen einverstanden bist.",
             "image": "../images/banners/Welcome@2x.png",
             "maximumValue": 0,
-            "timer": 10,
+            "timer": 0,
             "role": "intro",
             "questions": [
                 {
@@ -541,7 +541,7 @@ let newData = {
             "explanationText": "In diesem Fragebogen kannst du durch gute Leistungen virtuelles Geld (sog. EcoBucks mit Währungszeichen §) verdienen. Dein Kontostand wird in der rechten oberen Ecke angezeigt. Wenn du mit einer Frage Geld verdienen kannst, wirst du vorher darauf hingewiesen. Am Ende des Fragebogens kannst du dir mit deinem verdienten Geld Lose für ein Gewinnspiel kaufen - eine gute Leistung zahlt sich somit aus. ;)",
             "image": "../images/banners/Tutorial@2x.png",
             "maximumValue": 0,
-            "timer": 15,
+            "timer": 0,
             "role": "tutorial",
             "questions": [
                 {
@@ -645,11 +645,17 @@ let newData = {
             "maximumValue": 0,
             "timer": 0,
             "role": "tutorial",
-            "questions": []
+            "questions": [],
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
         },
+
         {
             /* Item Block 3 - Slider items */
-            "iblock": 107,
+            "iblock": 106,
             "title": "Slider-Aufgaben",
             "explanationText": "Löse die Slider-Aufgaben, bevor das Zeitlimit abgelaufen ist!",
             "image": "../images/banners/Slider@2x.png",
@@ -679,16 +685,42 @@ let newData = {
                     "sliderGoal": 10
                 }
             ],
-            "reward": [{
-                "type": "badge",
-                "number": 4,
-                "condition": {
-                    "variable": "this.props.gameScore",
-                    "operator": ">",
-                    "value": 1000
-                }
-            }]
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
         },
+        {
+            "iblock": 106,
+            "title": "Tutorial - Steuererklärung",
+            "explanationText": "Nach einer Slider-Runde sollst du freiwillig angeben, wie viel du in dieser Runde verdient hast. Von dem Betrag, den du angegeben hast, werden 20% als Steuern abgezogen. In 10% aller Fällen wird eine Steuerprüfung durchgeführt, bei der nachgeforscht wird, wie viel du tatsächlich verdient hast. Achtung: Sollte festgestellt werden, dass du weniger angegeben hast, als du verdient hast, musst du einen Strafbetrag bezahlen. Als Strafe musst du einerseits die Differenz des eigentlichen Steuerbetrags und des von dir bezahlten Betrags entrichten. Ebenfalls muss der zu bezahlende Steuerbetrag zusätzlich nocheinmal bezahlt werden. Verwirrt? Hier nocheinmal als Formel: Strafbetrag = (zuZahlenderBetrag - bezahlterBetrag) + zuZahlenderBetrag. Klicke auf 'Weiter', um das Ganze auszuprobieren!",
+            "image": "../images/banners/Tutorial@2x.png",
+            "maximumValue": 1,
+            "timer": 0,
+            "role": "items",
+            "questions": [],
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            "iblock": 107,
+            "title": "Tutorial - Steuererklärung",
+            "explanationText": "Lorem Ipsum",
+            "image": "../images/banners/Audit@2x.png",
+            "maximumValue": 1,
+            "timer": 0,
+            "role": "audit",
+            "questions": [],
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        }
     ]
 
 }
@@ -722,9 +754,11 @@ class Game extends React.Component {
         }
         this.state = {
             gameScore: 100,
+            mostRecentScore: 0,
             mode: mode.valueOf(),
             badgeArray: badgeArray,
             currentFlag: null,
+            itemsAreActive: true,
             timer: 0
         };
 
@@ -737,6 +771,7 @@ class Game extends React.Component {
         this.changeFlagDisplay = this.changeFlagDisplay.bind(this);
         this.activateBadge = this.activateBadge.bind(this);
         this.setTimer = this.setTimer.bind(this);
+        this.notifyEnd = this.notifyEnd.bind(this);
     }
 
     changeFlagDisplay(flagData) {
@@ -748,16 +783,22 @@ class Game extends React.Component {
     }
 
     setTimer(time) {
-        console.log("Resetting timer with " + time);
-        if (time >= 0) {
+        if (time > 0) {
+            console.log("Resetting timer with " + time);
+
             this.setState({
-                timer: time
+                timer: time.valueOf()
             });
         }
     }
 
+    notifyEnd() {
+        this.setState({itemsAreActive: false});
+    }
+
     increaseScore(number) {
         console.log("called increaseGS from Questionnaire!");
+        this.setState({mostRecentScore: number.valueOf()});
         let currentScore = this.state.gameScore;
         let newScore = currentScore.valueOf() + number.valueOf();
         this.setState({gameScore: newScore.valueOf()});
@@ -772,11 +813,13 @@ class Game extends React.Component {
     }
 
     handleAudit(isAudited, number) {
-        let currentScore = this.state.gameScore;
+        let currentScore = this.state.mostRecentScore;
         if (isAudited) {
             if (number.valueOf() < currentScore) {
-                alert("Bei der Steuerprüfung wurde festgestellt, dass Du deine Verdienste falsch angegeben hast. Es wurde dir eine Strafe von 4000§ erteilt.");
-                this.decreaseScore(4000);
+                let correctAmount = this.state.mostRecentScore * 0.2;
+                let penalty = abs((correctAmount - number) + correctAmount);
+                alert("Bei der Steuerprüfung wurde festgestellt, dass Du deine Verdienste falsch angegeben hast. Es wurde dir eine Strafe von " + penalty + "§ erteilt.");
+                this.decreaseScore(penalty);
             }
             else {
                 alert("Bei der Steuerprüfung wurden keine Verstöße festgestellt. Es werden regelgemäß 20% des angegbebenen Betrags abgezogen.");
@@ -789,6 +832,7 @@ class Game extends React.Component {
             let taxAmount = number * 0.2;
             this.decreaseScore(taxAmount);
         }
+        this.setState({mostRecentScore: 0}); //reset most recent score.
 
     }
 
@@ -802,7 +846,8 @@ class Game extends React.Component {
     }
 
     render() {
-        let timerContainer = this.state.timer > 0 ? <div id="flagContainer"> <Timer time={this.state.timer}/> </div> : <div id="flagContainer"> No timer for you! </div>
+        var currentTime = this.state.timer;
+        let timerContainer = this.state.timer > 0 ? <div id="flagContainer"> <Timer time={this.state.timer} notifyEnd={this.notifyEnd}/> </div> : <div id="flagContainer"> No timer for you! </div>
         let badgeArray = this.state.badgeArray;
         return (
             <div>
@@ -816,8 +861,11 @@ class Game extends React.Component {
                                        activateBadge={this.activateBadge}
                                        setTimer={this.setTimer}
                                        gameScore={this.state.gameScore}
+                                       mostRecentScore={this.state.mostRecentScore}
                                        mode={this.state.mode}
-                                       flags={this.props.flags}/>
+                                       flags={this.props.flags}
+                                       itemsAreActive={this.state.itemsAreActive}
+                        />
                     </div>
                 </div>
             </div>
@@ -896,8 +944,10 @@ class Timer extends React.Component {
     constructor(props) {
         super(props);
         let time = this.props.time;
+        console.log("constructing with " + this.props.time);
         this.state = {
             time: time,
+            isUpdated: false,
             interval: null
         };
         this.tick = this.tick.bind(this);
@@ -905,10 +955,29 @@ class Timer extends React.Component {
 
     componentDidMount() {
         var interval = setInterval(this.tick, 1000);
-        this.setState({interval: interval})
+        this.setState({
+            time: this.props.time,
+            interval: interval});
+    }
+
+    componentDidUpdate() {
+        console.log("current Time: " + this.state.time + " prop time " + this.props.time);
+        if (this.state.isUpdated) {
+            console.log("trying to update timer with " + this.props.time);
+            this.setState({
+                isUpdated: false,
+                time: this.props.time
+            });
+        }
+    }
+
+    componentWillReceiveProps() {
+        console.log("Timer received props: " + this.props.time);
+        this.setState({isUpdated: true});
     }
 
     componentWillUnmount() {
+        console.log("Timer unmounted");
         clearInterval(this.state.interval);
     }
 
@@ -918,6 +987,7 @@ class Timer extends React.Component {
             this.setState({time: newTime.valueOf()});
         }
         else {
+            this.props.notifyEnd();
             clearInterval(this.state.interval);
         }
     }
@@ -961,7 +1031,7 @@ class Questionnaire extends React.Component {
 
         this.handleButtonClick = this.handleButtonClick.bind(this);
         this.handleAudit = this.handleAudit.bind(this);
-        this.notifyChanges = this.notifyChanges.bind(this);
+       // this.notifyChanges = this.notifyChanges.bind(this);
         this.activateBadge = this.activateBadge.bind(this);
     }
 
@@ -999,7 +1069,7 @@ class Questionnaire extends React.Component {
         this.props.handleAudit(isAudited, number)
     }
 
-    notifyChanges(id) {
+    /*notifyChanges(id) {
         console.log("Reached notifyChanges in Q " + id);
         var flag;
         let mode = this.props.mode;
@@ -1028,7 +1098,7 @@ class Questionnaire extends React.Component {
         }
         this.props.notifyFlagDisplay(flag);
 
-    }
+    } */
 
     activateBadge(number) {
         this.props.activateBadge(number);
@@ -1042,65 +1112,12 @@ class Questionnaire extends React.Component {
                                        role={itemBlock.role}
                                        explanationText={itemBlock.explanationText}
                                        image={itemBlock.image}
+                                       mostRecentScore={this.props.mostRecentScore}
                                        handleAudit={this.handleAudit}
                                        handleButtonClick={this.handleButtonClick}
                                        key={number}
                     />;
                 }
-                /* else if (itemBlock.role === "flags") {
-                    if (this.props.mode === "noFlag") {
-                        return <ItemBlock blockID={itemBlock.iblock}
-                                          title={"Bitte weitergehen!"}
-                                          role={itemBlock.role}
-                                          explanationText="Dieser Abschnitt ist deaktiviert. Bitte klicke auf 'Weiter'"
-                                          image="null"
-                                          flagData="null"
-                                          gameScore={this.props.gameScore}
-                                          maximumValue={itemBlock.maximumValue}
-                                          questions={[]}
-                                          reward={itemBlock.reward}
-                                          key={number}
-                                          handleButtonClick={this.handleButtonClick}
-                                          notifyChanges={this.notifyChanges}
-                        />;
-                    }
-                    else {
-                        let flagData = JSON.parse(this.state.flag);
-                        return <ItemBlock blockID={itemBlock.iblock}
-                                          title={itemBlock.title}
-                                          role={itemBlock.role}
-                                          flagData={flagData}
-                                          explanationText={itemBlock.explanationText}
-                                          image={flagData.flag}
-                                          gameScore={this.props.gameScore}
-                                          maximumValue={itemBlock.maximumValue}
-                                          questions={itemBlock.questions}
-                                          reward={itemBlock.reward}
-                                          key={number}
-                                          handleButtonClick={this.handleButtonClick}
-                                          notifyChanges={this.notifyChanges}
-                        />;
-                    }
-
-                } */
-                /*else if (itemBlock.role === "natPat") {
-                    let flagData = JSON.parse(this.state.flag);
-                    return <ItemBlock blockID={itemBlock.iblock}
-                                      title={itemBlock.title}
-                                      role={itemBlock.role}
-                                      flagData={flagData}
-                                      explanationText={itemBlock.explanationText}
-                                      image="null"
-                                      gameScore={this.props.gameScore}
-                                      maximumValue={itemBlock.maximumValue}
-                                      questions={itemBlock.questions}
-                                      reward={itemBlock.reward}
-                                      key={number}
-                                      handleButtonClick={this.handleButtonClick}
-                                      notifyChanges={this.notifyChanges}
-                    />;
-                }*/
-
 
                 else {
                     return <ItemBlock blockID={itemBlock.iblock}
@@ -1115,6 +1132,7 @@ class Questionnaire extends React.Component {
                                       questions={itemBlock.questions}
                                       reward={itemBlock.reward}
                                       key={number}
+                                      itemsAreActive={this.props.itemsAreActive}
                                       handleButtonClick={this.handleButtonClick}
                                       notifyChanges={this.notifyChanges}
                                       activateBadge={this.activateBadge}
@@ -1252,20 +1270,6 @@ class ItemBlock extends React.Component {
     }
 
     render() {
-        let natPatItemContents = [];
-        if (this.props.flagData !== "null" && this.props.role === "natPat") {
-            let flagData = this.props.flagData;
-            let person = flagData.person;
-            natPatItemContents = [
-                "Es ist wichtig für mich, ein/e " + person + " zu sein.",
-                "Ich denke, ich bin ein/e typische/r " + person + ". ",
-                "Der Begriff " + person + " beschreibt mich gut.",
-                "Ich glaube daran, das zu tun, was das Beste für mein Land ist.",
-                "Meinem Land zu dienen bedeutet auch, etwas zu tun, was ich nicht möchte.",
-                "Es ist wichtig, dem Land auszuhelfen, auch wenn es gegen meine persönlichen Wünsche geht."
-            ]
-        }
-
         let questions = this.props.questions.map((question, number) => {
                 if (question.qtype === "TextItem") {
                     return <TextItem id={question.id}
@@ -1289,6 +1293,7 @@ class ItemBlock extends React.Component {
                                        name={question.qname}
                                        questionContent={question.content}
                                        sliderGoal={question.sliderGoal}
+                                       active = {this.props.itemsAreActive} // TODO: Fix this.
                                        increaseScore={this.increaseScore}
                                        key={number}/>
                 }
@@ -1390,7 +1395,7 @@ class AuditBlock extends React.Component {
         var auditItems = [];
 
         for (let i = 0; i < 10; i++) {
-            let auditItem = <AuditItem probability="0.1" id={i} name={i} key={i} handleAudit={this.handleAudit}/>;
+            let auditItem = <AuditItem probability="0.1" isActive={!this.state.auditIsComplete} id={i} name={i} key={i} handleAudit={this.handleAudit}/>;
             auditItems.push(auditItem);
         }
         return (
@@ -1400,8 +1405,29 @@ class AuditBlock extends React.Component {
                     {this.props.image === "null" ? "" : <img className="itemBlockImage" src={this.props.image}/>}
                     <p>{this.props.explanationText} </p>
                 </div>
+                <div id="tableContainer">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <th>Name</th>
+                            <th>Betag</th>
+                        </tr>
+                        <tr>
+                            <td>Zuletzt erspielt: </td>
+                            <td> {this.props.mostRecentScore} </td>
+                        </tr>
+                        <tr>
+                            <td>Zu bezahlen: </td>
+                            <td>{this.props.mostRecentScore * 0.2}</td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
 
                 <div>
+                    <label htmlFor="auditTextEntry">Betrag: </label>
                     <input type="text" id="auditTextEntry" onChange={this.handleTextInput}/>
                 </div>
                 <div className="row auditItemContainer">
@@ -1523,7 +1549,6 @@ class SliderItem extends React.Component {
     render() {
         var testFeedback = this.state.input === 0 ? "" : this.state.input;
 
-
         return (
             <div className="itemContainer slider">
                 <label>
@@ -1531,7 +1556,7 @@ class SliderItem extends React.Component {
                 </label>
                 <br/>
                 <input className="sliderItem" type="range" min="0" max="100" name={this.props.name} id={this.props.id}
-                       onClick={this.handleChange}/>
+                       onClick={this.handleChange} disabled={!this.props.active}/>
                 {testFeedback}
             </div>
         )
@@ -1658,7 +1683,8 @@ class AuditItem extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {message: "msg"};
+        this.state = {
+            message: "msg"};
 
         this.handleClick = this.handleClick.bind(this);
 
@@ -1681,13 +1707,13 @@ class AuditItem extends React.Component {
 
     render() {
         return (
-            <div className="flip-container">
+            <div className="flip-container" aria-disabled={this.props.isActive}>
                 <div className="flipper">
                     <div className="auditItem front" onClick={this.handleClick}>
                         <p className="auditItemText">{this.props.id}</p>
                     </div>
                     <div className="auditItem back" onClick={this.handleClick}>
-                        {this.state.message}
+                        Click to Submit!
                     </div>
                 </div>
             </div>
