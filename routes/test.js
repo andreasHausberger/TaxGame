@@ -4,6 +4,7 @@ let router = express.Router();
 let mysql = require('mysql');
 let config = require('../database/config');
 let user = require('../database/mdb');
+let questionnaire = require('../database/questionnaireDB');
 
 /* GET test page. */
 router.get('/', function(req, res, next) {
@@ -20,9 +21,17 @@ router.get('/', function(req, res, next) {
            }
            else {
                console.log("Questionnaire site reached with valid login!");
-               //res.render('../public/generated/questionnaire.ejs')
+               questionnaire.find((error, items) => {
+                   if (error) {
+                       console.log(error);
+                   }
+                   else {
+                       res.render('../public/generated/questionnaire.ejs', {items: items})
+                   }
+               });
 
-               res.sendFile('/Users/andreas/Developer/Web/FlagPriming/public/sites/test.html');
+
+               // res.sendFile('/Users/andreas/Developer/Web/FlagPriming/public/sites/test.html');
 
            }
        }

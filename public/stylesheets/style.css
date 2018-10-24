@@ -194,6 +194,15 @@ a {
     background-color: white;
 }
 
+#auditTextEntry {
+    margin: 25px;
+    width: 28%;
+}
+
+.auditItemContainer {
+    margin-bottom: 25px !important;
+}
+
 .auditItem {
     height: 140px;
     width: 90px;

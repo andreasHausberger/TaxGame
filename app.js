@@ -13,6 +13,7 @@ var testRouter = require('./routes/test');
 var loginRouter = require('./routes/login');
 var signupRouter = require('./routes/signup');
 var failRouter = require('./routes/fail');
+var backendRouter = require('./routes/backend');
 
 var app = express();
 
@@ -50,6 +51,7 @@ app.use('/test', testRouter);
 app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
 app.use('/fail', failRouter);
+app.use('/backend', backendRouter);
 
 
 // catch 404 and forward to error handler

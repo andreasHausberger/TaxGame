@@ -21,6 +21,10 @@ var UserSchema = new mongoose.Schema({
     passwordConf: {
         type: String,
         required: true,
+    },
+    role: {
+        type: String,
+        required: true,
     }
 });
 
@@ -37,7 +41,6 @@ UserSchema.statics.authenticate = function (username, password, callback) {
             }
             
             bcrypt.compare(password, user.password, function (err, result) {
-                console.log(password + " vs . " + user.password)
                 if (result === true) {
                     return callback(null, user);
                 } else {
@@ -55,7 +58,6 @@ UserSchema.pre('save', function (next) {
             return next(err);
         }
         user.password = hash;
-        console.log("pw hash: " + hash + " of length " + hash.toString().length);
         next();
     })
 });

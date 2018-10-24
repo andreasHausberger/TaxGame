@@ -24,8 +24,9 @@ router.post('/', function(req, res, next) {
             username: data.username,
             email: data.email,
             password: data.password,
-            passwordConf: data.password
-        }
+            passwordConf: data.password,
+            role: "user"
+        };
 
         user.create(userData, function(err, user) {
             if (err) {

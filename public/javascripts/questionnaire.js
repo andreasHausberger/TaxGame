@@ -161,6 +161,81 @@ let flags = [
     }
 ];
 
+let sliderQuestions = [
+    {
+        "id": 1,
+        "qname": "slider1",
+        "qtype": "SliderItem",
+        "content": "Stellen Sie den Slider so ein, dass der Wert auf genau 60% steht!",
+        "sliderGoal": 60
+    },
+    {
+        "id": 2,
+        "qname": "slider2",
+        "qtype": "SliderItem",
+        "content": "Stellen Sie den Slider so ein, dass der Wert auf genau 35% steht!",
+        "sliderGoal": 35
+    },
+    {
+        "id": 4,
+        "qname": "slider4",
+        "qtype": "SliderItem",
+        "content": "Stellen Sie den Slider so ein, dass der Wert auf genau 10% steht!",
+        "sliderGoal": 10
+    },
+    {
+        "id": 4,
+        "qname": "slider5",
+        "qtype": "SliderItem",
+        "content": "Stellen Sie den Slider so ein, dass der Wert auf genau 40% steht!",
+        "sliderGoal": 40
+    },
+    {
+        "id": 5,
+        "qname": "slider5",
+        "qtype": "SliderItem",
+        "content": "Stellen Sie den Slider so ein, dass der Wert auf genau 80% steht!",
+        "sliderGoal": 80
+    },
+    {
+        "id": 6,
+        "qname": "slider6",
+        "qtype": "SliderItem",
+        "content": "Stellen Sie den Slider so ein, dass der Wert auf genau 45% steht!",
+        "sliderGoal": 45
+    },
+    {
+        "id": 7,
+        "qname": "slider7",
+        "qtype": "SliderItem",
+        "content": "Stellen Sie den Slider so ein, dass der Wert auf genau 65% steht!",
+        "sliderGoal": 65
+    },
+    {
+        "id": 8,
+        "qname": "slider8",
+        "qtype": "SliderItem",
+        "content": "Stellen Sie den Slider so ein, dass der Wert auf genau 90% steht!",
+        "sliderGoal": 90
+    },
+    {
+        "id": 9,
+        "qname": "slider9",
+        "qtype": "SliderItem",
+        "content": "Stellen Sie den Slider so ein, dass der Wert auf genau 70% steht!",
+        "sliderGoal": 70
+    },
+    {
+        "id": 10,
+        "qname": "slider10",
+        "qtype": "SliderItem",
+        "content": "Stellen Sie den Slider so ein, dass der Wert auf genau 20% steht!",
+        "sliderGoal": 20
+    }
+];
+
+
+
 let data = {
     "title": "Flag Priming Questionnaire",
     "modes": ["noFlag", "noFit", "flagFit"],
@@ -720,7 +795,391 @@ let newData = {
                 "number": 0,
                 "condition": {"variable": "all", "operator": "==", "value": true}
             }
-        }
+        },
+        {
+            "iblock": 107,
+            "title": "Tutorial - Ende",
+            "explanationText": "Das war alles, was ich erklären wollte. Im Anschluss wirst du einige persönliche Fragen beantworten, sowie in mehreren Runden Slider-Aufgaben bearbeiten. Viel Erfolg!",
+            "image": "../images/banners/Tutorial@2x.png",
+            "maximumValue": 1,
+            "timer": 0,
+            "role": "items",
+            "questions": [],
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            /*Item Block 1 - Demographics */
+            "iblock": 108,
+            "title": "Persönliche Daten",
+            "explanationText": "Bitte fülle die Fragen aus. Wie bereits gesagt, die Daten werden gespeichert. Ein Rückschluss auf deine Person ist jedoch nicht möglich.",
+            "image": "../images/banners/Personal@2x.png",
+            "maximumValue": 0,
+            "role": "items",
+            "questions": [
+                {
+                    "id": 1,
+                    "qname": "age",
+                    "qtype": "TextItem",
+                    "input": "number",
+                    "content": "Wie alt bist du (Alter in Jahren)?"
+                },
+                {
+                    "id": 2,
+                    "qname": "gender",
+                    "qtype": "RadioItem",
+                    "content": "Geschlecht: ",
+                    "items": [{
+                        "value": "correct",
+                        "content": "Männlich"
+                    }, {
+                        "value": "correct",
+                        "content": "Weiblich"
+                    }, {
+                        "value": "correct",
+                        "content": "Andere"
+                    }]
+                },
+                {
+                    "id": 3,
+                    "qname": "nationality",
+                    "qtype": "DropdownItem",
+                    "content": "Staatsbürgerschaft: ",
+                    "items": flags
+                },
+                {
+                    "id": 4,
+                    "qname": "education",
+                    "qtype": "DropdownItem",
+                    "content": "Höchster abgeschlossener Bildungsgrad: ",
+                    "items": educationLevels
+                }
+            ],
+            "reward": [{
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }]
+        },
+        {
+            "iblock": 108,
+            "title": "Slider-Aufgaben",
+            "explanationText": "Du wirst nun insgesamt 10 Slider-Aufgaben bekommen, in denen du in 30 Sekunden bis zu 10 Slider bearbeiten kannst. Im Anschluss an jede Slider-Aufgabe sollst du deine Gewinne versteuern, wie du es im Tutorial gesehen hast. Zwischen Steuer- und Slider-Seiten wird es keine weiteren Erklärungen geben. Viel Erfolg!",
+            "image": "../images/banners/Tutorial@2x.png",
+            "maximumValue": 1,
+            "timer": 0,
+            "role": "items",
+            "questions": [],
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            "iblock": 109,
+            "title": "Slider-Aufgaben",
+            "explanationText": "Löse die Slider-Aufgaben, bevor das Zeitlimit abgelaufen ist!",
+            "image": "../images/banners/Slider@2x.png",
+            "maximumValue": 1,
+            "timer": 30,
+            "role": "items",
+            "questions": sliderQuestions,
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            "iblock": 110,
+            "title": "Tutorial - Steuererklärung",
+            "explanationText": "Lorem Ipsum",
+            "image": "../images/banners/Audit@2x.png",
+            "maximumValue": 1,
+            "timer": 0,
+            "role": "audit",
+            "questions": [],
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            "iblock": 111,
+            "title": "Slider-Aufgaben",
+            "explanationText": "Löse die Slider-Aufgaben, bevor das Zeitlimit abgelaufen ist!",
+            "image": "../images/banners/Slider@2x.png",
+            "maximumValue": 1,
+            "timer": 30,
+            "role": "items",
+            "questions": sliderQuestions,
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            "iblock": 112,
+            "title": "Tutorial - Steuererklärung",
+            "explanationText": "Lorem Ipsum",
+            "image": "../images/banners/Audit@2x.png",
+            "maximumValue": 1,
+            "timer": 0,
+            "role": "audit",
+            "questions": [],
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            "iblock": 113,
+            "title": "Slider-Aufgaben",
+            "explanationText": "Löse die Slider-Aufgaben, bevor das Zeitlimit abgelaufen ist!",
+            "image": "../images/banners/Slider@2x.png",
+            "maximumValue": 1,
+            "timer": 30,
+            "role": "items",
+            "questions": sliderQuestions,
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            "iblock": 114,
+            "title": "Tutorial - Steuererklärung",
+            "explanationText": "Lorem Ipsum",
+            "image": "../images/banners/Audit@2x.png",
+            "maximumValue": 1,
+            "timer": 0,
+            "role": "audit",
+            "questions": [],
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            "iblock": 115,
+            "title": "Slider-Aufgaben",
+            "explanationText": "Löse die Slider-Aufgaben, bevor das Zeitlimit abgelaufen ist!",
+            "image": "../images/banners/Slider@2x.png",
+            "maximumValue": 1,
+            "timer": 30,
+            "role": "items",
+            "questions": sliderQuestions,
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            "iblock": 116,
+            "title": "Tutorial - Steuererklärung",
+            "explanationText": "Lorem Ipsum",
+            "image": "../images/banners/Audit@2x.png",
+            "maximumValue": 1,
+            "timer": 0,
+            "role": "audit",
+            "questions": [],
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            "iblock": 117,
+            "title": "Slider-Aufgaben",
+            "explanationText": "Löse die Slider-Aufgaben, bevor das Zeitlimit abgelaufen ist!",
+            "image": "../images/banners/Slider@2x.png",
+            "maximumValue": 1,
+            "timer": 30,
+            "role": "items",
+            "questions": sliderQuestions,
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            "iblock": 118,
+            "title": "Tutorial - Steuererklärung",
+            "explanationText": "Lorem Ipsum",
+            "image": "../images/banners/Audit@2x.png",
+            "maximumValue": 1,
+            "timer": 0,
+            "role": "audit",
+            "questions": [],
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            "iblock": 119,
+            "title": "Slider-Aufgaben",
+            "explanationText": "Löse die Slider-Aufgaben, bevor das Zeitlimit abgelaufen ist!",
+            "image": "../images/banners/Slider@2x.png",
+            "maximumValue": 1,
+            "timer": 30,
+            "role": "items",
+            "questions": sliderQuestions,
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            "iblock": 120,
+            "title": "Tutorial - Steuererklärung",
+            "explanationText": "Lorem Ipsum",
+            "image": "../images/banners/Audit@2x.png",
+            "maximumValue": 1,
+            "timer": 0,
+            "role": "audit",
+            "questions": [],
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            "iblock": 121,
+            "title": "Slider-Aufgaben",
+            "explanationText": "Löse die Slider-Aufgaben, bevor das Zeitlimit abgelaufen ist!",
+            "image": "../images/banners/Slider@2x.png",
+            "maximumValue": 1,
+            "timer": 30,
+            "role": "items",
+            "questions": sliderQuestions,
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            "iblock": 122,
+            "title": "Tutorial - Steuererklärung",
+            "explanationText": "Lorem Ipsum",
+            "image": "../images/banners/Audit@2x.png",
+            "maximumValue": 1,
+            "timer": 0,
+            "role": "audit",
+            "questions": [],
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            "iblock": 123,
+            "title": "Slider-Aufgaben",
+            "explanationText": "Löse die Slider-Aufgaben, bevor das Zeitlimit abgelaufen ist!",
+            "image": "../images/banners/Slider@2x.png",
+            "maximumValue": 1,
+            "timer": 30,
+            "role": "items",
+            "questions": sliderQuestions,
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            "iblock": 124,
+            "title": "Tutorial - Steuererklärung",
+            "explanationText": "Lorem Ipsum",
+            "image": "../images/banners/Audit@2x.png",
+            "maximumValue": 1,
+            "timer": 0,
+            "role": "audit",
+            "questions": [],
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            "iblock": 125,
+            "title": "Slider-Aufgaben",
+            "explanationText": "Löse die Slider-Aufgaben, bevor das Zeitlimit abgelaufen ist!",
+            "image": "../images/banners/Slider@2x.png",
+            "maximumValue": 1,
+            "timer": 30,
+            "role": "items",
+            "questions": sliderQuestions,
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            "iblock": 126,
+            "title": "Tutorial - Steuererklärung",
+            "explanationText": "Lorem Ipsum",
+            "image": "../images/banners/Audit@2x.png",
+            "maximumValue": 1,
+            "timer": 0,
+            "role": "audit",
+            "questions": [],
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            "iblock": 127,
+            "title": "Slider-Aufgaben",
+            "explanationText": "Löse die Slider-Aufgaben, bevor das Zeitlimit abgelaufen ist!",
+            "image": "../images/banners/Slider@2x.png",
+            "maximumValue": 1,
+            "timer": 30,
+            "role": "items",
+            "questions": sliderQuestions,
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+        {
+            "iblock": 128,
+            "title": "Tutorial - Steuererklärung",
+            "explanationText": "Lorem Ipsum",
+            "image": "../images/banners/Audit@2x.png",
+            "maximumValue": 1,
+            "timer": 0,
+            "role": "audit",
+            "questions": [],
+            "reward": {
+                "type": "none",
+                "number": 0,
+                "condition": {"variable": "all", "operator": "==", "value": true}
+            }
+        },
+
     ]
 
 }
@@ -1355,16 +1814,19 @@ class AuditBlock extends React.Component {
 
         this.state = {
             number: 0,
-            auditIsComplete: false
+            auditIsComplete: false,
+            feedback: ""
         };
 
         this.handleAudit = this.handleAudit.bind(this);
         this.handleTextInput = this.handleTextInput.bind(this);
         this.handleContinue = this.handleContinue.bind(this);
+        this.validateInput = this.validateInput.bind(this);
 
     }
 
     handleTextInput(event) {
+        this.validateInput(event);
         let value = event.target.value;
         this.setState({number: value.valueOf()})
     }
@@ -1384,6 +1846,21 @@ class AuditBlock extends React.Component {
             this.setState({auditIsComplete: true});
         }
 
+    }
+
+    validateInput(event) {
+        var reg = /^\d+$/;
+        let input = event.target.value;
+        if (reg.test(input)) {
+            console.log("Input " + input.valueOf() + " good");
+            // this.props.updateValidity(this.props.number, true);
+            this.setState({input: input.valueOf()});
+        }
+        else {
+            console.log("Input " + input.valueOf() + " bad");
+            this.setState({feedback: "Bitte nur ganze Zahlen eingeben!"})
+            this.setState({auditIsComplete: false});
+        }
     }
 
     handleContinue() {
@@ -1417,7 +1894,7 @@ class AuditBlock extends React.Component {
                             <td> {this.props.mostRecentScore} </td>
                         </tr>
                         <tr>
-                            <td>Zu bezahlen: </td>
+                            <td>20% davon: </td>
                             <td>{this.props.mostRecentScore * 0.2}</td>
                         </tr>
                         </tbody>
@@ -1428,7 +1905,8 @@ class AuditBlock extends React.Component {
 
                 <div>
                     <label htmlFor="auditTextEntry">Betrag: </label>
-                    <input type="text" id="auditTextEntry" onChange={this.handleTextInput}/>
+                    <input type="text" id="auditTextEntry" onChange={this.handleTextInput} disabled={this.state.auditIsComplete}/>
+                    {this.state.feedback}
                 </div>
                 <div className="row auditItemContainer">
                     {auditItems}
