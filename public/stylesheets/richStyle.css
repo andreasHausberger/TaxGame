@@ -2,37 +2,44 @@ body {
     font-family: "Rubik", serif;
 }
 
+.appContainer {
+    background-image: linear-gradient(#eee, #cbcbcb) !important;
+}
+
+.timerContainer {
+    font-size: 20px;
+    text-align: center;
+}
+
 .sliderItem {
-    -webkit-appearance: none;  /* Override default CSS styles */
+    -webkit-appearance: none;
     appearance: none;
-    height: 25px; /* Specified height */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    height: 25px;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
     transition: opacity .2s;
 }
 
-/* Mouse-over effects */
 .sliderItem:hover {
-    opacity: 1; /* Fully shown on mouse-over */
+    opacity: 1; /
 }
 
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 .sliderItem::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
+    -webkit-appearance: none;
     appearance: none;
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
+    width: 25px;
+    height: 25px;
     border-radius: 25px;
-    background: #58aff0; /* Green background */
-    cursor: pointer; /* Cursor on hover */
+    background: #58aff0;
+    cursor: pointer;
 }
 
 .sliderItem::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #58aff0; /* Green background */
-    cursor: pointer; /* Cursor on hover */
+    width: 25px;
+    height: 25px;
+    background: #58aff0;
+    cursor: pointer;
     border-radius: 25px;
 
 }
