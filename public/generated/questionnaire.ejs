@@ -37,9 +37,15 @@
                 $('#notificationContainer').toggleClass('hidden');
             }
 
-            function displayPointsIncrease(number) {
-                let currentHTML = $('#accountBalance').innerHTML
-                console.log("current html in accountBalance: " + currentHTML);
+            function displayPointsIncrease() {
+                $('#accountContainer').attr('style', 'background-color: #99ff33');
+                setTimeout(fadeOutGreen, 1000);
+                console.log("displaying color green for accountContainer");
+
+            }
+
+            function fadeOutGreen() {
+                $('#accountContainer').attr('style', 'background-color: none');
             }
         </script>
 
@@ -163,6 +169,10 @@
         }
 
         setTimer(time) {
+            this.setState({
+                timer: 0,
+                itemsAreActive: true
+            });
             if (time > 0) {
                 console.log("Resetting timer with " + time);
 
@@ -177,7 +187,7 @@
         }
 
         increaseScore(number) {
-            displayPointsIncrease(number);
+            displayPointsIncrease();
             console.log("called increaseGS from Questionnaire!");
             this.setState({mostRecentScore: number.valueOf()});
             let currentScore = this.state.gameScore;
@@ -238,8 +248,7 @@
         }
 
         render() {
-            var currentTime = this.state.timer;
-            let timerContainer = this.state.timer > 0 ? <div id="flagContainer"> <Timer time={this.state.timer} notifyEnd={this.notifyEnd}/> </div> : ""
+            var timerContainer = this.state.timer > 0 ? <div id="flagContainer"> <Timer time={this.state.timer} notifyEnd={this.notifyEnd}/> </div> : ""
             let badgeArray = this.state.badgeArray;
             return (
                 <div>
@@ -446,13 +455,13 @@
                 this.setState({currentBlockIndex: newNumber.valueOf()});
             }
             else {
-                let data = {
+                let questionnaireData = {
                     "name" : "Questionnaire",
                     "content": this.state.itemBlockResults
                 }
-                console.log("Reached end of questionnaire with " + data);
 
-
+                alert("Reached end of questionnaire with " + JSON.stringify(questionnaireData));
+                Game.handleSubmit(questionnaireData);
 
             }
 
@@ -468,16 +477,16 @@
             this.buildResults(data);
         }
 
-        buildResults(data) {
-            console.log("reached Q's buildResults with " + JSON.stringify(data));
+        buildResults(mydata) {
+            console.log("reached Q's buildResults with " + JSON.stringify(mydata));
             var currentQResults = this.state.itemBlockResults;
 
             if (currentQResults) {
-                currentQResults.push(data);
+                currentQResults.push(mydata);
             }
             else {
-                currentQResults = new Array();
-                currentQResults.push(data);
+                currentQResults = [];
+                currentQResults.push(mydata);
             }
             this.setState({itemBlockResults: currentQResults});
         }
@@ -534,7 +543,7 @@
                                           key={number}
                                           itemsAreActive={this.props.itemsAreActive}
                                           handleButtonClick={this.handleButtonClick}
-                                          sendResults={this.buildResults}
+                                          buildResults={this.buildResults}
                                           notifyChanges={this.notifyChanges}
                                           activateBadge={this.activateBadge}
 
@@ -595,9 +604,14 @@
         }
 
         componentWillUnmount() {
-            if (this.state.itemResults !== null) {
-                this.props.sendResults(this.state.itemResults);
+            console.log("IB " + this.props.blockID + " will unmount");
+
+            let iBlockResults = {
+                "blockID" : this.props.blockID,
+                "content": this.state.itemResults
             }
+
+            this.props.buildResults(iBlockResults);
         }
 
         increaseScore(id, number) {
@@ -624,7 +638,6 @@
             else {
                 alert("Bitte gib gültige Werte in alle Textfelder ein!");
             }
-
         }
 
         calculateRewards(calculatedScore) {
@@ -683,14 +696,14 @@
         }
 
         buildResults(data) {
-            console.log("Reached IB's buildResults with " + JSON.stringify(data));
+            console.log("Reached IB's buildResults with " + JSON.stringify(data))
             var currentIBResults = this.state.itemResults;
             if (currentIBResults) {
-                console.log("current Results in IB are " + JSON.stringify(currentIBResults));
+                console.log("existing array")
                 currentIBResults.push(data);
             }
             else {
-                currentIBResults = new Array();
+                currentIBResults = [];
                 currentIBResults.push(data);
             }
 
@@ -712,7 +725,7 @@
                                          questionContent={question.content}
                                          inputType={question.input}
                                          updateValidity={this.updateValidity}
-                                         sendResults={this.buildResults}
+                                         buildResults={this.buildResults}
                                          number={number}
                                          key={number}/>;
                     }
@@ -729,15 +742,14 @@
                                            name={question.qname}
                                            questionContent={question.content}
                                            sliderGoal={question.sliderGoal}
-                                           active = {this.props.itemsAreActive} // TODO: Fix this.
+                                           active = {this.props.itemsAreActive}
                                            increaseScore={this.increaseScore}
                                            key={number}/>
                     }
                     else if (question.qtype === "RadioItem") {
-                        let itemContent = this.props.role === "natPat" ? natPatItemContents[number] : question.content;
                         return <RadioItem id={question.id}
                                           name={question.qname}
-                                          questionContent={itemContent}
+                                          questionContent={question.content}
                                           items={question.items}
                                           updateValidity={this.updateValidity}
                                           number={number}
@@ -1058,7 +1070,7 @@
                     <br/>
                     <div className="sliderContainer">
                         <input className="sliderItem" type="range" min="0" max="100" name={this.props.name} id={this.props.id}
-                               onClick={this.handleChange} disabled={!this.props.active}/>
+                               onMouseUp={this.handleChange} disabled={!this.props.active}/>
                         <div className="sliderFeedback">
                             {testFeedback}
                         </div>
@@ -1096,7 +1108,8 @@
 
         componentWillUnmount() {
             if (this.state.resultData !== null) {
-                this.props.sendResults(this.state.resultData);
+                console.log("Item will unmount: " + this.props.id);
+                // this.props.buildResults(this.state.resultData);
             }
 
         }
@@ -1122,7 +1135,7 @@
                     this.props.updateValidity(this.props.number, false);
                 }
             }
-            else {
+            else if (input !== "") {
                 this.props.updateValidity(this.props.number, true);
                 this.setState({input: input.valueOf()});
             }
@@ -1140,6 +1153,7 @@
             }
             console.log("reached item's buildResultsData with " + JSON.stringify(resultsJSON));
             this.setState({resultData: resultsJSON});
+            this.props.buildResults(resultsJSON);
         }
 
         render() {
@@ -1171,23 +1185,12 @@
             this.state = {
                 input: ""
             };
-            this.notifyChanges = this.notifyChanges.bind(this);
             this.reportInput = this.reportInput.bind(this);
 
         }
 
         reportInput() {
             this.props.reportInput();
-        }
-
-        notifyChanges(event) {
-            let value = event.target.value;
-            console.log("selected id: " + value);
-            this.setState({input: value});
-            if (this.props.name === "nationality") {
-                console.log("selected: " + value);
-                this.props.notifyChanges(value);
-            }
         }
 
         render() {
@@ -1200,7 +1203,7 @@
                         {this.props.questionContent}
                     </label>
                     <br/>
-                    <select name={this.props.name} onChange={this.notifyChanges}>
+                    <select name={this.props.name}>
                         {dropdownOptions}
                     </select>
                 </div>

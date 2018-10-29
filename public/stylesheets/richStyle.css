@@ -25,6 +25,10 @@ body {
     opacity: 1; /
 }
 
+.sliderItem:disabled  {
+    background: #808080;
+}
+
 .sliderItem::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
