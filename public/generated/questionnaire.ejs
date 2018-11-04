@@ -67,7 +67,7 @@
 
 <script type="text/jsx">
 
-    let loadedData = questionnaires[1];
+    let loadedData = questionnaires[3];
     let badges = [
         {
             "id": 0,
@@ -239,12 +239,16 @@
             }
         }
 
-        static handleSubmit(data) {
-            console.log("reached Game's handleSubmit with " + data.valueOf());
-            let request = new XMLHttpRequest();
-            request.open('POST', 'localhost:3000/test', true);
-            request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-            request.send(data);
+        static handleSubmit(submittableData) {
+            alert("reached Game's handleSubmit with " + JSON.stringify(submittableData));
+            fetch('http://localhost:3000/test', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(submittableData)
+            });
         }
 
         render() {
@@ -427,7 +431,8 @@
                 itemblockdata: this.props.data,
                 currentBlockIndex: 0,
                 isInProgress: true,
-                itemBlockResults: null
+                itemBlockResults: null,
+                shouldRenderSubmitButton: false,
             };
 
             this.handleButtonClick = this.handleButtonClick.bind(this);
@@ -444,8 +449,8 @@
             this.props.setTimer(currentTimer);
         }
 
-        handleSubmit(data) {
-            this.props.handleSubmit(data);
+        handleSubmit(submittableDdata) {
+            this.props.handleSubmit(submittableDdata);
         }
 
         handleButtonClick(calculatedScore) {
@@ -454,13 +459,14 @@
                 console.log("new ")
                 this.setState({currentBlockIndex: newNumber.valueOf()});
             }
+
             else {
+                this.setState({shouldRenderSubmitButton: false})
                 let questionnaireData = {
                     "name" : "Questionnaire",
                     "content": this.state.itemBlockResults
                 }
 
-                alert("Reached end of questionnaire with " + JSON.stringify(questionnaireData));
                 Game.handleSubmit(questionnaireData);
 
             }
@@ -472,9 +478,6 @@
             if (calculatedScore > 0) {
                 this.props.increaseScore(calculatedScore);
             }
-
-            //lastly, we add our itemblock result Data to the questionnaire Data Block
-            this.buildResults(data);
         }
 
         buildResults(mydata) {
@@ -528,6 +531,13 @@
 
                                     data={this.props.playerData}/>
                     }
+                    else if (itemBlock.role === "end") {
+                        let questionnaireData = {
+                            "name" : "Questionnaire",
+                            "content": this.state.itemBlockResults
+                        }
+                        return <SubmitBlock data={questionnaireData}/>
+                    }
                     else {
                         return <ItemBlock blockID={itemBlock.iblock}
                                           title={itemBlock.title}
@@ -542,6 +552,7 @@
                                           reward={itemBlock.reward}
                                           key={number}
                                           itemsAreActive={this.props.itemsAreActive}
+                                          shouldRenderSubmitButton={this.state.shouldRenderSubmitButton}
                                           handleButtonClick={this.handleButtonClick}
                                           buildResults={this.buildResults}
                                           notifyChanges={this.notifyChanges}
@@ -558,11 +569,11 @@
                 <input type="submit" className="btn" onClick={this.handleSubmit}/>;
 
             return (
-                <form className="itemBlockForm">
+                <div className="itemBlockForm">
                     {block}
 
                     {submitButton}
-                </form>
+                </div>
             );
         }
     }
@@ -735,6 +746,7 @@
                                              questionContent={question.content}
                                              items={question.items}
                                              notifyChanges={this.notifyChanges}
+                                             buildResults={this.buildResults}
                                              key={number}/>;
                     }
                     else if (question.qtype === "SliderItem") {
@@ -744,6 +756,7 @@
                                            sliderGoal={question.sliderGoal}
                                            active = {this.props.itemsAreActive}
                                            increaseScore={this.increaseScore}
+                                           buildResults={this.buildResults}
                                            key={number}/>
                     }
                     else if (question.qtype === "RadioItem") {
@@ -752,6 +765,7 @@
                                           questionContent={question.content}
                                           items={question.items}
                                           updateValidity={this.updateValidity}
+                                          buildResults={this.buildResults}
                                           number={number}
                                           key={number}/>;
                     }
@@ -954,6 +968,32 @@
         }
     }
 
+    class SubmitBlock extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                submittableDataString: JSON.stringify(this.props.data)
+            };
+        }
+
+        render() {
+            return (
+                <div>
+                    <p>This is submit.</p>
+                    <form action="test" method="post">
+                        <input id="submittableData" name="submittableData" type="hidden" value={this.state.submittableDataString} />
+                        <div>
+                            <button className="btn continueButton" type="submit" id="submittableDataButton"> Submit </button>
+                        </div>
+                    </form>
+
+                </div>
+
+
+            )
+        }
+    }
+
     class RadioItem extends React.Component {
         /*
        Properties:
@@ -971,6 +1011,7 @@
             }
             this.validateInput = this.validateInput.bind(this);
             this.reportInput = this.reportInput.bind(this);
+            this.buildResultsData = this.buildResultsData.bind(this);
         }
 
         componentDidMount() {
@@ -986,10 +1027,19 @@
                 let input = event.target.value;
                 this.props.updateValidity(this.props.number, true);
                 this.setState({input: input.valueOf()});
+                this.buildResultsData(input.valueOf());
             }
             else if (event.target.accessKey === "false") {
                 this.props.updateValidity(this.props.number, false);
             }
+        }
+
+        buildResultsData(currentInput) {
+            let resultsJSON = {
+                "itemID": this.props.id,
+                "result": currentInput
+            }
+            this.props.buildResults(resultsJSON);
         }
 
         buttonStyle = {
@@ -1040,6 +1090,7 @@
             };
             this.handleChange = this.handleChange.bind(this);
             this.reportInput = this.reportInput.bind(this);
+            this.buildResultsData = this.buildResultsData.bind(this);
         }
 
         reportInput() {
@@ -1057,6 +1108,20 @@
             }
             this.setState({input: sliderInput});
             this.props.increaseScore(id, result.valueOf());
+            this.buildResultsData(sliderInput);
+        }
+
+        buildResultsData(currentInput) {
+            let resultsJSON = {
+                "itemID": this.props.id,
+                "itemType": "SliderItem",
+                "results": {
+                    "goal": this.props.sliderGoal,
+                    "input": currentInput
+                }
+            }
+
+            this.props.buildResults(resultsJSON);
         }
 
         render() {
@@ -1185,12 +1250,31 @@
             this.state = {
                 input: ""
             };
-            this.reportInput = this.reportInput.bind(this);
+            this.buildResultsData = this.buildResultsData.bind(this);
+            this.updateState = this.updateState.bind(this);
 
         }
 
-        reportInput() {
-            this.props.reportInput();
+        componentDidMount() {
+            this.updateState();
+        }
+
+
+
+        buildResultsData() {
+            this.updateState();
+            let resultsJSON = {
+                "itemIdD": this.props.id,
+                "itemType": "DropdownItem",
+                "result": this.state.input
+            }
+            this.props.buildResults(resultsJSON);
+        }
+
+        updateState() {
+            let dropdown = document.getElementById("dropDownMenu");
+            let item = dropdown.options[dropdown.selectedIndex].text;
+            this.setState({input: item});
         }
 
         render() {
@@ -1199,11 +1283,11 @@
             );
             return (
                 <div className="itemContainer dropdown" key={this.props.id}>
-                    <label htmlFor="">
+                    <label htmlFor={this.props.name}>
                         {this.props.questionContent}
                     </label>
                     <br/>
-                    <select name={this.props.name}>
+                    <select name={this.props.name} onChange={this.buildResultsData} id="dropDownMenu">
                         {dropdownOptions}
                     </select>
                 </div>

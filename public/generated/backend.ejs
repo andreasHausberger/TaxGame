@@ -11,15 +11,34 @@
 
 <div>
     <p>Das ist die Admin-Page.</p>
+    <% data.questionnaires.forEach(function(item) { %>
+        <li> <i><%= item.name %></i> mit <%= item.content.itemBlocks.length %> ItemBlocks </li>
+    <% }); %>
 </div>
 
 <div>
     <p>Übersicht über gespeicherte Fragebögen </p>
     <ul>
-        <% items.forEach(function(item) { %>
+        <% data.questionnaires.forEach(function(item) { %>
             <li> <i><%= item.name %></i> mit <%= item.content.itemBlocks.length %> ItemBlocks </li>
         <% }); %>
     </ul>
+</div>
+
+<div>
+    <p> Übersicht über eingegangene Ergebnisse (Klicken, um die JSON-Werte zu sehen)</p>
+    <table>
+        <tr>
+            <th> Name </th>
+            <th> Anzahl der Itemblöcke </th>
+        </tr>
+        <% data.results.forEach(function(result) { %>
+            <tr>
+                <td> <% result.name %></td>
+                <td> <% result.data.length%></td>
+            </tr>
+        <% });%>
+    </table>
 </div>
 
 

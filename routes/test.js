@@ -6,6 +6,7 @@ let config = require('../database/config');
 let user = require('../database/mdb');
 let player = require('../database/playerDB');
 let questionnaire = require('../database/questionnaireDB');
+let results = require('../database/resultsDB');
 
 /* GET test page. */
 router.get('/', function(req, res, next) {
@@ -53,9 +54,23 @@ router.get('/', function(req, res, next) {
 
 // Posting form data
 router.post('/', function(req, res) {
-    let data = req.body;
-    console.log(data);
+    console.log("Reached Post method in test.js");
+    let data = JSON.parse(req.body.submittableData);
+    if (data.name && data.content) {
+        let resultsData = {
+            name: data.name,
+            data: data.content,
+        };
 
+        results.create(resultsData, function (err, user) {
+            if (err) {
+                return next(err);
+            }
+            else {
+                console.log("successfully saved questionnaire data!");
+            }
+        });
+    }
 });
 
 

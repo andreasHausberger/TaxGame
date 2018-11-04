@@ -4,6 +4,7 @@ let router = express.Router();
 let config = require('../database/config');
 let questionnaire = require('../database/questionnaireDB');
 let user = require('../database/mdb');
+let results = require('../database/resultsDB');
 
 /* GET test page. */
 router.get('/', function(req, res, next) {
@@ -23,18 +24,34 @@ router.get('/', function(req, res, next) {
                 if (user.role === "admin") {
                     console.log("Backend site reached with valid login as Admin");
                     var questionnaires = [];
+                    var resultsData = [];
                     questionnaire.find(function(error, items) {
                         if (error) {
-                            console.log("error");
+                            console.log("error while retrieving questionnaires");
                         }
                         else {
                             // let jsonData = JSON.parse(items);
                             items.map (item => {
-                                console.log(item.name + " unpacked");
                                 questionnaires.push(item);
                             });
-                            console.log("unpacking finished " + questionnaires.length);
-                            res.render('../public/generated/backend.ejs', { items: questionnaires });
+                            console.log("unpacking questionnaires finished: " + questionnaires.length);
+
+                            results.find(function(error, items) {
+                               if (error) {
+                                   console.log("error while retrieving results")
+                               }
+                               else {
+                                   items.map(item => {
+                                       resultsData.push(item);
+                                   });
+                                   console.log("unpacking results data finished: " + resultsData.length);
+                                   let websiteData = {
+                                       "questionnaires": questionnaires,
+                                       "results": resultsData
+                                   };
+                                   res.render('../public/generated/backend.ejs', {data: websiteData});
+                               }
+                            });
 
                             //questionnaires = JSON.parse(items);
                         }
