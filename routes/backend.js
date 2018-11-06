@@ -49,7 +49,7 @@ router.get('/', function(req, res, next) {
                                        "questionnaires": questionnaires,
                                        "results": resultsData
                                    };
-                                   res.render('../public/generated/backend.ejs', {data: websiteData});
+                                   res.render('../public/generated/backend.ejs', {data: websiteData, testString: "this is a test"});
                                }
                             });
 

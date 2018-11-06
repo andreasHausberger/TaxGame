@@ -13,7 +13,7 @@
     </div>
 
     <div id="notificationBodyContainer">
-        <p id="notificationBody"></p>
+        <p id="notificationBody"> </p>
     </div>
 </div>
 <div class="container" id="pageContainer">
@@ -145,6 +145,7 @@
                 badgeArray: badgeArray,
                 currentFlag: null,
                 itemsAreActive: true,
+                auditState: "honest",
                 timer: 0
             };
 
@@ -211,6 +212,7 @@
                     let penalty = abs((correctAmount - number) + correctAmount);
                     alert("Bei der Steuerprüfung wurde festgestellt, dass Du deine Verdienste falsch angegeben hast. Es wurde dir eine Strafe von " + penalty + "§ erteilt.");
                     this.decreaseScore(penalty);
+                    this.setState({auditState: "caught"});
                 }
                 else {
                     alert("Bei der Steuerprüfung wurden keine Verstöße festgestellt. Es werden regelgemäß 20% des angegbebenen Betrags abgezogen.");
@@ -219,6 +221,9 @@
                 }
             }
             else {
+                if (number < currentScore) {
+                    this.setState({auditState: "dishonest"});
+                }
                 alert("Du wurdest nicht geprüft. Es werden regelgemäß 20% des angegebenen Betrags abgezogen.");
                 let taxAmount = number * 0.2;
                 this.decreaseScore(taxAmount);
@@ -517,6 +522,7 @@
                                            mostRecentScore={this.props.mostRecentScore}
                                            handleAudit={this.handleAudit}
                                            handleButtonClick={this.handleButtonClick}
+                                           buildResults={this.buildResults}
                                            key={number}
                         />;
                     }
@@ -536,7 +542,13 @@
                             "name" : "Questionnaire",
                             "content": this.state.itemBlockResults
                         }
-                        return <SubmitBlock data={questionnaireData}/>
+                        return <SubmitBlock data={questionnaireData}
+                                            blockID={itemBlock.iblock}
+                                            title={itemBlock.title}
+                                            role={itemBlock.role}
+                                            explanationText={itemBlock.explanationText}
+                                            image={itemBlock.image}
+                        />
                     }
                     else {
                         return <ItemBlock blockID={itemBlock.iblock}
@@ -814,10 +826,12 @@
 
         constructor(props) {
             super(props);
-
             this.state = {
                 number: 0,
                 auditIsComplete: false,
+                mostRecentScore: this.props.mostRecentScore,
+                input: 0,
+                isAudited: false,
                 feedback: ""
             };
 
@@ -838,6 +852,7 @@
             /*
             This should fetch the number submitted and pass it upward to Questionnaire.
              */
+            this.setState({isAudited: isAudited});
             let number = this.state.number;
             console.log("reached AuditBlock's handleAudit with " + number);
 
@@ -867,7 +882,16 @@
         }
 
         handleContinue() {
-
+            let auditBlockResults = {
+                "blockRole": "AuditBlock",
+                "blockID": this.props.blockID,
+                "content": {
+                    "mostRecentScore": this.state.mostRecentScore,
+                    "input": this.state.input,
+                    "isAudited": this.state.isAudited
+                }
+            }
+            this.props.buildResults(auditBlockResults);
             this.props.handleButtonClick();
         }
 
@@ -894,11 +918,11 @@
                             </tr>
                             <tr>
                                 <td>Zuletzt erspielt: </td>
-                                <td> {this.props.mostRecentScore} </td>
+                                <td> {this.state.mostRecentScore} </td>
                             </tr>
                             <tr>
                                 <td>20% davon: </td>
-                                <td>{this.props.mostRecentScore * 0.2}</td>
+                                <td>{this.state.mostRecentScore * 0.2}</td>
                             </tr>
                             </tbody>
 
@@ -979,7 +1003,9 @@
         render() {
             return (
                 <div>
-                    <p>This is submit.</p>
+                    <h1>{this.props.title}</h1>
+                    {this.props.image === "null" ? "": <img className="itemBlockImage" src={this.props.image} />}
+                    <p> {this.props.explanationText}</p>
                     <form action="test" method="post">
                         <input id="submittableData" name="submittableData" type="hidden" value={this.state.submittableDataString} />
                         <div>

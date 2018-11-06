@@ -11,9 +11,7 @@
 
 <div>
     <p>Das ist die Admin-Page.</p>
-    <% data.questionnaires.forEach(function(item) { %>
-        <li> <i><%= item.name %></i> mit <%= item.content.itemBlocks.length %> ItemBlocks </li>
-    <% }); %>
+    <% console.log(data.results[0].name); %>
 </div>
 
 <div>
@@ -28,16 +26,23 @@
 <div>
     <p> Übersicht über eingegangene Ergebnisse (Klicken, um die JSON-Werte zu sehen)</p>
     <table>
+        <thead>
         <tr>
+            <th> ID </th>
             <th> Name </th>
             <th> Anzahl der Itemblöcke </th>
         </tr>
-        <% data.results.forEach(function(result) { %>
+        </thead>
+
+        <tbody>
+        <% for (var i = 0; i < data.results.length; i++) { %>
             <tr>
-                <td> <% result.name %></td>
-                <td> <% result.data.length%></td>
+                <td> <%= data.results[i]._id %></td>
+                <td> <%= data.results[i].name %></td>
+                <td> <%= data.results[i].data.length %></td>
             </tr>
-        <% });%>
+        <% }%>
+        </tbody>
     </table>
 </div>
 
