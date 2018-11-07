@@ -1,6 +1,5 @@
 body {
   padding: 50px;
-    font-family: 'Rubik', sans-serif;
 }
 
 @media(max-width: 500px) {
@@ -55,6 +54,8 @@ body {
 
 
 }
+
+
 
 a {
   color: #00B7FF;
@@ -126,7 +127,7 @@ a {
     margin-top: 100px;
     min-height: 100%;
 
-    background-color: #f8f9fa;
+    background-color: #d0d0d0;
 }
 
 .questionnaireContainer {
@@ -180,6 +181,11 @@ a {
 
 .itemBlockForm .itemContainer {
     margin: 20px auto;
+}
+
+button:disabled {
+    color: #d6d6d6;
+    background-color: darkgrey;
 }
 
 .continueButton {

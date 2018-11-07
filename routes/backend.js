@@ -1,10 +1,11 @@
 let express = require('express');
 let request = require('request');
 let router = express.Router();
-let config = require('../database/config');
 let questionnaire = require('../database/questionnaireDB');
 let user = require('../database/mdb');
 let results = require('../database/resultsDB');
+let config = require('../database/modeConfigDB.js');
+
 
 /* GET test page. */
 router.get('/', function(req, res, next) {
@@ -71,13 +72,25 @@ router.get('/', function(req, res, next) {
 });
 
 // Posting form data
-router.post('/', function(req, res) {
+router.post('/', function(req, res, next) {
     let data = req.body;
+    let today = new Date();
     console.log(data);
-    delete data.submit;
+    let configData = {
+        "mode": data.mode,
+        "date": today
+    };
 
-    res.sendFile('/Users/andreas/Developer/Web/FlagPriming/public/sites/thanks.html');
+    config.create(configData, function (err, config) {
+        if (err) {
+            return next(err);
+        }
+        else {
+            console.log("sucessfully updated config with . " + config.mode);
+        }
+    });
 
+    return res.redirect('/backend');
 });
 
 

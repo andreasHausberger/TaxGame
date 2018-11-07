@@ -2,11 +2,11 @@ let express = require('express');
 let request = require('request');
 let router = express.Router();
 let mysql = require('mysql');
-let config = require('../database/config');
 let user = require('../database/mdb');
 let player = require('../database/playerDB');
 let questionnaire = require('../database/questionnaireDB');
 let results = require('../database/resultsDB');
+let config = require('../database/modeConfigDB');
 
 /* GET test page. */
 router.get('/', function(req, res, next) {
@@ -34,7 +34,17 @@ router.get('/', function(req, res, next) {
                                console.log(error);
                            }
                            else {
-                               res.render('../public/generated/questionnaire.ejs', {items: items, players: players})
+
+                               console.log("Players found");
+                               config.findOne({}, {}, {sort: { 'date' : -1 } }, (error, configData) => {
+                                   if (error) {
+                                       console.log(error);
+                                   }
+                                   else {
+                                       console.log("rendering test with mode: " + configData.mode);
+                                       res.render('../public/generated/questionnaire.ejs', {items: items, players: players, config: configData})
+                                   }
+                               });
                            }
                        });
 

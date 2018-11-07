@@ -1,5 +1,8 @@
 <head>
     <%include head.ejs %>
+    <% if (config.mode !== "Plain") {%>
+    <link rel="stylesheet" href="../stylesheets/richStyle.css">
+    <% }%>
 </head>
 <body>
 <div class="hidden" id="notificationContainer">
@@ -20,6 +23,7 @@
         <script>
             var questionnaires = <%- JSON.stringify(items) %>;
             var players = <%- JSON.stringify(players) %>;
+            let globalMode = <%- JSON.stringify(config.mode) %>;
 
             function createNotification(imageSource, title, body) {
                 console.log("Clicked createNotification with " + title);
@@ -130,7 +134,6 @@
             let data = this.props.data;
             let modes = data.modes;
             console.log(modes);
-            let mode = "noFit"; //modes[Math.floor(Math.random() * modes.length)]; //selects a random mode.
 
 
             var badgeArray = [];
@@ -141,7 +144,6 @@
             this.state = {
                 gameScore: 100,
                 mostRecentScore: 0,
-                mode: mode.valueOf(),
                 badgeArray: badgeArray,
                 currentFlag: null,
                 itemsAreActive: true,
@@ -261,7 +263,7 @@
             let badgeArray = this.state.badgeArray;
             return (
                 <div>
-                    <Header gameScore={this.state.gameScore} badgeArray={badgeArray}/>
+                    <Header gameScore={this.state.gameScore} badgeArray={badgeArray} mode={this.props.mode}/>
                     {timerContainer}
                     <div className="appContainer">
                         <div className="row questionnaireContainer">
@@ -275,7 +277,7 @@
                                            mostRecentScore={this.state.mostRecentScore}
                                            data={this.props.data}
                                            playerData={this.props.playerData}
-                                           mode={this.state.mode}
+                                           mode={this.props.mode}
                                            itemsAreActive={this.state.itemsAreActive}
                             />
                         </div>
@@ -291,6 +293,8 @@
         }
 
         render() {
+            let badgeContainer = this.props.mode === "Gamified" ? <BadgeContainer badgeArray={this.props.badgeArray}/> : "";
+            let scoreText = this.props.mode === "Gamified" ? "Dein derzeitiger Kontostand: " : "Derzeitiger Punktestand: "
             return (
                 <nav className="navbar navbar-light bg-light" id="header">
 
@@ -298,11 +302,11 @@
                         <img src="../images/uni_Logo_2016.jpg" id="headerLogo" alt=""/>
                     </div>
                     <div id="badgeContainer">
-                        <BadgeContainer badgeArray={this.props.badgeArray}/>
+                        {badgeContainer}
                     </div>
                     <div id="accountContainer">
-                        <p>Dein derzeiter Kontostand: </p>
-                        <p id="accountBalance">{this.props.gameScore} §</p>
+                        <p> {scoreText} </p>
+                        <p id="accountBalance">{this.props.gameScore} {this.props.mode === "Gamified" ? "§" : "" }</p>
                     </div>
                 </nav>
             );
@@ -523,6 +527,7 @@
                                            handleAudit={this.handleAudit}
                                            handleButtonClick={this.handleButtonClick}
                                            buildResults={this.buildResults}
+                                           mode={this.props.mode}
                                            key={number}
                         />;
                     }
@@ -533,6 +538,7 @@
                                             explanationText={itemBlock.explanationText}
                                             image={itemBlock.image}
                                             handleButtonClick={this.handleButtonClick}
+                                            mode={this.props.mode}
                                             key={number}
 
                                     data={this.props.playerData}/>
@@ -548,6 +554,9 @@
                                             role={itemBlock.role}
                                             explanationText={itemBlock.explanationText}
                                             image={itemBlock.image}
+                                            mode={this.props.mode}
+                                            key={number}
+
                         />
                     }
                     else {
@@ -562,13 +571,15 @@
                                           timer={itemBlock.timer}
                                           questions={itemBlock.questions}
                                           reward={itemBlock.reward}
-                                          key={number}
                                           itemsAreActive={this.props.itemsAreActive}
                                           shouldRenderSubmitButton={this.state.shouldRenderSubmitButton}
                                           handleButtonClick={this.handleButtonClick}
                                           buildResults={this.buildResults}
                                           notifyChanges={this.notifyChanges}
                                           activateBadge={this.activateBadge}
+                                          mode={this.props.mode}
+                                          key={number}
+
 
                         />;
                     }
@@ -784,20 +795,20 @@
                 }
             );
 
+            let continueButton = this.props.mode === "Plain" ? <button onClick={this.calculatePoints} disabled={!this.state.itemsAreValid}> Weiter </button> : <button className="btn continueButton" onClick={this.calculatePoints} disabled={!this.state.itemsAreValid}>Weiter</button>;
+
             return (
                 <div>
                     <div className="itemBlockIntro">
                         <h1>{this.props.title}</h1>
-                        {this.props.image === "null" ? "" : <img className="itemBlockImage" src={this.props.image}/>}
+                        {this.props.image === "null" || this.props.mode === "Plain" ? "" : <img className="itemBlockImage" src={this.props.image}/>}
                         <p>{this.props.explanationText} </p>
                     </div>
 
                     <div>
                         {questions}
                     </div>
-                    <button className="btn continueButton" onClick={this.calculatePoints}
-                            disabled={!this.state.itemsAreValid}>Weiter
-                    </button>
+                    {continueButton}
                 </div>
 
 
@@ -1372,7 +1383,7 @@
     }
 
     const domContainer = document.querySelector('#app');
-    ReactDOM.render(<Game data={loadedData.content} badges={badges} playerData={players} />, domContainer);
+    ReactDOM.render(<Game data={loadedData.content} badges={badges} playerData={players} mode={globalMode} />, domContainer);
 </script>
 
 </body>
