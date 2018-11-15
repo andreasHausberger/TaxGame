@@ -1,5 +1,6 @@
 <head>
     <%include head.ejs %>
+    <title> Gamification - <%= siteTitle %></title>
 </head>
 <body>
 
@@ -11,8 +12,8 @@
 </style>
 
 <script>
-    function displayData(data) {
-        alert(data);
+    function displayData(event) {
+        alert(event.target.valueOf());
     }
 </script>
 <%include header.ejs%>
@@ -24,7 +25,6 @@
 
 <div>
     <p>Das ist die Admin-Page.</p>
-    <% console.log(data.results[0].name); %>
 </div>
 
 <div>
@@ -49,7 +49,7 @@
 
         <tbody>
         <% for (var i = 0; i < data.results.length; i++) { %>
-            <tr class="clickable" onclick=(data.results[i] => displayData)
+            <tr class="clickable" onclick="displayData" >
                 <td> <%= data.results[i]._id %></td>
                 <td> <%= data.results[i].name %></td>
                 <td> <%= data.results[i].data.length %></td>
@@ -60,7 +60,7 @@
 </div>
 
 <div>
-    <p> Auswahl des Modus (standardmäßig auf Random) </p>
+    <p> Auswahl des Modus (standardmäßig auf Random) und des Fragebogens:  </p>
     <form action="backend" method="post">
         <select name="mode" id="mode">
             <option value="Random">Random</option>
@@ -68,6 +68,19 @@
             <option value="Rich">Rich</option>
             <option value="Gamified">Gamified</option>
         </select>
+
+        <select name="questionnaire" id="questionnaire">
+            <% data.questionnaires.forEach(function(item, number) { %>
+                <option value=<%= number %> ><%= item.name %> </option>
+            <% }); %>
+        </select>
+
+        <div>
+            <label for="fileUpload">Neuer Fragebogen (JSON-Format): </label>
+            <input type="file" id="fileUpload">
+            <p style="color: red">ATTENTION: If you upload the wrong format, it will not be detected and it WILL crash.</p>
+        </div>
+
 
         <button class="btn continueButton" type="submit" id="modeSubmitButton" > Submit </button>
     </form>

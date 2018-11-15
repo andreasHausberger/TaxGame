@@ -8,7 +8,7 @@ let user = require('../database/mdb');
 
 router.get('/', function (req, res, next) {
     console.log("Login site reached!");
-    res.render('../public/generated/login.ejs');
+    res.render('../public/generated/login.ejs', {siteTitle: "Login"});
 });
 
 

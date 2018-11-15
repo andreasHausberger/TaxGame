@@ -50,7 +50,7 @@ router.get('/', function(req, res, next) {
                                        "questionnaires": questionnaires,
                                        "results": resultsData
                                    };
-                                   res.render('../public/generated/backend.ejs', {data: websiteData, testString: "this is a test"});
+                                   res.render('../public/generated/backend.ejs', {data: websiteData, siteTitle: "Backend"});
                                }
                             });
 
@@ -78,8 +78,21 @@ router.post('/', function(req, res, next) {
     console.log(data);
     let configData = {
         "mode": data.mode,
+        "questionnaire": data.questionnaire,
         "date": today
     };
+
+    if (data.fileUpload) {
+        let uploadJSON = JSON.stringify(data.fileUpload);
+        questionnaire.create(uploadJSON, function(err, config) {
+            if (err) {
+                return next(err);
+            }
+            else {
+                console.log("successfully uploaded a new questionnaire!");
+            }
+        })
+    }
 
     config.create(configData, function (err, config) {
         if (err) {

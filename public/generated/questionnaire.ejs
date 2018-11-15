@@ -1,5 +1,6 @@
 <head>
     <%include head.ejs %>
+    <title> Gamification - <%= siteTitle %></title>
     <% if (config.mode !== "Plain") {%>
     <link rel="stylesheet" href="../stylesheets/richStyle.css">
     <% }%>
@@ -21,19 +22,33 @@
 </div>
 <div class="container" id="pageContainer">
         <script>
-            var questionnaires = <%- JSON.stringify(items) %>;
+            var questionnaire = <%- JSON.stringify(items) %>;
             var players = <%- JSON.stringify(players) %>;
-            let globalMode = <%- JSON.stringify(config.mode) %>;
+            var globalMode = <%- JSON.stringify(config.mode) %>;
+
+            if (globalMode === "Random") {
+                let modes = ["Plain", "Rich", "Gamified"];
+                let randomIndex = Math.floor(Math.random() * 3);
+                globalMode = modes[randomIndex];
+                console.log("Random mode selected: " + globalMode);
+            }
+
 
             function createNotification(imageSource, title, body) {
-                console.log("Clicked createNotification with " + title);
+                if (globalMode !== "Plain") {
+                    console.log("Clicked createNotification with " + title);
 
-                $('#notificationImage').attr('src', imageSource);
-                $('#notificationTitle').html(title);
-                $('#notificationBody').text(body);
+                    $('#notificationImage').attr('src', imageSource);
+                    $('#notificationTitle').html(title);
+                    $('#notificationBody').text(body);
 
-                displayNotification();
-                setTimeout(displayNotification, 3000);
+                    displayNotification();
+                    setTimeout(displayNotification, 3000);
+                }
+                else {
+                    console.log("No notification for plain mode (" + title + ")");
+                }
+
 
             }
             function displayNotification() {
@@ -42,14 +57,28 @@
             }
 
             function displayPointsIncrease() {
-                $('#accountContainer').attr('style', 'background-color: #99ff33');
-                setTimeout(fadeOutGreen, 1000);
-                console.log("displaying color green for accountContainer");
-
+                if (globalMode !== "Plain") {
+                    $('#accountContainer').attr('style', 'background-color: #99ff33');
+                    setTimeout(fadeOutGreen, 1000);
+                    console.log("displaying color green for accountContainer");
+                }
+                else {
+                    console.log("No color toggle for plain mode");
+                }
             }
 
             function fadeOutGreen() {
                 $('#accountContainer').attr('style', 'background-color: none');
+            }
+
+            function toggleBadges() {
+                console.log("badges toggled.")
+                $('#badgeContainer').toggleClass('hidden');
+            }
+
+            function toggleAccount() {
+                console.log("account toggled.");
+                $('#accountContainer').toggleClass('hidden');
             }
         </script>
 
@@ -71,7 +100,7 @@
 
 <script type="text/jsx">
 
-    let loadedData = questionnaires[3];
+    let loadedData = questionnaire;
     let badges = [
         {
             "id": 0,
@@ -84,7 +113,7 @@
             "id": 1,
             "position": 0,
             "title": "Los geht's",
-            "text": "Tutorial beendet.",
+            "text": "Du hast deine erste Badge verdient.",
             "image": "../images/badges/badge_start@3x.png",
         },
         {
@@ -111,9 +140,37 @@
         {
             "id": 5,
             "position": 3,
-            "title": "Finale",
-            "text": "Du hast den Fragebogen erfolgreich beendet!",
-            "image": "../images/badges/badge_completion@3x.png",
+            "title": "Vollständig!",
+            "text": "Du hast alle Slider Tasks erfolgreich beendet!",
+            "image": "../images/badges/badge_100@2x.png",
+        },
+        {
+            "id": 6,
+            "position": 4,
+            "title": "20%",
+            "text": "Du hast 20% der Slider-Tasks geschafft!",
+            "image": "../images/badges/badge_20@2x.png"
+        },
+        {
+            "id": 7,
+            "position": 5,
+            "title": "40%",
+            "text": "Du hast 40% der Slider-Tasks geschafft!",
+            "image": "../images/badges/badge_40@2x.png"
+        },
+        {
+            "id": 8,
+            "position": 6,
+            "title": "60%",
+            "text": "Du hast 60% der Slider-Tasks geschafft!",
+            "image": "../images/badges/badge_60@2x.png"
+        },
+        {
+            "id": 9,
+            "position": 7,
+            "title": "80%",
+            "text": "Du hast 48% der Slider-Tasks geschafft!",
+            "image": "../images/badges/badge_80@2x.png"
         },
     ];
 
@@ -137,12 +194,12 @@
 
 
             var badgeArray = [];
-            for (let i = 0; i < 4; i++) {
+            for (let i = 0; i < 8; i++) {
                 let emptyBadge = this.props.badges[0];
                 badgeArray.push(emptyBadge);
             }
             this.state = {
-                gameScore: 100,
+                gameScore: 0,
                 mostRecentScore: 0,
                 badgeArray: badgeArray,
                 currentFlag: null,
@@ -208,11 +265,13 @@
 
         handleAudit(isAudited, number) {
             let currentScore = this.state.mostRecentScore;
-            if (isAudited) {
+            let testAudit = true;
+            if (testAudit) {
                 if (number.valueOf() < currentScore) {
                     let correctAmount = this.state.mostRecentScore * 0.2;
-                    let penalty = abs((correctAmount - number) + correctAmount);
-                    alert("Bei der Steuerprüfung wurde festgestellt, dass Du deine Verdienste falsch angegeben hast. Es wurde dir eine Strafe von " + penalty + "§ erteilt.");
+                    let difference = Math.abs(correctAmount - (number * 0.2));
+                    let penalty = difference + correctAmount;
+                    alert("Bei der Steuerprüfung wurde festgestellt, dass Du deine Verdienste falsch angegeben hast. Es wurde dir eine Strafe von " + penalty + " erteilt. Die Strafe setzt sich zusammen aus der Differenz der Steuerbeträge (" + difference + ") sowie dem gesamten Steuerbetrag (" + correctAmount + ")");
                     this.decreaseScore(penalty);
                     this.setState({auditState: "caught"});
                 }
@@ -233,6 +292,8 @@
             this.setState({mostRecentScore: 0}); //reset most recent score.
 
         }
+
+
 
         activateBadge(number) {
             if (number < this.props.badges.length) { //safety check
@@ -263,7 +324,7 @@
             let badgeArray = this.state.badgeArray;
             return (
                 <div>
-                    <Header gameScore={this.state.gameScore} badgeArray={badgeArray} mode={this.props.mode}/>
+                    <Header gameScore={this.state.gameScore} badgeArray={badgeArray} mode={this.props.mode} />
                     {timerContainer}
                     <div className="appContainer">
                         <div className="row questionnaireContainer">
@@ -301,10 +362,10 @@
                     <div id="logoContainer">
                         <img src="../images/uni_Logo_2016.jpg" id="headerLogo" alt=""/>
                     </div>
-                    <div id="badgeContainer">
+                    <div id="badgeContainer" className="hidden">
                         {badgeContainer}
                     </div>
-                    <div id="accountContainer">
+                    <div id="accountContainer" className="hidden">
                         <p> {scoreText} </p>
                         <p id="accountBalance">{this.props.gameScore} {this.props.mode === "Gamified" ? "§" : "" }</p>
                     </div>
@@ -360,7 +421,6 @@
         constructor(props) {
             super(props);
             let time = this.props.time;
-            console.log("constructing with " + this.props.time);
             this.state = {
                 time: time,
                 isUpdated: false,
@@ -377,9 +437,7 @@
         }
 
         componentDidUpdate() {
-            console.log("current Time: " + this.state.time + " prop time " + this.props.time);
             if (this.state.isUpdated) {
-                console.log("trying to update timer with " + this.props.time);
                 this.setState({
                     isUpdated: false,
                     time: this.props.time
@@ -388,12 +446,10 @@
         }
 
         componentWillReceiveProps() {
-            console.log("Timer received props: " + this.props.time);
             this.setState({isUpdated: true});
         }
 
         componentWillUnmount() {
-            console.log("Timer unmounted");
             clearInterval(this.state.interval);
         }
 
@@ -588,8 +644,9 @@
 
             var block = blocks[this.state.currentBlockIndex];
 
-            let submitButton = this.state.isInProgress ? "" :
-                <input type="submit" className="btn" onClick={this.handleSubmit}/>;
+            let submitButton = this.state.isInProgress ? "" : <input type="submit" className="btn" onClick={this.handleSubmit}/>;
+
+
 
             return (
                 <div className="itemBlockForm">
@@ -637,6 +694,14 @@
             this.buildResults = this.buildResults.bind(this);
         }
 
+        componentDidMount() {
+            if (this.props.role === "reveal_ecobucks") {
+                toggleAccount();
+            }
+            else if (this.props.role === "reveal_badges") {
+                toggleBadges();
+            }
+        }
         componentWillUnmount() {
             console.log("IB " + this.props.blockID + " will unmount");
 
@@ -658,27 +723,37 @@
 
 
         calculatePoints() {
-            let calculatedScore = 0;
+            var sliderScore = 0;
             if (this.state.valueMap.size > 0) {
                 this.state.valueMap.forEach((value, key) =>
-                    calculatedScore += value);
+                    sliderScore += value);
             }
-
-            this.calculateRewards(calculatedScore);
+            let rewardsScore =  this.calculateRewards();
 
             if (this.state.itemsAreValid) {
-                this.props.handleButtonClick(calculatedScore);
+                if (rewardsScore) {
+                    let totalScore = sliderScore + rewardsScore;
+                    console.log("slider: " + sliderScore + " rewards: " + rewardsScore);
+                    this.props.handleButtonClick(totalScore);
+                }
+                else {
+                    console.log("Only slider score available: " + sliderScore);
+
+                    this.props.handleButtonClick(sliderScore);
+                }
+
             }
             else {
                 alert("Bitte gib gültige Werte in alle Textfelder ein!");
             }
         }
 
-        calculateRewards(calculatedScore) {
+        calculateRewards() {
             let rewards = this.props.reward;
 
             for (let i = 0; i < rewards.length; i++) {
                 let reward = rewards[i];
+                console.log("trying to unpack " + reward.type);
                 var condition = true;
                 let conditionJSON = reward.condition;
                 if (conditionJSON.variable === "all") {
@@ -695,11 +770,12 @@
                     let value = JSON.parse(conditionJSON.value);
                     condition = op[conditionJSON.operator](variable, value);
                 }
-                console.log("trying to unpack " + reward.type);
-                if (reward.condition) {
+                if (condition) {
                     if (reward.type === "ecobucks") {
-                        console.log("Here we get an Ecobucks reward of " + reward.number);
-                        calculatedScore += reward.number;
+                        let returnScore = reward.number;
+                        console.log("Here we get an Ecobucks reward of " + reward.number + " and have a total score of " + returnScore);
+
+                        return returnScore;
                     }
                     else if (reward.type === "badge") {
                         console.log("here we get badge number " + reward.number);
@@ -859,10 +935,11 @@
             this.setState({number: value.valueOf()})
         }
 
-        handleAudit(isAudited) {
+        handleAudit() {
             /*
             This should fetch the number submitted and pass it upward to Questionnaire.
              */
+            let isAudited = AuditBlock.calculateProbabilityOfAudit(0.1);
             this.setState({isAudited: isAudited});
             let number = this.state.number;
             console.log("reached AuditBlock's handleAudit with " + number);
@@ -875,6 +952,19 @@
                 this.setState({auditIsComplete: true});
             }
 
+        }
+
+        static calculateProbabilityOfAudit(prob) {
+            let random = Math.random();
+            if (random <= prob) {
+                console.log("You got audited: " + random + " was chosen against a probability of " + prob);
+                return true;
+            }
+            else {
+                console.log("No audit for you: " + random + " was chosen against a probability of " + prob);
+                return false;
+            }
+            return false;
         }
 
         validateInput(event) {
@@ -913,11 +1003,14 @@
                 let auditItem = <AuditItem probability="0.1" isActive={!this.state.auditIsComplete} id={i} name={i} key={i} handleAudit={this.handleAudit}/>;
                 auditItems.push(auditItem);
             }
+
+            let auditButton = <button disabled={this.state.auditIsComplete} onClick={this.handleAudit}> Audit </button>
+            let continueButton = this.props.mode === "Plain" ? <button onClick={this.handleContinue} disabled={!this.state.auditIsComplete}> Weiter </button> : <button className="btn continueButton" onClick={this.handleContinue} disabled={!this.state.auditIsComplete}>Weiter </button>;
             return (
                 <div>
                     <div className="itemBlockIntro">
                         <h1>{this.props.title}</h1>
-                        {this.props.image === "null" ? "" : <img className="itemBlockImage" src={this.props.image}/>}
+                        {this.props.image === "null"  || this.props.mode === "Plain" ? "" : <img className="itemBlockImage" src={this.props.image}/>}
                         <p>{this.props.explanationText} </p>
                     </div>
                     <div id="tableContainer">
@@ -947,11 +1040,9 @@
                         {this.state.feedback}
                     </div>
                     <div className="row auditItemContainer">
-                        {auditItems}
+                        {this.props.mode === "Plain" ?  auditButton : auditItems}
                     </div>
-                    <button className="btn continueButton" onClick={this.handleContinue}
-                            disabled={!this.state.auditIsComplete}>Weiter
-                    </button>
+                    {continueButton}
                 </div>
             );
         }
@@ -1093,13 +1184,13 @@
             );
 
             let containerHorizontal = <div id="radioItemContainer"
-                                           className="verticalRadioItemContainer row"> {items} </div>;
-            let containerVertical = <div id="radioItemContainer" className="horizontalRadioItemContainer"> {items} </div>
+                                           className="horizontalRadioItemContainer row"> {items} </div>;
+            let containerVertical = <div id="radioItemContainer" className="verticalRadioItemContainer"> {items} </div>
 
             return (
                 <div className="itemContainer radio" id={this.props.id}>
                     <label>{this.props.questionContent}
-                        {items.length < 5 ? containerHorizontal : containerVertical}
+                        {items.length > 3 ? containerHorizontal : containerVertical}
                     </label>
                 </div>
             );
@@ -1351,7 +1442,8 @@
         }
 
         handleClick(event) {
-            event.target.setAttribute("active", true);
+            this.props.handleAudit();
+             /* event.target.setAttribute("active", true);
             let random = Math.random();
             if (random <= 0.1) {
                 console.log("You got audited. Random value: " + random);
@@ -1362,7 +1454,7 @@
                 console.log("No audit for you! Random value: " + random);
                 this.props.handleAudit(false);
                 this.setState({message: "No Audit!"});
-            }
+            } */
         }
 
         render() {

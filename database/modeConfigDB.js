@@ -6,6 +6,9 @@ let cSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    questionnaire: {
+        type: Number
+    },
     date: {
         type: Date,
         required: true

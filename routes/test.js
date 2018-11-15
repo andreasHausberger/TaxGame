@@ -41,8 +41,10 @@ router.get('/', function(req, res, next) {
                                        console.log(error);
                                    }
                                    else {
-                                       console.log("rendering test with mode: " + configData.mode);
-                                       res.render('../public/generated/questionnaire.ejs', {items: items, players: players, config: configData})
+                                       let index = configData.questionnaire;
+                                       let selectedQuestionnaire = items[index];
+                                       console.log("rendering test with mode: " + configData.mode+ " and questionnaire " + configData.questionnaire);
+                                       res.render('../public/generated/questionnaire.ejs', {items: selectedQuestionnaire, players: players, config: configData, siteTitle: "Questionnaire"})
                                    }
                                });
                            }
@@ -78,6 +80,7 @@ router.post('/', function(req, res) {
             }
             else {
                 console.log("successfully saved questionnaire data!");
+                res.return("../p")
             }
         });
     }

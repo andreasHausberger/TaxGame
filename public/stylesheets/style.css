@@ -81,7 +81,8 @@ a {
     background-color: white;
 }
 
-.badgeContainer {
+#badgeContainer {
+    width: 309px;
     margin: auto 10px;
 }
 
@@ -97,7 +98,7 @@ a {
 
 #notificationContainer {
     position: fixed;
-    width: 220px;
+    width: 309px;
     display: inline-block;
     background-color: #58aff0;
     border-radius: 15px;
@@ -196,6 +197,14 @@ button:disabled {
 .continueButton:disabled {
     background-color: #9c9c9c;
     color: #f3f3f3;
+}
+
+.horizontalRadioItemContainer .radioItem {
+    width: 12%;
+    display: block;
+    height: 100px;
+    text-align: center;
+    margin: auto 5px;
 }
 
 /*Radio items*/
