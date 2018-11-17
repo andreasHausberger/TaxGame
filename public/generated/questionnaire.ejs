@@ -392,7 +392,7 @@
 
             return (
                 <div>
-                    <p>Deine Badges: </p>
+                    <p id="badgesText">Deine Badges: </p>
                     <div className="row badgeRow">
                         {renderBadges}
                     </div>
@@ -593,7 +593,9 @@
                                             role={itemBlock.role}
                                             explanationText={itemBlock.explanationText}
                                             image={itemBlock.image}
+                                            gameScore={this.props.gameScore}
                                             handleButtonClick={this.handleButtonClick}
+                                            buildResults = {this.buildResults}
                                             mode={this.props.mode}
                                             key={number}
 
@@ -876,8 +878,9 @@
             return (
                 <div>
                     <div className="itemBlockIntro">
-                        <h1>{this.props.title}</h1>
+
                         {this.props.image === "null" || this.props.mode === "Plain" ? "" : <img className="itemBlockImage" src={this.props.image}/>}
+                        <h4>{this.props.title}</h4>
                         <p>{this.props.explanationText} </p>
                     </div>
 
@@ -1009,8 +1012,9 @@
             return (
                 <div>
                     <div className="itemBlockIntro">
-                        <h1>{this.props.title}</h1>
+
                         {this.props.image === "null"  || this.props.mode === "Plain" ? "" : <img className="itemBlockImage" src={this.props.image}/>}
+                        <h4>{this.props.title}</h4>
                         <p>{this.props.explanationText} </p>
                     </div>
                     <div id="tableContainer">
@@ -1051,43 +1055,93 @@
     class Leaderboard extends React.Component {
         constructor(props) {
             super(props);
+
+            let jsonArray = this.props.data;
+
+            jsonArray.sort(function(a, b) {
+                return ((a.score == b.score) ? 0 : ((a.score < b.score) ? 1 : -1));
+            });
+
+            jsonArray.sort();
+
             this.state = {
-                itemsAreValid: true
+                itemsAreValid: true,
+                sortedArray: jsonArray,
+                username: "",
+
+            };
+
+            this.buildResults = this.buildResults.bind(this);
+            this.handleButtonClick = this.handleButtonClick.bind(this);
+            this.handleTextInput = this.handleTextInput.bind(this);
+
+        }
+
+        buildResults() {
+            let leaderboardResults = {
+                "name": this.state.name,
+                "score": this.props.gameScore
             }
+
+            this.props.buildResults(leaderboardResults);
         }
 
-        calculatePoints() {
-
+        handleTextInput(event) {
+            let value = event.target.value;
+            this.setState({name: value.valueOf()});
         }
 
-        createNotification(imageSource, title, body) {
-            console.log("Clicked createNotification with " + title);
-            $('#notificationContainer').toggleClass("hidden");
+        handleButtonClick() {
+            this.buildResults()
+            this.props.handleButtonClick();
         }
 
         render() {
             let playerItems = [];
 
-            this.props.data.map((player, number) => {
+            this.state.sortedArray.map((player, number) => {
                 console.log("trying to unpack " + player.username);
-                let playerHTML = <li key={number}> {player.username} | {player.score} | {player.date} </li>;
+                let playerHTML = (
+                    <tr key={number}>
+                        <td> {player.username} </td>
+                        <td> {player.score} </td>
+                        <td>{player.date}</td>
+                    </tr>
+                );
                 playerItems.push(playerHTML);
             });
 
             return(
                 <div>
-                    <div onClick={() => createNotification("Hey", "#", "This is a Test")}> Click me </div>
                     <div className="itemBlockIntro">
-                        <h1>{this.props.title}</h1>
+
                         {this.props.image === "null" ? "" : <img className="itemBlockImage" src={this.props.image}/>}
+                        <b>{this.props.title}</b>
                         <p>{this.props.explanationText} </p>
                     </div>
 
                     <div>
-                        {playerItems}
+                        <label htmlFor="userNameInput">Dein Username: </label>
+                        <input type="text" id="userNameInput" onChange={this.handleTextInput} />
+                    </div>
+
+                    <div>
+                        <table id="leaderboardTable">
+                            <thead>
+                            <tr>
+                                <td>Username</td>
+                                <td>Score</td>
+                                <td>Datum</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {playerItems}
+                            </tbody>
+                        </table>
+
                     </div>
                     <button className="btn continueButton"
-                            disabled={!this.state.itemsAreValid}>Weiter
+                            disabled={!this.state.itemsAreValid} onClick={this.handleButtonClick}>Weiter
                     </button>
                 </div>
             );
@@ -1105,9 +1159,10 @@
         render() {
             return (
                 <div>
-                    <h1>{this.props.title}</h1>
+
                     {this.props.image === "null" ? "": <img className="itemBlockImage" src={this.props.image} />}
                     <p> {this.props.explanationText}</p>
+                    <h4>{this.props.title}</h4>
                     <form action="test" method="post">
                         <input id="submittableData" name="submittableData" type="hidden" value={this.state.submittableDataString} />
                         <div>

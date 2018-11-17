@@ -48,8 +48,10 @@ router.get('/', function(req, res, next) {
                                    console.log("unpacking results data finished: " + resultsData.length);
                                    let websiteData = {
                                        "questionnaires": questionnaires,
-                                       "results": resultsData
+                                       "results": resultsData,
+                                       "resultsString": JSON.stringify(resultsData)
                                    };
+                                   console.log(websiteData.resultsString);
                                    res.render('../public/generated/backend.ejs', {data: websiteData, siteTitle: "Backend"});
                                }
                             });

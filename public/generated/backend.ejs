@@ -15,6 +15,24 @@
     function displayData(event) {
         alert(event.target.valueOf());
     }
+
+    function downloadJSON(element) {
+
+        let data = "text/json;charset=utf-8," + encodeURIComponent(results);
+
+        element.setAttribute("href", "data: " + data);
+        element.setAttribute("download", "results.json");
+
+    }
+
+    $(document).ready(function() {
+        $('#downloadButton').click(function() {
+            let results = <%- JSON.stringify(data.results) %>;
+
+            console.log("tried to download json with: " + results);
+        });
+    });
+
 </script>
 <%include header.ejs%>
 <div class="container" id="pageContainer" style="margin-top: 120px">
@@ -37,7 +55,7 @@
 </div>
 
 <div>
-    <p> Übersicht über eingegangene Ergebnisse (Klicken, um die JSON-Werte zu sehen)</p>
+    <p> Übersicht über eingegangene Ergebnisse</p>
     <table>
         <thead>
         <tr>
@@ -57,6 +75,8 @@
         <% }%>
         </tbody>
     </table>
+
+    <button class="btn" id="downloadButton">Download Results</button>
 </div>
 
 <div>

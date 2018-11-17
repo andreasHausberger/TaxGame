@@ -81,6 +81,10 @@ a {
     background-color: white;
 }
 
+#badgesText {
+    font-weight: bolder;
+}
+
 #badgeContainer {
     width: 309px;
     margin: auto 10px;
@@ -163,6 +167,7 @@ a {
 
 .itemBlockImage {
     margin: auto;
+    margin-bottom: 30px;
     max-width: 761px;
     width: 100%;
 }
@@ -177,7 +182,7 @@ a {
 
 .itemBlockForm {
     width: 100%;
-    margin-bottom: 30px;
+    margin: 30px auto;
 }
 
 .itemBlockForm .itemContainer {
@@ -325,6 +330,16 @@ button:disabled {
     font-size: 32px;
 }
 
+/*Leaderboard Stuff*/
+
+#leaderboardTable {
+    width: 100%;
+}
+
+#leaderboardTable thead {
+    font-size: 20px;
+    font-weight: bold;
+}
 
 /*
 Footer
