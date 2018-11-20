@@ -300,7 +300,8 @@
                 if (number === 2 || number === 3) {
                     if (this.state.auditState !== "caught") {
                         console.log("badge for state: " + this.state.auditState);
-                        let badgeToAdd = this.props.badges[number];
+                        // the next line presume that honesty badge is on 2, and dishonesty is on 3!
+                        let badgeToAdd = this.state.auditState === "honest" ? this.props.badges[2] : this.props.badges[3]
                         console.log("trying to activate badge with notification: " + badgeToAdd.title);
                         createNotification(badgeToAdd.image, badgeToAdd.title, badgeToAdd.text);
 
@@ -598,9 +599,11 @@
                                            explanationText={itemBlock.explanationText}
                                            image={itemBlock.image}
                                            mostRecentScore={this.props.mostRecentScore}
+                                           reward={itemBlock.reward}
                                            handleAudit={this.handleAudit}
                                            handleButtonClick={this.handleButtonClick}
                                            buildResults={this.buildResults}
+                                           activateBadge={this.activateBadge}
                                            mode={this.props.mode}
                                            key={number}
                         />;
@@ -612,8 +615,10 @@
                                             explanationText={itemBlock.explanationText}
                                             image={itemBlock.image}
                                             gameScore={this.props.gameScore}
+                                            reward={itemBlock.reward}
                                             handleButtonClick={this.handleButtonClick}
                                             buildResults = {this.buildResults}
+                                            activateBadge={this.activateBadge}
                                             mode={this.props.mode}
                                             key={number}
 
@@ -947,6 +952,7 @@
             this.handleTextInput = this.handleTextInput.bind(this);
             this.handleContinue = this.handleContinue.bind(this);
             this.validateInput = this.validateInput.bind(this);
+            this.calculateRewards = this.calculateRewards.bind(this);
 
         }
 
@@ -954,6 +960,45 @@
             this.validateInput(event);
             let value = event.target.value;
             this.setState({number: value.valueOf()})
+        }
+
+        calculateRewards() {
+            let rewards = this.props.reward;
+
+            for (let i = 0; i < rewards.length; i++) {
+                let reward = rewards[i];
+                console.log("trying to unpack " + reward.type);
+                var condition = true;
+                let conditionJSON = reward.condition;
+                if (conditionJSON.variable === "all") {
+                    condition = true;
+                }
+                else if (conditionJSON.variable === "gameScore") {
+                    let variable = this.props.gameScore;
+                    let op = {
+                        "<": function(a, b) { return a < b },
+                        "=": function(a, b) { return a == b },
+                        ">": function(a, b) { return a > b }
+                    };
+
+                    let value = JSON.parse(conditionJSON.value);
+                    condition = op[conditionJSON.operator](variable, value);
+                }
+                if (condition) {
+                    if (reward.type === "ecobucks") {
+                        let returnScore = reward.number;
+                        console.log("Here we get an Ecobucks reward of " + reward.number + " and have a total score of " + returnScore);
+
+                        return returnScore;
+                    }
+                    else if (reward.type === "badge") {
+                        console.log("here we get badge number " + reward.number);
+                        if (reward.condition) {
+                            this.props.activateBadge(reward.number);
+                        }
+                    }
+                }
+            }
         }
 
         handleAudit() {
@@ -1013,6 +1058,7 @@
                     "isAudited": this.state.isAudited
                 }
             }
+            this.calculateRewards();
             this.props.buildResults(auditBlockResults);
             this.props.handleButtonClick();
         }
@@ -1057,7 +1103,7 @@
 
 
                     <div>
-                        <label htmlFor="auditTextEntry">Betrag: </label>
+                        <label htmlFor="auditTextEntry">Zu erklärendes Einkommen: </label>
                         <input type="text" id="auditTextEntry" onChange={this.handleTextInput} disabled={this.state.auditIsComplete}/>
                         {this.state.feedback}
                     </div>
@@ -1092,6 +1138,7 @@
             this.buildResults = this.buildResults.bind(this);
             this.handleButtonClick = this.handleButtonClick.bind(this);
             this.handleTextInput = this.handleTextInput.bind(this);
+            this.calculateRewards = this.calculateRewards.bind(this);
 
         }
 
@@ -1104,6 +1151,45 @@
             this.props.buildResults(leaderboardResults);
         }
 
+        calculateRewards() {
+            let rewards = this.props.reward;
+
+            for (let i = 0; i < rewards.length; i++) {
+                let reward = rewards[i];
+                console.log("trying to unpack " + reward.type);
+                var condition = true;
+                let conditionJSON = reward.condition;
+                if (conditionJSON.variable === "all") {
+                    condition = true;
+                }
+                else if (conditionJSON.variable === "gameScore") {
+                    let variable = this.props.gameScore;
+                    let op = {
+                        "<": function(a, b) { return a < b },
+                        "=": function(a, b) { return a == b },
+                        ">": function(a, b) { return a > b }
+                    };
+
+                    let value = JSON.parse(conditionJSON.value);
+                    condition = op[conditionJSON.operator](variable, value);
+                }
+                if (condition) {
+                    if (reward.type === "ecobucks") {
+                        let returnScore = reward.number;
+                        console.log("Here we get an Ecobucks reward of " + reward.number + " and have a total score of " + returnScore);
+
+                        return returnScore;
+                    }
+                    else if (reward.type === "badge") {
+                        console.log("here we get badge number " + reward.number);
+                        if (reward.condition) {
+                            this.props.activateBadge(reward.number);
+                        }
+                    }
+                }
+            }
+        }
+
         handleTextInput(event) {
             let value = event.target.value;
             this.setState({name: value.valueOf()});
@@ -1111,6 +1197,7 @@
 
         handleButtonClick() {
             this.buildResults()
+            this.calculateRewards();
             this.props.handleButtonClick();
         }
 
