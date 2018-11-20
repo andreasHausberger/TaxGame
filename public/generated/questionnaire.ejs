@@ -139,37 +139,37 @@
         },
         {
             "id": 5,
-            "position": 3,
+            "position": 7,
             "title": "Vollständig!",
             "text": "Du hast alle Slider Tasks erfolgreich beendet!",
             "image": "../images/badges/badge_100@2x.png",
         },
         {
             "id": 6,
-            "position": 4,
+            "position": 3,
             "title": "20%",
             "text": "Du hast 20% der Slider-Tasks geschafft!",
             "image": "../images/badges/badge_20@2x.png"
         },
         {
             "id": 7,
-            "position": 5,
+            "position": 4,
             "title": "40%",
             "text": "Du hast 40% der Slider-Tasks geschafft!",
             "image": "../images/badges/badge_40@2x.png"
         },
         {
             "id": 8,
-            "position": 6,
+            "position": 5,
             "title": "60%",
             "text": "Du hast 60% der Slider-Tasks geschafft!",
             "image": "../images/badges/badge_60@2x.png"
         },
         {
             "id": 9,
-            "position": 7,
+            "position": 6,
             "title": "80%",
-            "text": "Du hast 48% der Slider-Tasks geschafft!",
+            "text": "Du hast 80% der Slider-Tasks geschafft!",
             "image": "../images/badges/badge_80@2x.png"
         },
     ];
@@ -266,7 +266,7 @@
         handleAudit(isAudited, number) {
             let currentScore = this.state.mostRecentScore;
             let testAudit = true;
-            if (testAudit) {
+            if (isAudited) {
                 if (number.valueOf() < currentScore) {
                     let correctAmount = this.state.mostRecentScore * 0.2;
                     let difference = Math.abs(correctAmount - (number * 0.2));
@@ -297,13 +297,31 @@
 
         activateBadge(number) {
             if (number < this.props.badges.length) { //safety check
-                let badgeToAdd = this.props.badges[number];
-                console.log("trying to activate badge with notification: " + badgeToAdd.title);
-                createNotification(badgeToAdd.image, badgeToAdd.title, badgeToAdd.text);
+                if (number === 2 || number === 3) {
+                    if (this.state.auditState !== "caught") {
+                        console.log("badge for state: " + this.state.auditState);
+                        let badgeToAdd = this.props.badges[number];
+                        console.log("trying to activate badge with notification: " + badgeToAdd.title);
+                        createNotification(badgeToAdd.image, badgeToAdd.title, badgeToAdd.text);
 
-                var currentBadgeArray = this.state.badgeArray;
-                currentBadgeArray[badgeToAdd.position] = badgeToAdd;
-                this.setState({badgeArray: currentBadgeArray});
+                        var currentBadgeArray = this.state.badgeArray;
+                        currentBadgeArray[badgeToAdd.position] = badgeToAdd;
+                        this.setState({badgeArray: currentBadgeArray});
+                    }
+                    else {
+                        console.log("no badge for state: " + this.state.auditState);
+                    }
+                }
+                else {
+                    let badgeToAdd = this.props.badges[number];
+                    console.log("trying to activate badge with notification: " + badgeToAdd.title);
+                    createNotification(badgeToAdd.image, badgeToAdd.title, badgeToAdd.text);
+
+                    var currentBadgeArray = this.state.badgeArray;
+                    currentBadgeArray[badgeToAdd.position] = badgeToAdd;
+                    this.setState({badgeArray: currentBadgeArray});
+                }
+
             }
         }
 
