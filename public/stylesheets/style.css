@@ -1,7 +1,61 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
+@media(max-width: 500px) {
+    body {
+        padding: 0;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    p, label {
+        font-size: 14px;
+    }
+
+    #header {
+        height: 90px;
+    }
+
+    #flagContainer {
+        
+    }
+
+    #accountContainer {
+        display: inline-flex;
+    }
+
+    .sliderItem {
+        width: 80vw !important;
+    }
+
+
+    .myFooter {
+        bottom: -300px !important;
+    }
+
+    #flagContainer {
+        width: 30% !important;
+        height: 20px !important;
+        background-color: #fff;
+        top: 85px !important;
+        position: fixed;
+        right: 10px;
+    }
+
+    #flagContainer div {
+        display: inline-flex;
+    }
+
+    #flagContainer div .timerContainer {
+        font-size: 14px;
+    }
+
+
+
+}
+
+
 
 a {
   color: #00B7FF;
@@ -15,9 +69,11 @@ a {
     width: auto;
     left: 10px;
     right: 10px;
+    z-index: 9;
 }
 
 #headerLogo {
+    height: 10vw;
   max-height: 100px;
 }
 
@@ -25,27 +81,58 @@ a {
     background-color: white;
 }
 
-.badgeContainer {
+#badgesText {
+    font-weight: bolder;
+}
+
+#badgeContainer {
+    width: 309px;
     margin: auto 10px;
 }
 
 .badgeImage {
-    height: 50px;
+    height: 5vw;
+    max-height: 50px;
     width: auto;
 }
 
 
 /* App and App Container Stuff */
 
+
+#notificationContainer {
+    position: fixed;
+    width: 309px;
+    display: inline-block;
+    background-color: #58aff0;
+    border-radius: 15px;
+    z-index: 10;
+}
+
+#notificationImageContainer {
+    margin: 5px;
+    border: 1px solid black;
+}
+
+#notificationImageContainer img {
+    height: 50px;
+    width: 50px;
+}
+
+#notificationBodyContainer p {
+    font-size: 12px;
+}
 .hidden {
     display: none !important;
 }
+
 .appContainer {
     width: auto;
     margin: auto;
     margin-top: 100px;
+    min-height: 100%;
 
-    background-color: #f8f9fa;
+    background-color: #d0d0d0;
 }
 
 .questionnaireContainer {
@@ -75,22 +162,36 @@ a {
 
 .itemBlockIntro {
     margin-bottom: 30px;
+    text-align: center;
 }
 
+.itemBlockImage {
+    margin: auto;
+    margin-bottom: 30px;
+    max-width: 761px;
+    width: 100%;
+}
+.itemBlockIntro p {
+    text-align: left;
+}
 .itemBlockExplanation {
   max-width: 100%;
 }
 
-.itemBlockImage {
-  max-width: 100%;
-}
+
 
 .itemBlockForm {
-    margin-bottom: 30px;
+    width: 100%;
+    margin: 30px auto;
 }
 
 .itemBlockForm .itemContainer {
     margin: 20px auto;
+}
+
+button:disabled {
+    color: #d6d6d6;
+    background-color: darkgrey;
 }
 
 .continueButton {
@@ -99,8 +200,16 @@ a {
 }
 
 .continueButton:disabled {
-    background-color: #c5c5c5;
+    background-color: #9c9c9c;
     color: #f3f3f3;
+}
+
+.horizontalRadioItemContainer .radioItem {
+    width: 12%;
+    display: block;
+    height: 100px;
+    text-align: center;
+    margin: auto 5px;
 }
 
 /*Radio items*/
@@ -114,10 +223,18 @@ a {
 }
 
 .radioItem {
+    display: flex;
+}
 
+.radioItem label {
+    padding-top: 7px;
 }
 
 /*Slider Items*/
+
+.sliderContainer {
+    display: inline-flex;
+}
 .sliderItem {
     width: 40vw;
 }
@@ -166,6 +283,35 @@ a {
     transform: rotateY(180deg);
 }
 
+#tableContainer {
+    margin-bottom: 35px;
+}
+
+#tableContainer table, th, tr {
+    border:  1px solid black;
+    border-collapse: collapse;
+}
+
+#tableContainer table {
+    width: 35%;
+}
+
+#tableContainer table#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+#tableContainer table#t01 tr:nth-child(odd) {
+    background-color: white;
+}
+
+#auditTextEntry {
+    margin: 25px;
+    width: 28%;
+}
+
+.auditItemContainer {
+    margin-bottom: 25px !important;
+}
+
 .auditItem {
     height: 140px;
     width: 90px;
@@ -176,21 +322,58 @@ a {
     position: absolute;
     top: 0;
     left: 0;
-
+    background-image: linear-gradient(white, #58aff0);
+    text-align: center;
 }
 
-.auditItemText {}
+.auditItemText {
+    font-size: 32px;
+}
 
+/*Leaderboard Stuff*/
+
+#leaderboardTable {
+    width: 100%;
+}
+
+#leaderboardTable thead {
+    font-size: 20px;
+    font-weight: bold;
+}
 
 /*
 Footer
  */
 
 .myFooter {
-    position: fixed;
-    bottom: 0;
-    width: 200px;
+    display: inline-flex;
+    width: 100%;
 
-    background-color: #c5c5c5;
+    margin-top: 100px;
+    margin-bottom: 0;
+    background-color: rgb(0, 0, 0);
+    text-align: center;
 
 }
+
+.footerContainer {
+    display: inline-flex;
+    margin: 0 6vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

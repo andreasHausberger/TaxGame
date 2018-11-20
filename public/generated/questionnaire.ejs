@@ -1,0 +1,1554 @@
+<head>
+    <%include head.ejs %>
+    <title> Gamification - <%= siteTitle %></title>
+    <% if (config.mode !== "Plain") {%>
+    <link rel="stylesheet" href="../stylesheets/richStyle.css">
+    <% }%>
+</head>
+<body>
+<div class="hidden" id="notificationContainer">
+    <div class="row" style="margin-left: 0 !important;">
+        <div id="notificationImageContainer">
+            <img src="../images/badges/badge_honesty@3x.png" alt="" id="notificationImage">
+        </div>
+        <div id="notificationTitleContainer">
+            <h4 id="notificationTitle">Test</h4>
+        </div>
+    </div>
+
+    <div id="notificationBodyContainer">
+        <p id="notificationBody"> </p>
+    </div>
+</div>
+<div class="container" id="pageContainer">
+        <script>
+            var questionnaire = <%- JSON.stringify(items) %>;
+            var players = <%- JSON.stringify(players) %>;
+            var globalMode = <%- JSON.stringify(config.mode) %>;
+
+            if (globalMode === "Random") {
+                let modes = ["Plain", "Rich", "Gamified"];
+                let randomIndex = Math.floor(Math.random() * 3);
+                globalMode = modes[randomIndex];
+                console.log("Random mode selected: " + globalMode);
+            }
+
+
+            function createNotification(imageSource, title, body) {
+                if (globalMode !== "Plain") {
+                    console.log("Clicked createNotification with " + title);
+
+                    $('#notificationImage').attr('src', imageSource);
+                    $('#notificationTitle').html(title);
+                    $('#notificationBody').text(body);
+
+                    displayNotification();
+                    setTimeout(displayNotification, 3000);
+                }
+                else {
+                    console.log("No notification for plain mode (" + title + ")");
+                }
+
+
+            }
+            function displayNotification() {
+                console.log("reached displayNotification");
+                $('#notificationContainer').toggleClass('hidden');
+            }
+
+            function displayPointsIncrease() {
+                if (globalMode !== "Plain") {
+                    $('#accountContainer').attr('style', 'background-color: #99ff33');
+                    setTimeout(fadeOutGreen, 1000);
+                    console.log("displaying color green for accountContainer");
+                }
+                else {
+                    console.log("No color toggle for plain mode");
+                }
+            }
+
+            function fadeOutGreen() {
+                $('#accountContainer').attr('style', 'background-color: none');
+            }
+
+            function toggleBadges() {
+                console.log("badges toggled.")
+                $('#badgeContainer').toggleClass('hidden');
+            }
+
+            function toggleAccount() {
+                console.log("account toggled.");
+                $('#accountContainer').toggleClass('hidden');
+            }
+        </script>
+
+
+    <div id="app">
+
+    </div>
+
+    <div class="container" id="appContainer">
+        <noscript>
+            This Questionnaire requires Javascript to work. Please activate Javascript in your browser.
+        </noscript>
+    </div>
+
+    <% include footer.ejs %>
+    <!-- Footer -->
+</div>
+
+
+<script type="text/jsx">
+
+    let loadedData = questionnaire;
+    let badges = [
+        {
+            "id": 0,
+            "position": -1,
+            "title": "Empty",
+            "text": "Lorem Ipsum dolor sit",
+            "image": "../images/badges/badge_empty.png",
+        },
+        {
+            "id": 1,
+            "position": 0,
+            "title": "Los geht's",
+            "text": "Du hast deine erste Badge verdient.",
+            "image": "../images/badges/badge_start@3x.png",
+        },
+        {
+            "id": 2,
+            "position": 1,
+            "title": "Weiße Weste",
+            "text": "Du hast dein Einkommen korrekt versteuert. Weiter so!",
+            "image": "../images/badges/badge_honesty@3x.png",
+        },
+        {
+            "id": 3,
+            "position": 1,
+            "title": "Unbemerkt",
+            "text": "Du hast durch gerissenes Vorgehen Steuern gespart. Riskant!",
+            "image": "../images/badges/badge_evasion@3x.png",
+        },
+        {
+            "id": 4,
+            "position": 2,
+            "title": "Top-Verdiener/in",
+            "text": "Du gehörst zu den 10% der Teilnehmer/innen, die am meisten EcoBucks verdient haben!",
+            "image": "../images/badges/badge_money@3x.png",
+        },
+        {
+            "id": 5,
+            "position": 7,
+            "title": "Vollständig!",
+            "text": "Du hast alle Slider Tasks erfolgreich beendet!",
+            "image": "../images/badges/badge_100@2x.png",
+        },
+        {
+            "id": 6,
+            "position": 3,
+            "title": "20%",
+            "text": "Du hast 20% der Slider-Tasks geschafft!",
+            "image": "../images/badges/badge_20@2x.png"
+        },
+        {
+            "id": 7,
+            "position": 4,
+            "title": "40%",
+            "text": "Du hast 40% der Slider-Tasks geschafft!",
+            "image": "../images/badges/badge_40@2x.png"
+        },
+        {
+            "id": 8,
+            "position": 5,
+            "title": "60%",
+            "text": "Du hast 60% der Slider-Tasks geschafft!",
+            "image": "../images/badges/badge_60@2x.png"
+        },
+        {
+            "id": 9,
+            "position": 6,
+            "title": "80%",
+            "text": "Du hast 80% der Slider-Tasks geschafft!",
+            "image": "../images/badges/badge_80@2x.png"
+        },
+    ];
+
+    class Game extends React.Component {
+        /*
+        States:
+        gameScore (Int): Keeps track of the game score
+
+        Properties:
+        data (JSON): Import of the data JSON file.
+
+         */
+        constructor(props) {
+            super(props);
+            /*
+            This part sets up the game. it selects a random mode.
+             */
+            let data = this.props.data;
+            let modes = data.modes;
+            console.log(modes);
+
+
+            var badgeArray = [];
+            for (let i = 0; i < 8; i++) {
+                let emptyBadge = this.props.badges[0];
+                badgeArray.push(emptyBadge);
+            }
+            this.state = {
+                gameScore: 0,
+                mostRecentScore: 0,
+                badgeArray: badgeArray,
+                currentFlag: null,
+                itemsAreActive: true,
+                auditState: "honest",
+                timer: 0
+            };
+
+            console.log(this.state.mode);
+
+
+            this.increaseScore = this.increaseScore.bind(this);
+            this.decreaseScore = this.decreaseScore.bind(this);
+            this.handleAudit = this.handleAudit.bind(this);
+            this.changeFlagDisplay = this.changeFlagDisplay.bind(this);
+            this.activateBadge = this.activateBadge.bind(this);
+            this.setTimer = this.setTimer.bind(this);
+            this.notifyEnd = this.notifyEnd.bind(this);
+        }
+
+        changeFlagDisplay(flagData) {
+            let flagDataJSON = JSON.parse(flagData);
+            let imageURL = flagDataJSON.flag;
+            console.log("Reached changeFlagDisplay in G with: " + imageURL.valueOf());
+
+            this.setState({currentFlag: imageURL});
+        }
+
+        setTimer(time) {
+            this.setState({
+                timer: 0,
+                itemsAreActive: true
+            });
+            if (time > 0) {
+                console.log("Resetting timer with " + time);
+
+                this.setState({
+                    timer: time.valueOf()
+                });
+            }
+        }
+
+        notifyEnd() {
+            this.setState({itemsAreActive: false});
+        }
+
+        increaseScore(number) {
+            displayPointsIncrease();
+            console.log("called increaseGS from Questionnaire!");
+            this.setState({mostRecentScore: number.valueOf()});
+            let currentScore = this.state.gameScore;
+            let newScore = currentScore.valueOf() + number.valueOf();
+            this.setState({gameScore: newScore.valueOf()});
+        }
+
+        decreaseScore(number) {
+            console.log("Decreasing Score by " + number);
+            let currentScore = this.state.gameScore;
+            var newScore = currentScore.valueOf() - number.valueOf();
+            newScore = newScore < 0 ? 0 : newScore;
+            this.setState({gameScore: newScore.valueOf()});
+        }
+
+        handleAudit(isAudited, number) {
+            let currentScore = this.state.mostRecentScore;
+            let testAudit = true;
+            if (isAudited) {
+                if (number.valueOf() < currentScore) {
+                    let correctAmount = this.state.mostRecentScore * 0.2;
+                    let difference = Math.abs(correctAmount - (number * 0.2));
+                    let penalty = difference + correctAmount;
+                    alert("Bei der Steuerprüfung wurde festgestellt, dass Du deine Verdienste falsch angegeben hast. Es wurde dir eine Strafe von " + penalty + " erteilt. Die Strafe setzt sich zusammen aus der Differenz der Steuerbeträge (" + difference + ") sowie dem gesamten Steuerbetrag (" + correctAmount + ")");
+                    this.decreaseScore(penalty);
+                    this.setState({auditState: "caught"});
+                }
+                else {
+                    alert("Bei der Steuerprüfung wurden keine Verstöße festgestellt. Es werden regelgemäß 20% des angegbebenen Betrags abgezogen.");
+                    let taxAmount = number * 0.2;
+                    this.decreaseScore(taxAmount);
+                }
+            }
+            else {
+                if (number < currentScore) {
+                    this.setState({auditState: "dishonest"});
+                }
+                alert("Du wurdest nicht geprüft. Es werden regelgemäß 20% des angegebenen Betrags abgezogen.");
+                let taxAmount = number * 0.2;
+                this.decreaseScore(taxAmount);
+            }
+            this.setState({mostRecentScore: 0}); //reset most recent score.
+
+        }
+
+
+
+        activateBadge(number) {
+            if (number < this.props.badges.length) { //safety check
+                if (number === 2 || number === 3) {
+                    if (this.state.auditState !== "caught") {
+                        console.log("badge for state: " + this.state.auditState);
+                        let badgeToAdd = this.props.badges[number];
+                        console.log("trying to activate badge with notification: " + badgeToAdd.title);
+                        createNotification(badgeToAdd.image, badgeToAdd.title, badgeToAdd.text);
+
+                        var currentBadgeArray = this.state.badgeArray;
+                        currentBadgeArray[badgeToAdd.position] = badgeToAdd;
+                        this.setState({badgeArray: currentBadgeArray});
+                    }
+                    else {
+                        console.log("no badge for state: " + this.state.auditState);
+                    }
+                }
+                else {
+                    let badgeToAdd = this.props.badges[number];
+                    console.log("trying to activate badge with notification: " + badgeToAdd.title);
+                    createNotification(badgeToAdd.image, badgeToAdd.title, badgeToAdd.text);
+
+                    var currentBadgeArray = this.state.badgeArray;
+                    currentBadgeArray[badgeToAdd.position] = badgeToAdd;
+                    this.setState({badgeArray: currentBadgeArray});
+                }
+
+            }
+        }
+
+        static handleSubmit(submittableData) {
+            alert("reached Game's handleSubmit with " + JSON.stringify(submittableData));
+            fetch('http://localhost:3000/test', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(submittableData)
+            });
+        }
+
+        render() {
+            var timerContainer = this.state.timer > 0 ? <div id="flagContainer"> <Timer time={this.state.timer} notifyEnd={this.notifyEnd}/> </div> : ""
+            let badgeArray = this.state.badgeArray;
+            return (
+                <div>
+                    <Header gameScore={this.state.gameScore} badgeArray={badgeArray} mode={this.props.mode} />
+                    {timerContainer}
+                    <div className="appContainer">
+                        <div className="row questionnaireContainer">
+                            <Questionnaire increaseScore={this.increaseScore}
+                                           handleAudit={this.handleAudit}
+                                           handleSubmit={Game.handleSubmit}
+                                           notifyFlagDisplay={this.changeFlagDisplay}
+                                           activateBadge={this.activateBadge}
+                                           setTimer={this.setTimer}
+                                           gameScore={this.state.gameScore}
+                                           mostRecentScore={this.state.mostRecentScore}
+                                           data={this.props.data}
+                                           playerData={this.props.playerData}
+                                           mode={this.props.mode}
+                                           itemsAreActive={this.state.itemsAreActive}
+                            />
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+    }
+
+    class Header extends React.Component {
+        constructor(props) {
+            super(props);
+        }
+
+        render() {
+            let badgeContainer = this.props.mode === "Gamified" ? <BadgeContainer badgeArray={this.props.badgeArray}/> : "";
+            let scoreText = this.props.mode === "Gamified" ? "Dein derzeitiger Kontostand: " : "Derzeitiger Punktestand: "
+            return (
+                <nav className="navbar navbar-light bg-light" id="header">
+
+                    <div id="logoContainer">
+                        <img src="../images/uni_Logo_2016.jpg" id="headerLogo" alt=""/>
+                    </div>
+                    <div id="badgeContainer" className="hidden">
+                        {badgeContainer}
+                    </div>
+                    <div id="accountContainer" className="hidden">
+                        <p> {scoreText} </p>
+                        <p id="accountBalance">{this.props.gameScore} {this.props.mode === "Gamified" ? "§" : "" }</p>
+                    </div>
+                </nav>
+            );
+        }
+    }
+
+    class BadgeContainer extends React.Component {
+        constructor(props) {
+            super(props);
+        }
+
+        addBadge(id, position) {
+            for (let item in this.props.badges) {
+
+            }
+        }
+
+        render() {
+            let renderBadges = this.props.badgeArray.map((badge, number) =>
+                <Badge title={badge.title} image={badge.image} key={number}/>
+            );
+
+            return (
+                <div>
+                    <p id="badgesText">Deine Badges: </p>
+                    <div className="row badgeRow">
+                        {renderBadges}
+                    </div>
+                </div>
+
+
+            );
+        }
+    }
+
+    class Badge extends React.Component {
+        constructor(props) {
+            super(props);
+        }
+
+        render() {
+            return (
+                <div className="badgeContainer">
+                    <img src={this.props.image} alt={this.props.title} className="badgeImage"/>
+                </div>
+            );
+        }
+    }
+
+    class Timer extends React.Component {
+        constructor(props) {
+            super(props);
+            let time = this.props.time;
+            this.state = {
+                time: time,
+                isUpdated: false,
+                interval: null
+            };
+            this.tick = this.tick.bind(this);
+        }
+
+        componentDidMount() {
+            var interval = setInterval(this.tick, 1000);
+            this.setState({
+                time: this.props.time,
+                interval: interval});
+        }
+
+        componentDidUpdate() {
+            if (this.state.isUpdated) {
+                this.setState({
+                    isUpdated: false,
+                    time: this.props.time
+                });
+            }
+        }
+
+        componentWillReceiveProps() {
+            this.setState({isUpdated: true});
+        }
+
+        componentWillUnmount() {
+            clearInterval(this.state.interval);
+        }
+
+        tick() {
+            if (this.state.time > 0) {
+                let newTime = this.state.time - 1;
+                this.setState({time: newTime.valueOf()});
+            }
+            else {
+                this.props.notifyEnd();
+                clearInterval(this.state.interval);
+            }
+        }
+
+        render() {
+            return (
+                <div>
+                    <div> Current Time: </div>
+                    <div className="timerContainer"> {this.state.time} </div>
+                </div>
+            )
+        }
+    }
+
+    class Questionnaire extends React.Component {
+        /*
+        Properties:
+            mode (String): "noFlag", "noFit", "flagFit" for different modes (randomly selected in Game).
+                           - "noFlag": No flag priming
+                           - "noFit": A randomly selected flag is used for priming
+                           - "flagFit": The flag of the user's nationality is used for priming.
+        Methods:
+            increaseScore(number): from Game
+            handleAudit(isAudited, number): from Game
+            handleSubmit():
+            handleButtonClick():
+            handleAudit():
+
+         */
+        constructor(props) {
+            super(props);
+
+            this.state = {
+                itemblockdata: this.props.data,
+                currentBlockIndex: 0,
+                isInProgress: true,
+                itemBlockResults: null,
+                shouldRenderSubmitButton: false,
+            };
+
+            this.handleButtonClick = this.handleButtonClick.bind(this);
+            this.handleAudit = this.handleAudit.bind(this);
+            // this.notifyChanges = this.notifyChanges.bind(this);
+            this.activateBadge = this.activateBadge.bind(this);
+            this.buildResults = this.buildResults.bind(this);
+
+            console.log("we have " + this.state.itemblockdata.itemBlocks.length + " itemblocks here");
+        }
+
+        componentDidMount() {
+            let currentTimer = this.state.itemblockdata.itemBlocks[this.state.currentBlockIndex].timer;
+            this.props.setTimer(currentTimer);
+        }
+
+        handleSubmit(submittableDdata) {
+            this.props.handleSubmit(submittableDdata);
+        }
+
+        handleButtonClick(calculatedScore) {
+            let newNumber = this.state.currentBlockIndex + 1;
+            if (newNumber < this.state.itemblockdata.itemBlocks.length) {
+                console.log("new ")
+                this.setState({currentBlockIndex: newNumber.valueOf()});
+            }
+
+            else {
+                this.setState({shouldRenderSubmitButton: false})
+                let questionnaireData = {
+                    "name" : "Questionnaire",
+                    "content": this.state.itemBlockResults
+                }
+
+                Game.handleSubmit(questionnaireData);
+
+            }
+
+            //reset the timer if necessary
+            let newTimer = this.state.itemblockdata.itemBlocks[newNumber].timer.valueOf();
+            this.props.setTimer(newTimer);
+            //Here we call Game's increaseScore
+            if (calculatedScore > 0) {
+                this.props.increaseScore(calculatedScore);
+            }
+        }
+
+        buildResults(mydata) {
+            console.log("reached Q's buildResults with " + JSON.stringify(mydata));
+            var currentQResults = this.state.itemBlockResults;
+
+            if (currentQResults) {
+                currentQResults.push(mydata);
+            }
+            else {
+                currentQResults = [];
+                currentQResults.push(mydata);
+            }
+            this.setState({itemBlockResults: currentQResults});
+        }
+
+        handleAudit(isAudited, number) {
+            /*
+            Passes the declared number through to game
+             */
+            console.log("Reached Questionnaire's handleAudit with :" + isAudited.valueOf() + ", " + number);
+            this.props.handleAudit(isAudited, number)
+        }
+
+        activateBadge(number) {
+            this.props.activateBadge(number);
+        }
+
+        render() {
+            let blocks = this.state.itemblockdata.itemBlocks.map((itemBlock, number) => {
+                    if (itemBlock.role === "audit") {
+                        return <AuditBlock blockID={itemBlock.iblock}
+                                           title={itemBlock.title}
+                                           role={itemBlock.role}
+                                           explanationText={itemBlock.explanationText}
+                                           image={itemBlock.image}
+                                           mostRecentScore={this.props.mostRecentScore}
+                                           handleAudit={this.handleAudit}
+                                           handleButtonClick={this.handleButtonClick}
+                                           buildResults={this.buildResults}
+                                           mode={this.props.mode}
+                                           key={number}
+                        />;
+                    }
+                    else if (itemBlock.role === "leaderboard") {
+                        return <Leaderboard blockID={itemBlock.iblock}
+                                            title={itemBlock.title}
+                                            role={itemBlock.role}
+                                            explanationText={itemBlock.explanationText}
+                                            image={itemBlock.image}
+                                            gameScore={this.props.gameScore}
+                                            handleButtonClick={this.handleButtonClick}
+                                            buildResults = {this.buildResults}
+                                            mode={this.props.mode}
+                                            key={number}
+
+                                    data={this.props.playerData}/>
+                    }
+                    else if (itemBlock.role === "end") {
+                        let questionnaireData = {
+                            "name" : "Questionnaire",
+                            "content": this.state.itemBlockResults
+                        }
+                        return <SubmitBlock data={questionnaireData}
+                                            blockID={itemBlock.iblock}
+                                            title={itemBlock.title}
+                                            role={itemBlock.role}
+                                            explanationText={itemBlock.explanationText}
+                                            image={itemBlock.image}
+                                            mode={this.props.mode}
+                                            key={number}
+
+                        />
+                    }
+                    else {
+                        return <ItemBlock blockID={itemBlock.iblock}
+                                          title={itemBlock.title}
+                                          role={itemBlock.role}
+                                          flagData="null"
+                                          explanationText={itemBlock.explanationText}
+                                          image={itemBlock.image}
+                                          gameScore={this.props.gameScore}
+                                          maximumValue={itemBlock.maximumValue}
+                                          timer={itemBlock.timer}
+                                          questions={itemBlock.questions}
+                                          reward={itemBlock.reward}
+                                          itemsAreActive={this.props.itemsAreActive}
+                                          shouldRenderSubmitButton={this.state.shouldRenderSubmitButton}
+                                          handleButtonClick={this.handleButtonClick}
+                                          buildResults={this.buildResults}
+                                          notifyChanges={this.notifyChanges}
+                                          activateBadge={this.activateBadge}
+                                          mode={this.props.mode}
+                                          key={number}
+
+
+                        />;
+                    }
+                }
+            );
+
+            var block = blocks[this.state.currentBlockIndex];
+
+            let submitButton = this.state.isInProgress ? "" : <input type="submit" className="btn" onClick={this.handleSubmit}/>;
+
+
+
+            return (
+                <div className="itemBlockForm">
+                    {block}
+
+                    {submitButton}
+                </div>
+            );
+        }
+    }
+
+    class ItemBlock extends React.Component {
+        /*
+        Properties:
+            blockID (Int): Identifying number of the Item Block. Incremeting by one, starting with 101 (to avoid confusion with question IDs).
+            title (String): Title of the Item Block, displayed above the image
+            image (String): URL for the image to be displayed, "null" for no image.
+            explanationText (String): Explanation text of the item block. Should give instructions to the user for the following items
+            questions (Array(JSON)): Array of questions of the itemBlock. Includes id, name, type, content, items (dependent on question type).
+            maximumPoints(Int): The maximum amount of points that can be earned in the Item Block. Depends on performance of tasks. 0 if no points can be earned in the Item Block.
+
+
+        Methods:
+        handleButtonClick (from Questionnaire): Activates handleButtonClick in Questionnaire.
+         */
+        constructor(props) {
+            super(props);
+            var valueMap = new Map([]);
+            var array = [];
+            for (let question in this.props.questions) {
+                array.push(true);
+            }
+            this.state = {
+                score: 0,
+                valueMap: valueMap,
+                itemValidityArray: array,
+                itemsAreValid: true,
+                itemResults: null
+            };
+            this.calculatePoints = this.calculatePoints.bind(this);
+            this.calculateRewards = this.calculateRewards.bind(this);
+            this.increaseScore = this.increaseScore.bind(this);
+            this.notifyChanges = this.notifyChanges.bind(this);
+            this.updateValidity = this.updateValidity.bind(this);
+            this.buildResults = this.buildResults.bind(this);
+        }
+
+        componentDidMount() {
+            if (this.props.role === "reveal_ecobucks") {
+                toggleAccount();
+            }
+            else if (this.props.role === "reveal_badges") {
+                toggleBadges();
+            }
+        }
+        componentWillUnmount() {
+            console.log("IB " + this.props.blockID + " will unmount");
+
+            let iBlockResults = {
+                "blockID" : this.props.blockID,
+                "content": this.state.itemResults
+            }
+
+            this.props.buildResults(iBlockResults);
+        }
+
+        increaseScore(id, number) {
+            let currentScore = this.state.score + number.valueOf();
+
+            var map = this.state.valueMap;
+            map.set(id, number);
+            this.setState({valueMap: map})
+        }
+
+
+        calculatePoints() {
+            var sliderScore = 0;
+            if (this.state.valueMap.size > 0) {
+                this.state.valueMap.forEach((value, key) =>
+                    sliderScore += value);
+            }
+            let rewardsScore =  this.calculateRewards();
+
+            if (this.state.itemsAreValid) {
+                if (rewardsScore) {
+                    let totalScore = sliderScore + rewardsScore;
+                    console.log("slider: " + sliderScore + " rewards: " + rewardsScore);
+                    this.props.handleButtonClick(totalScore);
+                }
+                else {
+                    console.log("Only slider score available: " + sliderScore);
+
+                    this.props.handleButtonClick(sliderScore);
+                }
+
+            }
+            else {
+                alert("Bitte gib gültige Werte in alle Textfelder ein!");
+            }
+        }
+
+        calculateRewards() {
+            let rewards = this.props.reward;
+
+            for (let i = 0; i < rewards.length; i++) {
+                let reward = rewards[i];
+                console.log("trying to unpack " + reward.type);
+                var condition = true;
+                let conditionJSON = reward.condition;
+                if (conditionJSON.variable === "all") {
+                    condition = true;
+                }
+                else if (conditionJSON.variable === "gameScore") {
+                    let variable = this.props.gameScore;
+                    let op = {
+                        "<": function(a, b) { return a < b },
+                        "=": function(a, b) { return a == b },
+                        ">": function(a, b) { return a > b }
+                    };
+
+                    let value = JSON.parse(conditionJSON.value);
+                    condition = op[conditionJSON.operator](variable, value);
+                }
+                if (condition) {
+                    if (reward.type === "ecobucks") {
+                        let returnScore = reward.number;
+                        console.log("Here we get an Ecobucks reward of " + reward.number + " and have a total score of " + returnScore);
+
+                        return returnScore;
+                    }
+                    else if (reward.type === "badge") {
+                        console.log("here we get badge number " + reward.number);
+                        if (reward.condition) {
+                            this.props.activateBadge(reward.number);
+                        }
+                    }
+                }
+            }
+        }
+
+        notifyChanges(id) {
+            console.log("Reached notifyChanges in IB " + id);
+            this.props.notifyChanges(id);
+        }
+
+        updateValidity(number, itemIsValid) {
+            var array = this.state.itemValidityArray;
+            array[number] = itemIsValid;
+            this.setState({itemValidityArray: array});
+            var bool = true;
+            for (let i = 0; i < this.state.itemValidityArray.length; i++) {
+                if (!this.state.itemValidityArray[i]) {
+                    bool = false;
+                }
+            }
+            this.setState({itemsAreValid: bool});
+        }
+
+        buildResults(data) {
+            console.log("Reached IB's buildResults with " + JSON.stringify(data))
+            var currentIBResults = this.state.itemResults;
+            if (currentIBResults) {
+                console.log("existing array")
+                currentIBResults.push(data);
+            }
+            else {
+                currentIBResults = [];
+                currentIBResults.push(data);
+            }
+
+            this.setState({itemResults: currentIBResults});
+        }
+
+        sendResults() {
+            return {
+                "blockID": this.props.blockID,
+                "content": this.state.itemResults
+            }
+        }
+
+        render() {
+            let questions = this.props.questions.map((question, number) => {
+                    if (question.qtype === "TextItem") {
+                        return <TextItem id={question.id}
+                                         name={question.qname}
+                                         questionContent={question.content}
+                                         inputType={question.input}
+                                         updateValidity={this.updateValidity}
+                                         buildResults={this.buildResults}
+                                         number={number}
+                                         key={number}/>;
+                    }
+                    else if (question.qtype === "DropdownItem") {
+                        return <DropdownItem id={question.id}
+                                             name={question.qname}
+                                             questionContent={question.content}
+                                             items={question.items}
+                                             notifyChanges={this.notifyChanges}
+                                             buildResults={this.buildResults}
+                                             key={number}/>;
+                    }
+                    else if (question.qtype === "SliderItem") {
+                        return <SliderItem id={question.id}
+                                           name={question.qname}
+                                           questionContent={question.content}
+                                           sliderGoal={question.sliderGoal}
+                                           active = {this.props.itemsAreActive}
+                                           increaseScore={this.increaseScore}
+                                           buildResults={this.buildResults}
+                                           key={number}/>
+                    }
+                    else if (question.qtype === "RadioItem") {
+                        return <RadioItem id={question.id}
+                                          name={question.qname}
+                                          questionContent={question.content}
+                                          items={question.items}
+                                          updateValidity={this.updateValidity}
+                                          buildResults={this.buildResults}
+                                          number={number}
+                                          key={number}/>;
+                    }
+                }
+            );
+
+            let continueButton = this.props.mode === "Plain" ? <button onClick={this.calculatePoints} disabled={!this.state.itemsAreValid}> Weiter </button> : <button className="btn continueButton" onClick={this.calculatePoints} disabled={!this.state.itemsAreValid}>Weiter</button>;
+
+            return (
+                <div>
+                    <div className="itemBlockIntro">
+
+                        {this.props.image === "null" || this.props.mode === "Plain" ? "" : <img className="itemBlockImage" src={this.props.image}/>}
+                        <h4>{this.props.title}</h4>
+                        <p>{this.props.explanationText} </p>
+                    </div>
+
+                    <div>
+                        {questions}
+                    </div>
+                    {continueButton}
+                </div>
+
+
+            );
+        }
+
+    }
+
+    class AuditBlock extends React.Component {
+        /*
+        Explanation:
+            AuditBlocks are similar to itemBlocks, but they contain logic for the "tax audit portion" of the Questionnaire.
+            Unlike item blocks however, they contain a fixed set of items: One TextItem in which the user self-reports their
+            earnings, and a number of AuditItems that represent the chance of getting audited.
+
+        Properties:
+            blockID (Int): Identifying number of theAuditBlock. Incremeting by one, starting with 101 (to avoid confusion with question IDs).
+            title (String): Title of the AuditBlock, displayed above the image
+            image (String): URL for the image to be displayed, "null" for no image.
+            explanationText (String): Explanation text of the AuditBlock. Should give instructions to the user.
+            probability (Double): Probability
+
+        Methods:
+
+         */
+
+        constructor(props) {
+            super(props);
+            this.state = {
+                number: 0,
+                auditIsComplete: false,
+                mostRecentScore: this.props.mostRecentScore,
+                input: 0,
+                isAudited: false,
+                feedback: ""
+            };
+
+            this.handleAudit = this.handleAudit.bind(this);
+            this.handleTextInput = this.handleTextInput.bind(this);
+            this.handleContinue = this.handleContinue.bind(this);
+            this.validateInput = this.validateInput.bind(this);
+
+        }
+
+        handleTextInput(event) {
+            this.validateInput(event);
+            let value = event.target.value;
+            this.setState({number: value.valueOf()})
+        }
+
+        handleAudit() {
+            /*
+            This should fetch the number submitted and pass it upward to Questionnaire.
+             */
+            let isAudited = AuditBlock.calculateProbabilityOfAudit(0.1);
+            this.setState({isAudited: isAudited});
+            let number = this.state.number;
+            console.log("reached AuditBlock's handleAudit with " + number);
+
+            if (number === 0) {
+                alert("Dein Kontostand kann nicht 0 sein! Hast du vergessen, einen Betrag anzugeben?")
+            }
+            else {
+                this.props.handleAudit(isAudited, number);
+                this.setState({auditIsComplete: true});
+            }
+
+        }
+
+        static calculateProbabilityOfAudit(prob) {
+            let random = Math.random();
+            if (random <= prob) {
+                console.log("You got audited: " + random + " was chosen against a probability of " + prob);
+                return true;
+            }
+            else {
+                console.log("No audit for you: " + random + " was chosen against a probability of " + prob);
+                return false;
+            }
+            return false;
+        }
+
+        validateInput(event) {
+            var reg = /^\d+$/;
+            let input = event.target.value;
+            if (reg.test(input)) {
+                console.log("Input " + input.valueOf() + " good");
+                // this.props.updateValidity(this.props.number, true);
+                this.setState({input: input.valueOf()});
+            }
+            else {
+                console.log("Input " + input.valueOf() + " bad");
+                this.setState({feedback: "Bitte nur ganze Zahlen eingeben!"})
+                this.setState({auditIsComplete: false});
+            }
+        }
+
+        handleContinue() {
+            let auditBlockResults = {
+                "blockRole": "AuditBlock",
+                "blockID": this.props.blockID,
+                "content": {
+                    "mostRecentScore": this.state.mostRecentScore,
+                    "input": this.state.input,
+                    "isAudited": this.state.isAudited
+                }
+            }
+            this.props.buildResults(auditBlockResults);
+            this.props.handleButtonClick();
+        }
+
+        render() {
+            var auditItems = [];
+
+            for (let i = 0; i < 10; i++) {
+                let auditItem = <AuditItem probability="0.1" isActive={!this.state.auditIsComplete} id={i} name={i} key={i} handleAudit={this.handleAudit}/>;
+                auditItems.push(auditItem);
+            }
+
+            let auditButton = <button disabled={this.state.auditIsComplete} onClick={this.handleAudit}> Audit </button>
+            let continueButton = this.props.mode === "Plain" ? <button onClick={this.handleContinue} disabled={!this.state.auditIsComplete}> Weiter </button> : <button className="btn continueButton" onClick={this.handleContinue} disabled={!this.state.auditIsComplete}>Weiter </button>;
+            return (
+                <div>
+                    <div className="itemBlockIntro">
+
+                        {this.props.image === "null"  || this.props.mode === "Plain" ? "" : <img className="itemBlockImage" src={this.props.image}/>}
+                        <h4>{this.props.title}</h4>
+                        <p>{this.props.explanationText} </p>
+                    </div>
+                    <div id="tableContainer">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <th>Name</th>
+                                <th>Betag</th>
+                            </tr>
+                            <tr>
+                                <td>Zuletzt erspielt: </td>
+                                <td> {this.state.mostRecentScore} </td>
+                            </tr>
+                            <tr>
+                                <td>20% davon: </td>
+                                <td>{this.state.mostRecentScore * 0.2}</td>
+                            </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+
+
+                    <div>
+                        <label htmlFor="auditTextEntry">Betrag: </label>
+                        <input type="text" id="auditTextEntry" onChange={this.handleTextInput} disabled={this.state.auditIsComplete}/>
+                        {this.state.feedback}
+                    </div>
+                    <div className="row auditItemContainer">
+                        {this.props.mode === "Plain" ?  auditButton : auditItems}
+                    </div>
+                    {continueButton}
+                </div>
+            );
+        }
+    }
+
+    class Leaderboard extends React.Component {
+        constructor(props) {
+            super(props);
+
+            let jsonArray = this.props.data;
+
+            jsonArray.sort(function(a, b) {
+                return ((a.score == b.score) ? 0 : ((a.score < b.score) ? 1 : -1));
+            });
+
+            jsonArray.sort();
+
+            this.state = {
+                itemsAreValid: true,
+                sortedArray: jsonArray,
+                username: "",
+
+            };
+
+            this.buildResults = this.buildResults.bind(this);
+            this.handleButtonClick = this.handleButtonClick.bind(this);
+            this.handleTextInput = this.handleTextInput.bind(this);
+
+        }
+
+        buildResults() {
+            let leaderboardResults = {
+                "name": this.state.name,
+                "score": this.props.gameScore
+            }
+
+            this.props.buildResults(leaderboardResults);
+        }
+
+        handleTextInput(event) {
+            let value = event.target.value;
+            this.setState({name: value.valueOf()});
+        }
+
+        handleButtonClick() {
+            this.buildResults()
+            this.props.handleButtonClick();
+        }
+
+        render() {
+            let playerItems = [];
+
+            this.state.sortedArray.map((player, number) => {
+                console.log("trying to unpack " + player.username);
+                let playerHTML = (
+                    <tr key={number}>
+                        <td> {player.username} </td>
+                        <td> {player.score} </td>
+                        <td>{player.date}</td>
+                    </tr>
+                );
+                playerItems.push(playerHTML);
+            });
+
+            return(
+                <div>
+                    <div className="itemBlockIntro">
+
+                        {this.props.image === "null" ? "" : <img className="itemBlockImage" src={this.props.image}/>}
+                        <b>{this.props.title}</b>
+                        <p>{this.props.explanationText} </p>
+                    </div>
+
+                    <div>
+                        <label htmlFor="userNameInput">Dein Username: </label>
+                        <input type="text" id="userNameInput" onChange={this.handleTextInput} />
+                    </div>
+
+                    <div>
+                        <table id="leaderboardTable">
+                            <thead>
+                            <tr>
+                                <td>Username</td>
+                                <td>Score</td>
+                                <td>Datum</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {playerItems}
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <button className="btn continueButton"
+                            disabled={!this.state.itemsAreValid} onClick={this.handleButtonClick}>Weiter
+                    </button>
+                </div>
+            );
+        }
+    }
+
+    class SubmitBlock extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                submittableDataString: JSON.stringify(this.props.data)
+            };
+        }
+
+        render() {
+            return (
+                <div>
+
+                    {this.props.image === "null" ? "": <img className="itemBlockImage" src={this.props.image} />}
+                    <p> {this.props.explanationText}</p>
+                    <h4>{this.props.title}</h4>
+                    <form action="test" method="post">
+                        <input id="submittableData" name="submittableData" type="hidden" value={this.state.submittableDataString} />
+                        <div>
+                            <button className="btn continueButton" type="submit" id="submittableDataButton"> Submit </button>
+                        </div>
+                    </form>
+
+                </div>
+
+
+            )
+        }
+    }
+
+    class RadioItem extends React.Component {
+        /*
+       Properties:
+       id (Int): Identifying number of the question
+       name (String): Name property
+
+       questionContent (String): Text of the question
+       items (Array): Items for for radio items, lowest to highest.
+        */
+        constructor(props) {
+            super(props);
+
+            this.state = {
+                input: ""
+            }
+            this.validateInput = this.validateInput.bind(this);
+            this.reportInput = this.reportInput.bind(this);
+            this.buildResultsData = this.buildResultsData.bind(this);
+        }
+
+        componentDidMount() {
+            this.props.updateValidity(this.props.number, false);
+        }
+
+        reportInput() {
+            this.props.reportInput;
+        }
+
+        validateInput(event) {
+            if (event.target.accessKey === "correct") {
+                let input = event.target.value;
+                this.props.updateValidity(this.props.number, true);
+                this.setState({input: input.valueOf()});
+                this.buildResultsData(input.valueOf());
+            }
+            else if (event.target.accessKey === "false") {
+                this.props.updateValidity(this.props.number, false);
+            }
+        }
+
+        buildResultsData(currentInput) {
+            let resultsJSON = {
+                "itemID": this.props.id,
+                "result": currentInput
+            }
+            this.props.buildResults(resultsJSON);
+        }
+
+        buttonStyle = {
+            marginRight: 5
+        };
+
+        render() {
+            let items = this.props.items.map((item, number) =>
+                <div key={number} className="radioItem">
+                    <input type="radio" accessKey={item.value} value={number} name={this.props.name}
+                           style={this.buttonStyle} onChange={this.validateInput}/>
+                    <label htmlFor={number}> {item.content} </label>
+                </div>
+            );
+
+            let containerHorizontal = <div id="radioItemContainer"
+                                           className="horizontalRadioItemContainer row"> {items} </div>;
+            let containerVertical = <div id="radioItemContainer" className="verticalRadioItemContainer"> {items} </div>
+
+            return (
+                <div className="itemContainer radio" id={this.props.id}>
+                    <label>{this.props.questionContent}
+                        {items.length > 3 ? containerHorizontal : containerVertical}
+                    </label>
+                </div>
+            );
+
+        }
+
+
+    }
+
+    class SliderItem extends React.Component {
+        /*
+        Properties:
+            id (Int): ID number of the item
+            name (String): name property
+
+            questionContent (String) : Text of the question
+            sliderGoal (Int) : Goal to which the slider is set
+         */
+        constructor(props) {
+            super(props);
+            this.state = {
+                proximity: 0,
+                testMode: false,
+                input: 0
+            };
+            this.handleChange = this.handleChange.bind(this);
+            this.reportInput = this.reportInput.bind(this);
+            this.buildResultsData = this.buildResultsData.bind(this);
+        }
+
+        reportInput() {
+            this.props.reportInput;
+        }
+
+        handleChange(event) {
+            let sliderInput = event.target.value;
+            let id = event.target.id;
+
+            let accuracy = Math.abs(sliderInput - this.props.sliderGoal);
+            var result = 200 - (accuracy * 20);
+            if (result < 0) {
+                result = 0;
+            }
+            this.setState({input: sliderInput});
+            this.props.increaseScore(id, result.valueOf());
+            this.buildResultsData(sliderInput);
+        }
+
+        buildResultsData(currentInput) {
+            let resultsJSON = {
+                "itemID": this.props.id,
+                "itemType": "SliderItem",
+                "results": {
+                    "goal": this.props.sliderGoal,
+                    "input": currentInput
+                }
+            }
+
+            this.props.buildResults(resultsJSON);
+        }
+
+        render() {
+            var testFeedback = this.state.input === 0 ? "" : this.state.input;
+
+            return (
+                <div className="itemContainer slider">
+                    <label>
+                        {this.props.questionContent}
+                    </label>
+                    <br/>
+                    <div className="sliderContainer">
+                        <input className="sliderItem" type="range" min="0" max="100" name={this.props.name} id={this.props.id}
+                               onMouseUp={this.handleChange} disabled={!this.props.active}/>
+                        <div className="sliderFeedback">
+                            {testFeedback}
+                        </div>
+                    </div>
+
+                </div>
+            )
+        }
+    }
+
+    class TextItem extends React.Component {
+        /*
+        Properties:
+        questionContent(String): Text of the question
+        id (Int): Identifying number
+
+        name: Name of the item (needed for posting it to server).
+         */
+        constructor(props) {
+            super(props);
+
+            this.state = {
+                feedback: "",
+                input: "",
+                resultData: null
+            };
+
+            this.validateInput = this.validateInput.bind(this);
+            this.reportInput = this.reportInput.bind(this);
+        }
+
+        componentDidMount() {
+            this.props.updateValidity(this.props.number, false);
+        }
+
+        componentWillUnmount() {
+            if (this.state.resultData !== null) {
+                console.log("Item will unmount: " + this.props.id);
+                // this.props.buildResults(this.state.resultData);
+            }
+
+        }
+
+        reportInput() {
+            this.props.reportInput();
+        }
+
+        validateInput(event) {
+            let input = event.target.value;
+            var inputIsValid = true;
+            if (this.props.inputType === "number") {
+                var reg = /^\d+$/;
+                inputIsValid = reg.test(input);
+                if (inputIsValid) {
+                    console.log("Input " + input.valueOf() + " good");
+                    this.props.updateValidity(this.props.number, true);
+                    this.setState({input: input.valueOf()});
+                }
+                else {
+                    console.log("Input " + input.valueOf() + " bad");
+                    this.setState({feedback: "Bitte nur ganze Zahlen eingeben!"})
+                    this.props.updateValidity(this.props.number, false);
+                }
+            }
+            else if (input !== "") {
+                this.props.updateValidity(this.props.number, true);
+                this.setState({input: input.valueOf()});
+            }
+
+            if (inputIsValid) {
+                this.buildResultsData(input);
+            }
+        }
+
+        buildResultsData(input) {
+            let resultsJSON = {
+                "itemID": this.props.id,
+                "itemType": "TextItem",
+                "result": input.valueOf()
+            }
+            console.log("reached item's buildResultsData with " + JSON.stringify(resultsJSON));
+            this.setState({resultData: resultsJSON});
+            this.props.buildResults(resultsJSON);
+        }
+
+        render() {
+            return (
+                <div className="itemContainer text" id={this.props.id} key={this.props.id}>
+                    <label>
+                        {this.props.questionContent}
+                    </label>
+                    <br/>
+                    <input type="text" name={this.props.name} onBlur={this.validateInput}/>
+                    <span id="feedback">{this.state.feedback}</span>
+                </div>
+            );
+        }
+
+    }
+
+    class DropdownItem extends React.Component {
+        /*
+        Properties:
+        id (Int): Identifying number of the question
+        name (String): Name property
+
+        questionContent (String): Text of the question
+        items (Array): Items for a dropdown menu, highest to lowest.
+         */
+        constructor(props) {
+            super(props);
+            this.state = {
+                input: ""
+            };
+            this.buildResultsData = this.buildResultsData.bind(this);
+            this.updateState = this.updateState.bind(this);
+
+        }
+
+        componentDidMount() {
+            this.updateState();
+        }
+
+
+
+        buildResultsData() {
+            this.updateState();
+            let resultsJSON = {
+                "itemIdD": this.props.id,
+                "itemType": "DropdownItem",
+                "result": this.state.input
+            }
+            this.props.buildResults(resultsJSON);
+        }
+
+        updateState() {
+            let dropdown = document.getElementById("dropDownMenu");
+            let item = dropdown.options[dropdown.selectedIndex].text;
+            this.setState({input: item});
+        }
+
+        render() {
+            let dropdownOptions = this.props.items.map((item, number) =>
+                <option value={item.id} id={number} key={number}>{item.content}</option>
+            );
+            return (
+                <div className="itemContainer dropdown" key={this.props.id}>
+                    <label htmlFor={this.props.name}>
+                        {this.props.questionContent}
+                    </label>
+                    <br/>
+                    <select name={this.props.name} onChange={this.buildResultsData} id="dropDownMenu">
+                        {dropdownOptions}
+                    </select>
+                </div>
+            )
+        }
+    }
+
+    class AuditItem extends React.Component {
+        /*
+        Explanation:
+        Audit items are presented as "cards" that hold a one in x chance of getting audited
+        Properties:
+            probability (Double): any value between 0 and 1 that represents a chance.
+
+         */
+
+        constructor(props) {
+            super(props);
+            this.state = {
+                message: "msg"};
+
+            this.handleClick = this.handleClick.bind(this);
+
+        }
+
+        handleClick(event) {
+            this.props.handleAudit();
+             /* event.target.setAttribute("active", true);
+            let random = Math.random();
+            if (random <= 0.1) {
+                console.log("You got audited. Random value: " + random);
+                this.props.handleAudit(true);
+                this.setState({message: "Audit!"})
+            }
+            else {
+                console.log("No audit for you! Random value: " + random);
+                this.props.handleAudit(false);
+                this.setState({message: "No Audit!"});
+            } */
+        }
+
+        render() {
+            return (
+                <div className="flip-container" aria-disabled={this.props.isActive}>
+                    <div className="flipper">
+                        <div className="auditItem front" onClick={this.handleClick}>
+                            <p className="auditItemText">{this.props.id}</p>
+                        </div>
+                        <div className="auditItem back" onClick={this.handleClick}>
+                            Click to Submit!
+                        </div>
+                    </div>
+                </div>
+
+            );
+        }
+    }
+
+    const domContainer = document.querySelector('#app');
+    ReactDOM.render(<Game data={loadedData.content} badges={badges} playerData={players} mode={globalMode} />, domContainer);
+</script>
+
+</body>

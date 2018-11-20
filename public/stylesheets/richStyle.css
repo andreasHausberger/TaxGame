@@ -1,0 +1,49 @@
+body {
+    font-family: "Rubik", serif;
+}
+
+.appContainer {
+    background-image: linear-gradient(#eee, #cbcbcb) !important;
+}
+
+.timerContainer {
+    font-size: 20px;
+    text-align: center;
+}
+
+.sliderItem {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 25px;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.sliderItem:hover {
+    opacity: 1; /
+}
+
+.sliderItem:disabled  {
+    background: #808080;
+}
+
+.sliderItem::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background: #58aff0;
+    cursor: pointer;
+}
+
+.sliderItem::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #58aff0;
+    cursor: pointer;
+    border-radius: 25px;
+
+}
