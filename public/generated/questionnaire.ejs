@@ -89,7 +89,7 @@
 
     <div class="container" id="appContainer">
         <noscript>
-            This Questionnaire requires Javascript to work. Please activate Javascript in your browser.
+            This Website requires Javascript to work. Please activate Javascript in your browser.
         </noscript>
     </div>
 
@@ -202,7 +202,6 @@
                 gameScore: 0,
                 mostRecentScore: 0,
                 badgeArray: badgeArray,
-                currentFlag: null,
                 itemsAreActive: true,
                 auditState: "honest",
                 timer: 0
@@ -214,19 +213,18 @@
             this.increaseScore = this.increaseScore.bind(this);
             this.decreaseScore = this.decreaseScore.bind(this);
             this.handleAudit = this.handleAudit.bind(this);
-            this.changeFlagDisplay = this.changeFlagDisplay.bind(this);
             this.activateBadge = this.activateBadge.bind(this);
             this.setTimer = this.setTimer.bind(this);
             this.notifyEnd = this.notifyEnd.bind(this);
         }
 
-        changeFlagDisplay(flagData) {
-            let flagDataJSON = JSON.parse(flagData);
-            let imageURL = flagDataJSON.flag;
-            console.log("Reached changeFlagDisplay in G with: " + imageURL.valueOf());
-
-            this.setState({currentFlag: imageURL});
-        }
+        // changeFlagDisplay(flagData) {
+        //     let flagDataJSON = JSON.parse(flagData);
+        //     let imageURL = flagDataJSON.flag;
+        //     console.log("Reached changeFlagDisplay in G with: " + imageURL.valueOf());
+        //
+        //     this.setState({currentFlag: imageURL});
+        // }
 
         setTimer(time) {
             this.setState({
@@ -350,7 +348,6 @@
                             <Questionnaire increaseScore={this.increaseScore}
                                            handleAudit={this.handleAudit}
                                            handleSubmit={Game.handleSubmit}
-                                           notifyFlagDisplay={this.changeFlagDisplay}
                                            activateBadge={this.activateBadge}
                                            setTimer={this.setTimer}
                                            gameScore={this.state.gameScore}
@@ -396,12 +393,6 @@
     class BadgeContainer extends React.Component {
         constructor(props) {
             super(props);
-        }
-
-        addBadge(id, position) {
-            for (let item in this.props.badges) {
-
-            }
         }
 
         render() {
@@ -496,10 +487,7 @@
     class Questionnaire extends React.Component {
         /*
         Properties:
-            mode (String): "noFlag", "noFit", "flagFit" for different modes (randomly selected in Game).
-                           - "noFlag": No flag priming
-                           - "noFit": A randomly selected flag is used for priming
-                           - "flagFit": The flag of the user's nationality is used for priming.
+            mode (String):
         Methods:
             increaseScore(number): from Game
             handleAudit(isAudited, number): from Game
@@ -512,6 +500,8 @@
             super(props);
 
             this.state = {
+                startTime: Date(),
+                isComplete: false,
                 itemblockdata: this.props.data,
                 currentBlockIndex: 0,
                 isInProgress: true,
@@ -521,7 +511,6 @@
 
             this.handleButtonClick = this.handleButtonClick.bind(this);
             this.handleAudit = this.handleAudit.bind(this);
-            // this.notifyChanges = this.notifyChanges.bind(this);
             this.activateBadge = this.activateBadge.bind(this);
             this.buildResults = this.buildResults.bind(this);
 
@@ -540,7 +529,7 @@
         handleButtonClick(calculatedScore) {
             let newNumber = this.state.currentBlockIndex + 1;
             if (newNumber < this.state.itemblockdata.itemBlocks.length) {
-                console.log("new ")
+                console.log("new ItemBlock requested");
                 this.setState({currentBlockIndex: newNumber.valueOf()});
             }
 
@@ -548,6 +537,8 @@
                 this.setState({shouldRenderSubmitButton: false})
                 let questionnaireData = {
                     "name" : "Questionnaire",
+                    "startTime": this.state.startTime,
+                    "endTime": Date(),
                     "content": this.state.itemBlockResults
                 }
 
@@ -565,7 +556,7 @@
         }
 
         buildResults(mydata) {
-            console.log("reached Q's buildResults with " + JSON.stringify(mydata));
+            console.log("reached Questionnaire's buildResults with " + JSON.stringify(mydata));
             var currentQResults = this.state.itemBlockResults;
 
             if (currentQResults) {
@@ -644,7 +635,6 @@
                         return <ItemBlock blockID={itemBlock.iblock}
                                           title={itemBlock.title}
                                           role={itemBlock.role}
-                                          flagData="null"
                                           explanationText={itemBlock.explanationText}
                                           image={itemBlock.image}
                                           gameScore={this.props.gameScore}
@@ -813,7 +803,6 @@
         }
 
         notifyChanges(id) {
-            console.log("Reached notifyChanges in IB " + id);
             this.props.notifyChanges(id);
         }
 
@@ -834,7 +823,6 @@
             console.log("Reached IB's buildResults with " + JSON.stringify(data))
             var currentIBResults = this.state.itemResults;
             if (currentIBResults) {
-                console.log("existing array")
                 currentIBResults.push(data);
             }
             else {
