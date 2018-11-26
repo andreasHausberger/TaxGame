@@ -1,15 +1,16 @@
 {
-  "name": "example-create-react-app-express",
+  "name": "taxperiments",
   "version": "1.0.0",
   "scripts": {
     "client": "cd client && yarn start",
     "server": "nodemon server.js",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "start": "node app.js"
   },
   "dependencies": {
     "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
-    "connect-mongo": "^2.0.1",
+    "connect-mongo": "^2.0.2",
     "cookie-parser": "~1.4.3",
     "debug": "^2.6.9",
     "ejs": "^2.6.1",
@@ -18,17 +19,30 @@
     "express-sessions": "^1.0.6",
     "http-errors": "~1.6.2",
     "mongodb": "^3.1.10",
-    "mongoose": "^5.3.12",
+    "mongoose": "^5.3.13",
     "morgan": "^1.9.1",
     "mysql": "^2.16.0",
     "npm": "^6.4.1",
     "pug": "2.0.0-beta11",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "start": "^5.1.0"
   },
   "devDependencies": {
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babelify": "^10.0.0"
-  }
+  },
+  "description": "This is a simple Node.js express backend for an interactive questionnaire with gamified elements. The questionnaire is adapted from Chen (2018) and aims to explore the connection between flag priming, patriotic sentiments and tax compliance.",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreasHausberger/FlagPriming.git"
+  },
+  "author": "aHausb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andreasHausberger/FlagPriming/issues"
+  },
+  "homepage": "https://github.com/andreasHausberger/FlagPriming#readme"
 }
