@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db8afc5e-f539-4855-98fe-6763b017f333" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/resources/css/bootstrap.4.1.3.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/resources/js/babel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/resources/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/resources/js/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/resources/js/popper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/resources/js/react-dom.development.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/resources/js/react.development.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/generated/head.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public/generated/head.ejs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -142,7 +133,7 @@
           <entry key="html" value="214" />
           <entry key="js" value="22098" />
           <entry key="json" value="217" />
-          <entry key="txt" value="1066" />
+          <entry key="txt" value="1125" />
           <entry key="www" value="54" />
         </counts>
       </usages-collector>
@@ -153,7 +144,7 @@
           <entry key="HTML" value="214" />
           <entry key="JSON" value="217" />
           <entry key="JavaScript" value="22152" />
-          <entry key="PLAIN_TEXT" value="1066" />
+          <entry key="PLAIN_TEXT" value="1125" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -177,8 +168,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/generated/head.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="195">
+              <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -592,7 +583,7 @@
       <workItem from="1543255552558" duration="490000" />
       <workItem from="1543257716721" duration="906000" />
       <workItem from="1543304639351" duration="2244000" />
-      <workItem from="1543322421461" duration="541000" />
+      <workItem from="1543322421461" duration="607000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit.">
       <created>1537516918161</created>
@@ -776,11 +767,18 @@
       <option name="project" value="LOCAL" />
       <updated>1543320999962</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Downloaded external libraries for local use.">
+      <created>1543323016228</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1543323016228</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="229936000" />
+    <option name="totallyTimeSpent" value="230002000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -795,13 +793,13 @@
     <frame x="323" y="28" width="1245" height="973" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1296758" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1296758" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.249668" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" weight="0.32969433" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3262032" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4970906" visible="true" weight="0.14642452" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4970906" visible="true" weight="0.14642452" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49958438" weight="0.37457433" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -902,7 +900,8 @@
     <MESSAGE value="mongo try" />
     <MESSAGE value="added flags in app." />
     <MESSAGE value="added flag in index router" />
-    <option name="LAST_COMMIT_MESSAGE" value="added flag in index router" />
+    <MESSAGE value="Downloaded external libraries for local use." />
+    <option name="LAST_COMMIT_MESSAGE" value="Downloaded external libraries for local use." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1132,8 +1131,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/generated/head.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="195">
+          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
         </state>
       </provider>
     </entry>
