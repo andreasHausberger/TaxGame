@@ -3,7 +3,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  console.log("Trying to render index page");
+  res.render('../public/generated/signup.ejs', { title: 'Express' });
 });
 
 module.exports = router;
