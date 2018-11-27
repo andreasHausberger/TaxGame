@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db8afc5e-f539-4855-98fe-6763b017f333" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/favicon.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/generated/head.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public/generated/head.ejs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -102,14 +104,15 @@
           <entry key="css" value="27" />
           <entry key="ejs" value="81" />
           <entry key="html" value="5" />
-          <entry key="js" value="134" />
+          <entry key="ico" value="2" />
+          <entry key="js" value="135" />
           <entry key="json" value="11" />
           <entry key="md" value="3" />
           <entry key="png" value="36" />
           <entry key="pug" value="3" />
           <entry key="svg" value="1" />
           <entry key="ts" value="2" />
-          <entry key="www" value="4" />
+          <entry key="www" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -117,9 +120,9 @@
           <entry key="CSS" value="27" />
           <entry key="EJS" value="80" />
           <entry key="HTML" value="5" />
-          <entry key="Image" value="36" />
+          <entry key="Image" value="38" />
           <entry key="JSON" value="11" />
-          <entry key="JavaScript" value="144" />
+          <entry key="JavaScript" value="146" />
           <entry key="Markdown" value="3" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="SVG" value="1" />
@@ -133,8 +136,8 @@
           <entry key="html" value="214" />
           <entry key="js" value="22098" />
           <entry key="json" value="217" />
-          <entry key="txt" value="1125" />
-          <entry key="www" value="54" />
+          <entry key="txt" value="1145" />
+          <entry key="www" value="97" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -143,8 +146,8 @@
           <entry key="EJS" value="24295" />
           <entry key="HTML" value="214" />
           <entry key="JSON" value="217" />
-          <entry key="JavaScript" value="22152" />
-          <entry key="PLAIN_TEXT" value="1125" />
+          <entry key="JavaScript" value="22195" />
+          <entry key="PLAIN_TEXT" value="1145" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -165,11 +168,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/generated/head.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+            <state relative-caret-position="330">
+              <caret line="22" column="52" lean-forward="true" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="840">
+              <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bin/www">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="268">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
         </entry>
@@ -338,7 +359,6 @@
         <option value="$PROJECT_DIR$/public/generated/questionnaire.ejs" />
         <option value="$PROJECT_DIR$/public/generated/header.ejs" />
         <option value="$PROJECT_DIR$/public/generated/login.ejs" />
-        <option value="$PROJECT_DIR$/bin/www" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/database/mdb.js" />
         <option value="$PROJECT_DIR$/app.js" />
@@ -353,6 +373,7 @@
         <option value="$PROJECT_DIR$/public/generated/popper.js" />
         <option value="$PROJECT_DIR$/public/resources/js/bootstrap.js" />
         <option value="$PROJECT_DIR$/public/generated/head.ejs" />
+        <option value="$PROJECT_DIR$/bin/www" />
       </list>
     </option>
   </component>
@@ -400,56 +421,6 @@
               <item name="FlagPrimingNew" type="462c0819:PsiDirectoryNode" />
               <item name="bin" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="FlagPrimingNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlagPrimingNew" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FlagPrimingNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlagPrimingNew" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FlagPrimingNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlagPrimingNew" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FlagPrimingNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlagPrimingNew" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="generated" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FlagPrimingNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlagPrimingNew" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="javascripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FlagPrimingNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlagPrimingNew" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FlagPrimingNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlagPrimingNew" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FlagPrimingNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlagPrimingNew" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FlagPrimingNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlagPrimingNew" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -470,11 +441,11 @@
       <recent name="$PROJECT_DIR$/database" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/public/resources/js" />
       <recent name="$PROJECT_DIR$/public/images/badges" />
       <recent name="$PROJECT_DIR$/public/images/banners" />
       <recent name="$PROJECT_DIR$/public/images/logos" />
-      <recent name="$PROJECT_DIR$/public/javascripts/jfff" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -583,7 +554,7 @@
       <workItem from="1543255552558" duration="490000" />
       <workItem from="1543257716721" duration="906000" />
       <workItem from="1543304639351" duration="2244000" />
-      <workItem from="1543322421461" duration="607000" />
+      <workItem from="1543322421461" duration="918000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit.">
       <created>1537516918161</created>
@@ -774,11 +745,18 @@
       <option name="project" value="LOCAL" />
       <updated>1543323016228</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="small fix. crap.">
+      <created>1543323038725</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1543323038725</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230002000" />
+    <option name="totallyTimeSpent" value="230313000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -793,13 +771,13 @@
     <frame x="323" y="28" width="1245" height="973" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1296758" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1296758" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.249668" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" weight="0.32969433" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3262032" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4970906" visible="true" weight="0.14642452" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4970906" visible="true" weight="0.14642452" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49958438" weight="0.37457433" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -876,7 +854,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Initial commit." />
     <MESSAGE value="Started working on Login functionality." />
     <MESSAGE value="New Version of everything. Start from here." />
     <MESSAGE value="Audit Block new, Tutorial almost finished. Some logic changes." />
@@ -901,7 +878,8 @@
     <MESSAGE value="added flags in app." />
     <MESSAGE value="added flag in index router" />
     <MESSAGE value="Downloaded external libraries for local use." />
-    <option name="LAST_COMMIT_MESSAGE" value="Downloaded external libraries for local use." />
+    <MESSAGE value="small fix. crap." />
+    <option name="LAST_COMMIT_MESSAGE" value="small fix. crap." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -918,13 +896,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/playerDB.js" />
     <entry file="file://$PROJECT_DIR$/database/resultsDB.js" />
     <entry file="file://$PROJECT_DIR$/public/stylesheets/richStyle.css" />
@@ -1003,20 +974,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/error.pug">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/www">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="3" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1129,10 +1086,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/favicon.ico">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/generated/head.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+        <state relative-caret-position="330">
+          <caret line="22" column="52" lean-forward="true" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/www">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>

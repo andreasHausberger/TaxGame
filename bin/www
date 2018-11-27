@@ -18,6 +18,8 @@ if (port == null || port == "") {
   port = 8000;
 }
 app.set('port', port);
+console.log("Connection on port: " + port);
+
 
 /**
  * Create HTTP server.
