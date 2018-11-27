@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db8afc5e-f539-4855-98fe-6763b017f333" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/resources/css/bootstrap.4.1.3.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/resources/js/babel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/resources/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/resources/js/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/resources/js/popper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/resources/js/react-dom.development.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/resources/js/react.development.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/generated/head.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public/generated/head.ejs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,15 +89,15 @@
     <session id="931848174">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="60" />
+          <entry key="project.closed" value="61" />
           <entry key="project.open.time.0" value="16" />
           <entry key="project.open.time.1" value="7" />
           <entry key="project.open.time.3" value="8" />
           <entry key="project.open.time.4" value="19" />
           <entry key="project.open.time.5" value="7" />
           <entry key="project.open.time.6" value="3" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="61" />
+          <entry key="project.open.time.7" value="2" />
+          <entry key="project.opened" value="62" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -99,10 +108,10 @@
           <entry key="1420" value="1" />
           <entry key="1440" value="1" />
           <entry key="887" value="1" />
-          <entry key="css" value="26" />
-          <entry key="ejs" value="80" />
+          <entry key="css" value="27" />
+          <entry key="ejs" value="81" />
           <entry key="html" value="5" />
-          <entry key="js" value="125" />
+          <entry key="js" value="134" />
           <entry key="json" value="11" />
           <entry key="md" value="3" />
           <entry key="png" value="36" />
@@ -114,12 +123,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="26" />
-          <entry key="EJS" value="79" />
+          <entry key="CSS" value="27" />
+          <entry key="EJS" value="80" />
           <entry key="HTML" value="5" />
           <entry key="Image" value="36" />
           <entry key="JSON" value="11" />
-          <entry key="JavaScript" value="135" />
+          <entry key="JavaScript" value="144" />
           <entry key="Markdown" value="3" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="SVG" value="1" />
@@ -129,22 +138,22 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="2471" />
-          <entry key="ejs" value="24171" />
+          <entry key="ejs" value="24295" />
           <entry key="html" value="214" />
-          <entry key="js" value="22022" />
+          <entry key="js" value="22098" />
           <entry key="json" value="217" />
-          <entry key="txt" value="1015" />
+          <entry key="txt" value="1066" />
           <entry key="www" value="54" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="2471" />
-          <entry key="EJS" value="24171" />
+          <entry key="EJS" value="24295" />
           <entry key="HTML" value="214" />
           <entry key="JSON" value="217" />
-          <entry key="JavaScript" value="22076" />
-          <entry key="PLAIN_TEXT" value="1015" />
+          <entry key="JavaScript" value="22152" />
+          <entry key="PLAIN_TEXT" value="1066" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -166,35 +175,45 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app.js">
+        <entry file="file://$PROJECT_DIR$/public/generated/head.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="92" column="36" selection-start-line="92" selection-start-column="36" selection-end-line="92" selection-end-column="36" />
+            <state relative-caret-position="360">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/www">
+        <entry file="file://$PROJECT_DIR$/public/resources/js/popper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="3" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
+            <state relative-caret-position="675">
+              <caret line="2438" lean-forward="true" selection-start-line="2438" selection-end-line="2438" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+        <entry file="file://$PROJECT_DIR$/public/resources/js/bootstrap.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+            <state relative-caret-position="195">
+              <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/login.js">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/public/resources/js/jquery.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="675">
+              <caret line="10253" lean-forward="true" selection-start-line="10253" selection-end-line="10253" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -210,8 +229,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package-lock.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+            <state relative-caret-position="3660">
+              <caret line="244" column="32" selection-start-line="244" selection-start-column="32" selection-end-line="244" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -229,7 +248,7 @@
         <entry file="file://$PROJECT_DIR$/database/mdb.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="405">
-              <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -319,7 +338,6 @@
         <option value="$PROJECT_DIR$/model/resultsModel.js" />
         <option value="$PROJECT_DIR$/database/resultsDB.js" />
         <option value="$PROJECT_DIR$/public/generated/footer.ejs" />
-        <option value="$PROJECT_DIR$/public/generated/head.ejs" />
         <option value="$PROJECT_DIR$/routes/login.js" />
         <option value="$PROJECT_DIR$/database/modeConfigDB.js" />
         <option value="$PROJECT_DIR$/routes/test.js" />
@@ -333,6 +351,17 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/database/mdb.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/public/resources/js/react.development.js" />
+        <option value="$PROJECT_DIR$/public/resources/js/react-dom.development.js" />
+        <option value="$PROJECT_DIR$/public/resources/js/babel.min.js" />
+        <option value="$PROJECT_DIR$/public/resources/js/babel.js" />
+        <option value="$PROJECT_DIR$/public/generated/babel.js" />
+        <option value="$PROJECT_DIR$/public/resources/css/bootstrap.4.1.3.css" />
+        <option value="$PROJECT_DIR$/public/resources/js/jquery.js" />
+        <option value="$PROJECT_DIR$/public/generated/popper.js" />
+        <option value="$PROJECT_DIR$/public/resources/js/bootstrap.js" />
+        <option value="$PROJECT_DIR$/public/generated/head.ejs" />
       </list>
     </option>
   </component>
@@ -393,6 +422,36 @@
             <path>
               <item name="FlagPrimingNew" type="b2602c69:ProjectViewProjectNode" />
               <item name="FlagPrimingNew" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FlagPrimingNew" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FlagPrimingNew" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="generated" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FlagPrimingNew" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FlagPrimingNew" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="javascripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FlagPrimingNew" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FlagPrimingNew" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FlagPrimingNew" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FlagPrimingNew" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FlagPrimingNew" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FlagPrimingNew" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -420,6 +479,7 @@
       <recent name="$PROJECT_DIR$/database" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/resources/js" />
       <recent name="$PROJECT_DIR$/public/images/badges" />
       <recent name="$PROJECT_DIR$/public/images/banners" />
       <recent name="$PROJECT_DIR$/public/images/logos" />
@@ -531,7 +591,8 @@
       <workItem from="1543251899983" duration="618000" />
       <workItem from="1543255552558" duration="490000" />
       <workItem from="1543257716721" duration="906000" />
-      <workItem from="1543304639351" duration="993000" />
+      <workItem from="1543304639351" duration="2244000" />
+      <workItem from="1543322421461" duration="541000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit.">
       <created>1537516918161</created>
@@ -701,11 +762,25 @@
       <option name="project" value="LOCAL" />
       <updated>1543319947778</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="added flags in app.">
+      <created>1543320572734</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1543320572734</updated>
+    </task>
+    <task id="LOCAL-00026" summary="added flag in index router">
+      <created>1543320999962</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1543320999962</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="228144000" />
+    <option name="totallyTimeSpent" value="229936000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -720,14 +795,14 @@
     <frame x="323" y="28" width="1245" height="973" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1280133" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1296758" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.249668" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" weight="0.32969433" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3262032" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49920255" visible="true" weight="0.14642452" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.37457433" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4970906" visible="true" weight="0.14642452" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49958438" weight="0.37457433" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32902583" />
@@ -735,7 +810,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32796317" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50079745" side_tool="true" weight="0.141542" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5029094" side_tool="true" visible="true" weight="0.14642452" />
       <window_info anchor="bottom" id="Terminal" order="12" />
       <window_info active="true" anchor="bottom" id="Messages" order="13" visible="true" weight="0.32947975" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -825,7 +900,9 @@
     <MESSAGE value="Small text adjustments." />
     <MESSAGE value="Port try" />
     <MESSAGE value="mongo try" />
-    <option name="LAST_COMMIT_MESSAGE" value="mongo try" />
+    <MESSAGE value="added flags in app." />
+    <MESSAGE value="added flag in index router" />
+    <option name="LAST_COMMIT_MESSAGE" value="added flag in index router" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -842,25 +919,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/questionnaireDB.js" />
-    <entry file="file://$PROJECT_DIR$/public/images/logos/reactLogo.png" />
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/react.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="292" column="8" selection-start-line="292" selection-start-column="8" selection-end-line="292" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/resultsModel.js" />
-    <entry file="file://$PROJECT_DIR$/config/config.json" />
-    <entry file="file://$PROJECT_DIR$/node_modules/pug/examples/rss.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/generated/footer.ejs" />
     <entry file="file://$PROJECT_DIR$/database/config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -871,7 +929,6 @@
     <entry file="file://$PROJECT_DIR$/database/playerDB.js" />
     <entry file="file://$PROJECT_DIR$/database/resultsDB.js" />
     <entry file="file://$PROJECT_DIR$/public/stylesheets/richStyle.css" />
-    <entry file="file://$PROJECT_DIR$/public/generated/head.ejs" />
     <entry file="file://$PROJECT_DIR$/public/images/banners/banner_almost_done@2x.png" />
     <entry file="file://$PROJECT_DIR$/public/images/banners/banner_design@2x.png" />
     <entry file="file://$PROJECT_DIR$/public/images/banners/banner_familiarity@2x.png" />
@@ -945,13 +1002,6 @@
     <entry file="file://$PROJECT_DIR$/views/layout.pug">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/error.pug">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -962,10 +1012,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/resources/js/react.development.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45435">
+          <caret line="3029" selection-start-line="3029" selection-end-line="3029" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/resources/js/react-dom.development.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="19844" column="28" selection-start-line="19844" selection-start-column="28" selection-end-line="19844" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+        <state relative-caret-position="300">
+          <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -982,8 +1060,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+        <state relative-caret-position="3660">
+          <caret line="244" column="32" selection-start-line="244" selection-start-column="32" selection-end-line="244" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -997,14 +1075,65 @@
     <entry file="file://$PROJECT_DIR$/database/mdb.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
-          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/public/resources/js/babel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="92" column="36" selection-start-line="92" selection-start-column="36" selection-end-line="92" selection-end-column="36" />
+        <state relative-caret-position="562">
+          <caret line="61681" selection-start-line="61681" selection-end-line="61681" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/resources/css/bootstrap.4.1.3.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
+          <folding>
+            <element signature="e#57526#57726#2" expanded="true" />
+            <element signature="e#57934#58083#2" expanded="true" />
+            <element signature="e#58585#58731#2" expanded="true" />
+            <element signature="e#59032#59198#1" expanded="true" />
+            <element signature="e#70814#71057#2" expanded="true" />
+            <element signature="e#71924#72173#2" expanded="true" />
+            <element signature="e#99236#99426#2" expanded="true" />
+            <element signature="e#99472#99662#2" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/resources/js/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="10253" lean-forward="true" selection-start-line="10253" selection-end-line="10253" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/resources/js/popper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="2438" lean-forward="true" selection-start-line="2438" selection-end-line="2438" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/resources/js/bootstrap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/generated/head.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
