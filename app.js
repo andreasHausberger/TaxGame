@@ -18,12 +18,14 @@ var backendRouter = require('./routes/backend');
 var app = express();
 
 //mongoDB stuff
-mongoose.connect('mongodb://localhost/test');
+
+var mdbURI = (process.env.MONGODB_URI || 'mongodb://localhost/test');
+mongoose.connect(mdbURI);
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error: '));
 db.once('open', function() {
-    console.log("Connection succeeded!");
+    console.log("Connection succeeded! with " + mdbURI.toString());
 });
 
 app.use(session({
