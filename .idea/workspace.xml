@@ -131,9 +131,9 @@
           <entry key="css" value="2471" />
           <entry key="ejs" value="24171" />
           <entry key="html" value="214" />
-          <entry key="js" value="21864" />
+          <entry key="js" value="22022" />
           <entry key="json" value="217" />
-          <entry key="txt" value="1006" />
+          <entry key="txt" value="1015" />
           <entry key="www" value="54" />
         </counts>
       </usages-collector>
@@ -143,8 +143,8 @@
           <entry key="EJS" value="24171" />
           <entry key="HTML" value="214" />
           <entry key="JSON" value="217" />
-          <entry key="JavaScript" value="21918" />
-          <entry key="PLAIN_TEXT" value="1006" />
+          <entry key="JavaScript" value="22076" />
+          <entry key="PLAIN_TEXT" value="1015" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -168,8 +168,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+            <state relative-caret-position="630">
+              <caret line="92" column="36" selection-start-line="92" selection-start-column="36" selection-end-line="92" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -531,7 +531,7 @@
       <workItem from="1543251899983" duration="618000" />
       <workItem from="1543255552558" duration="490000" />
       <workItem from="1543257716721" duration="906000" />
-      <workItem from="1543304639351" duration="353000" />
+      <workItem from="1543304639351" duration="993000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit.">
       <created>1537516918161</created>
@@ -687,11 +687,25 @@
       <option name="project" value="LOCAL" />
       <updated>1543267812300</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="mongo try">
+      <created>1543306391854</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1543306391854</updated>
+    </task>
+    <task id="LOCAL-00024" summary="mongo try">
+      <created>1543319947778</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1543319947778</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="227504000" />
+    <option name="totallyTimeSpent" value="228144000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -706,13 +720,13 @@
     <frame x="323" y="28" width="1245" height="973" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1280133" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1280133" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.249668" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" weight="0.32969433" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3262032" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49920255" weight="0.14642452" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49920255" visible="true" weight="0.14642452" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.37457433" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -810,7 +824,8 @@
     <MESSAGE value="Removed Flag stuff." />
     <MESSAGE value="Small text adjustments." />
     <MESSAGE value="Port try" />
-    <option name="LAST_COMMIT_MESSAGE" value="Port try" />
+    <MESSAGE value="mongo try" />
+    <option name="LAST_COMMIT_MESSAGE" value="mongo try" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -988,8 +1003,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+        <state relative-caret-position="630">
+          <caret line="92" column="36" selection-start-line="92" selection-start-column="36" selection-end-line="92" selection-end-column="36" />
         </state>
       </provider>
     </entry>
