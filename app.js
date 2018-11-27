@@ -36,6 +36,7 @@ app.use(session({
         mongooseConnection: db
     })
 }));
+console.log("made it past mongo setup");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
