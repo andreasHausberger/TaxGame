@@ -189,9 +189,6 @@
             This part sets up the game. it selects a random mode.
              */
             let data = this.props.data;
-            let modes = data.modes;
-            console.log(modes);
-
 
             var badgeArray = [];
             for (let i = 0; i < 8; i++) {
@@ -326,13 +323,21 @@
 
         static handleSubmit(submittableData) {
             alert("reached Game's handleSubmit with " + JSON.stringify(submittableData));
+            let completeData = {
+                "mode" : this.props.mode,
+                "badgeArray" : JSON.stringify(this.state.badgeArray),
+                "taxEvasion" : this.state.auditState,
+                "gameScore" : this.state.gameScore,
+                "data" : submittableData
+            }
+
             fetch('http://localhost:3000/test', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(submittableData)
+                body: JSON.stringify(completeData)
             });
         }
 
@@ -722,6 +727,7 @@
 
             let iBlockResults = {
                 "blockID" : this.props.blockID,
+                "role": this.props.role,
                 "content": this.state.itemResults
             }
 
@@ -831,13 +837,6 @@
             }
 
             this.setState({itemResults: currentIBResults});
-        }
-
-        sendResults() {
-            return {
-                "blockID": this.props.blockID,
-                "content": this.state.itemResults
-            }
         }
 
         render() {
@@ -1038,8 +1037,8 @@
 
         handleContinue() {
             let auditBlockResults = {
-                "blockRole": "AuditBlock",
                 "blockID": this.props.blockID,
+                "role": this.props.role,
                 "content": {
                     "mostRecentScore": this.state.mostRecentScore,
                     "input": this.state.input,
@@ -1132,8 +1131,12 @@
 
         buildResults() {
             let leaderboardResults = {
-                "name": this.state.name,
-                "score": this.props.gameScore
+                "blockID": this.props.blockID,
+                "role": this.props.role,
+                "content": {
+                    "name": this.state.name,
+                    "score": this.props.gameScore
+                }
             }
 
             this.props.buildResults(leaderboardResults);
@@ -1313,6 +1316,7 @@
         buildResultsData(currentInput) {
             let resultsJSON = {
                 "itemID": this.props.id,
+                "questionContent": this.props.questionContent,
                 "result": currentInput
             }
             this.props.buildResults(resultsJSON);
@@ -1490,6 +1494,7 @@
             let resultsJSON = {
                 "itemID": this.props.id,
                 "itemType": "TextItem",
+                "questionContent": this.props.questionContent,
                 "result": input.valueOf()
             }
             console.log("reached item's buildResultsData with " + JSON.stringify(resultsJSON));
@@ -1542,6 +1547,7 @@
             let resultsJSON = {
                 "itemIdD": this.props.id,
                 "itemType": "DropdownItem",
+                "questionContent": this.props.questionContent,
                 "result": this.state.input
             }
             this.props.buildResults(resultsJSON);

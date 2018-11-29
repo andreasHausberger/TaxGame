@@ -74,43 +74,22 @@ router.post('/', function(req, res) {
             data: data.content,
         };
 
-        results.create(resultsData, function (err, user) {
-            if (err) {
-                return next(err);
-            }
-            else {
-                console.log("successfully saved questionnaire data!");
-                res.return("../p")
-            }
-        });
+        if (results.data) {
+            results.create(resultsData, function (err, user) {
+                if (err) {
+                    return next(err);
+                }
+                else {
+                    console.log("successfully saved questionnaire data!");
+                    res.sendFile("../public/sites/thanks.html");
+                }
+            });
+        }
+
+
     }
 });
 
-
-function insertTest(data, isUpdate) {
-    var sql = "";
-
-    if (isUpdate) {
-
-    }
-    else {
-        let con = mysql.createConnection(config);
-        var values = Array();
-        for (key in data) {
-            console.log(key);
-            let value = data[key];
-            values.push(value);
-        }
-        let valueString =  "('" + values.join("', '") + "')";
-        sql = "INSERT INTO results (age, gender, nationality, education) VALUES " + valueString;
-        console.log(sql);
-    }
-
-
-    con.query(sql);
-    con.end();
-
-}
 
 
 module.exports = router;
