@@ -85,7 +85,7 @@ router.post('/', function(req, res, next) {
     };
 
     if (data.fileUpload) {
-        let uploadJSON = JSON.stringify(data.fileUpload);
+        let uploadJSON = JSON.parse(data.fileUpload);
         questionnaire.create(uploadJSON, function(err, config) {
             if (err) {
                 return next(err);
