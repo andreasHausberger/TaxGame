@@ -75,6 +75,7 @@ router.post('/', function(req, res) {
         };
 
         if (results.data) {
+            console.log("data is being written... " + data.name);
             results.create(resultsData, function (err, user) {
                 if (err) {
                     return next(err);
@@ -84,6 +85,10 @@ router.post('/', function(req, res) {
                     res.sendFile("../public/sites/thanks.html");
                 }
             });
+        }
+        else {
+            console.log("Failed saving questionnaire data!");
+            res.sendfile("../public/sites/thanks.html");
         }
 
 
