@@ -6,6 +6,7 @@ var logger = require('morgan');
 var session = require('express-session');
 var mongoose = require('mongoose');
 var MongoStore = require('connect-mongo')(session);
+var bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -139,9 +140,12 @@ console.log("made it past mongo setup");
 
 
 app.use(logger('dev'));
-app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(bodyParser.json({limit: "50mb"}));
+app.use(bodyParser.urlencoded({limit: "50mb", extended: true}));
+app.use(express.json());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 console.log("made it past cookie setup ");
