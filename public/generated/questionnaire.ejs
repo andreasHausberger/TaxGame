@@ -215,6 +215,7 @@
             this.activateBadge = this.activateBadge.bind(this);
             this.setTimer = this.setTimer.bind(this);
             this.notifyEnd = this.notifyEnd.bind(this);
+            this.returnGameData = this.returnGameData.bind(this);
         }
 
         // changeFlagDisplay(flagData) {
@@ -323,6 +324,16 @@
             }
         }
 
+        returnGameData() {
+            let gameData = {
+                "mode" : this.props.mode,
+                "badgeArray" : JSON.stringify(this.state.badgeArray),
+                "taxEvasion" : this.state.auditState,
+                "gameScore" : this.state.gameScore
+            };
+            return gameData;
+        }
+
         static handleSubmit(submittableData) {
             alert("reached Game's handleSubmit with " + JSON.stringify(submittableData));
             let postURL = this.props.url + '/test';
@@ -358,6 +369,7 @@
                                            handleSubmit={Game.handleSubmit}
                                            activateBadge={this.activateBadge}
                                            setTimer={this.setTimer}
+                                           getGameData={this.returnGameData}
                                            gameScore={this.state.gameScore}
                                            mostRecentScore={this.state.mostRecentScore}
                                            data={this.props.data}
@@ -624,9 +636,13 @@
                                     data={this.props.playerData}/>
                     }
                     else if (itemBlock.role === "end") {
+                        let gameData = this.props.getGameData();
                         let questionnaireData = {
                             "name" : "Questionnaire",
-                            "content": this.state.itemBlockResults
+                            "gameData": gameData,
+                            "startTime": {"$date": this.state.startTime },
+                            "endTime": {"$date":  Date() },
+                            "content": JSON.stringify(this.state.itemBlockResults)
                         }
                         return <SubmitBlock data={questionnaireData}
                                             blockID={itemBlock.iblock}
@@ -1253,16 +1269,8 @@
     class SubmitBlock extends React.Component {
         constructor(props) {
             super(props);
-
-            let completeData = {
-                "mode" : this.props.mode,
-                "badgeArray" : JSON.stringify(this.state.badgeArray),
-                "taxEvasion" : this.state.auditState,
-                "gameScore" : this.state.gameScore,
-                "data" : this.props.data
-            }
             this.state = {
-                submittableDataString: JSON.stringify(completeData)
+                submittableDataString: JSON.stringify(this.props.data)
             };
         }
 

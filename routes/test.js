@@ -66,17 +66,17 @@ router.get('/', function(req, res, next) {
 });
 
 // Posting form data
-router.post('/', function(req, res) {
-    console.log("Reached Post method in test.js");
+router.post('/', function(req, res, next) {
+    console.log("Reached Post method in test.js with " + req.body.submittableData);
     let data = JSON.parse(req.body.submittableData);
-    if (data.name && data.content) {
-        let resultsData = {
-            name: data.name,
-            data: data.content,
-        };
 
-        if (results.data) {
-            console.log("data is being written... " + data.name);
+    let resultsData = {
+        "name" : data.name,
+        "data" : data
+    };
+
+        if (resultsData) {
+            console.log("data is being written... " + resultsData);
             results.create(resultsData, function (err, user) {
                 if (err) {
                     return next(err);
@@ -91,9 +91,6 @@ router.post('/', function(req, res) {
             console.log("Failed saving questionnaire data!");
             res.redirect("/thanks");
         }
-
-
-    }
 });
 
 
