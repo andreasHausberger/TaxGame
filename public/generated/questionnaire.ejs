@@ -640,8 +640,8 @@
                         let questionnaireData = {
                             "name" : "Questionnaire",
                             "gameData": gameData,
-                            "startTime": {"$date": this.state.startTime },
-                            "endTime": {"$date":  Date() },
+                            "startTime":  this.state.startTime ,
+                            "endTime":   Date() ,
                             "content": JSON.stringify(this.state.itemBlockResults)
                         }
                         return <SubmitBlock data={questionnaireData}
