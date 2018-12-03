@@ -6,6 +6,7 @@
     <% }%>
 </head>
 <body>
+
 <div class="hidden" id="notificationContainer">
     <div class="row" style="margin-left: 0 !important;">
         <div id="notificationImageContainer">
@@ -25,6 +26,7 @@
             var questionnaire = <%- JSON.stringify(items) %>;
             var players = <%- JSON.stringify(players) %>;
             var globalMode = <%- JSON.stringify(config.mode) %>;
+            var url = <%- JSON.stringify(url) %>;
 
             if (globalMode === "Random") {
                 let modes = ["Plain", "Rich", "Gamified"];
@@ -323,6 +325,7 @@
 
         static handleSubmit(submittableData) {
             alert("reached Game's handleSubmit with " + JSON.stringify(submittableData));
+            let postURL = this.props.url + '/test';
             let completeData = {
                 "mode" : this.props.mode,
                 "badgeArray" : JSON.stringify(this.state.badgeArray),
@@ -331,7 +334,7 @@
                 "data" : submittableData
             }
 
-            fetch('http://localhost:3000/test', {
+            fetch(postURL, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -770,6 +773,9 @@
         }
 
         calculateRewards() {
+            if (!this.props.reward) {
+                return;
+            }
             let rewards = this.props.reward;
 
             for (let i = 0; i < rewards.length; i++) {
@@ -1247,8 +1253,16 @@
     class SubmitBlock extends React.Component {
         constructor(props) {
             super(props);
+
+            let completeData = {
+                "mode" : this.props.mode,
+                "badgeArray" : JSON.stringify(this.state.badgeArray),
+                "taxEvasion" : this.state.auditState,
+                "gameScore" : this.state.gameScore,
+                "data" : this.props.data
+            }
             this.state = {
-                submittableDataString: JSON.stringify(this.props.data)
+                submittableDataString: JSON.stringify(completeData)
             };
         }
 
@@ -1629,7 +1643,7 @@
     }
 
     const domContainer = document.querySelector('#app');
-    ReactDOM.render(<Game data={loadedData.content} badges={badges} playerData={players} mode={globalMode} />, domContainer);
+    ReactDOM.render(<Game data={loadedData.content} badges={badges} playerData={players} mode={globalMode} url={url} />, domContainer);
 </script>
 
 </body>

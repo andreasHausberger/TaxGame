@@ -1,6 +1,5 @@
 let express = require('express');
-let request = require('request');
-let router = express.Router();
+let router = express();
 let questionnaire = require('../database/questionnaireDB');
 let user = require('../database/mdb');
 let results = require('../database/resultsDB');
@@ -9,14 +8,17 @@ let config = require('../database/modeConfigDB.js');
 
 /* GET test page. */
 router.get('/', function(req, res, next) {
+    console.log("Reached backend page");
     user.findById(req.session.userId).exec(function(error, user) {
         if (error) {
+            console.log("Error while retrieving users");
+
             return next(error);
         }
         else {
             if (user === null) {
                 var err = new Error('Bitte loggen Sie sich ein, um diese Seite zu sehen!');
-                console.log("no user id found");
+                console.log("Error: no user id found");
                 err.status = 400;
                 res.redirect('/login');
                 return next(err);
@@ -64,9 +66,10 @@ router.get('/', function(req, res, next) {
                 }
                 else {
                     var err = new Error('Sie haben nicht die Berechtigungen, um diese Seite sehen zu können!');
+                    console.log("No access for user: " + user.username);
                     err.status = 400;
                     res.redirect('/fail');
-                    return next(err);
+                    // return next(err);
                 }
             }
         }
@@ -83,18 +86,6 @@ router.post('/', function(req, res, next) {
         "questionnaire": data.questionnaire,
         "date": today
     };
-
-    if (data.fileUpload) {
-        let uploadJSON = JSON.parse(data.fileUpload);
-        questionnaire.create(uploadJSON, function(err, config) {
-            if (err) {
-                return next(err);
-            }
-            else {
-                console.log("successfully uploaded a new questionnaire!");
-            }
-        })
-    }
 
     config.create(configData, function (err, config) {
         if (err) {

@@ -43,8 +43,9 @@ router.get('/', function(req, res, next) {
                                    else {
                                        let index = configData.questionnaire;
                                        let selectedQuestionnaire = items[index];
+                                       let url = process.env.HEROKU_URL || req.get('host');
                                        console.log("rendering test with mode: " + configData.mode+ " and questionnaire " + configData.questionnaire);
-                                       res.render('../public/generated/questionnaire.ejs', {items: selectedQuestionnaire, players: players, config: configData, siteTitle: "Questionnaire"})
+                                       res.render('../public/generated/questionnaire.ejs', {items: selectedQuestionnaire, url: url, players: players, config: configData, siteTitle: "Questionnaire"})
                                    }
                                });
                            }
@@ -82,13 +83,13 @@ router.post('/', function(req, res) {
                 }
                 else {
                     console.log("successfully saved questionnaire data!");
-                    res.sendFile("../public/sites/thanks.html");
+                    res.redirect("/thanks");
                 }
             });
         }
         else {
             console.log("Failed saving questionnaire data!");
-            res.sendfile("../public/sites/thanks.html");
+            res.redirect("/thanks");
         }
 
 

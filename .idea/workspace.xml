@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db8afc5e-f539-4855-98fe-6763b017f333" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/generated/thanks.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/thanks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/andreas.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongoose/History.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongoose/History.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongoose/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongoose/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/generated/login.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public/generated/login.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/generated/backend.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public/generated/backend.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/generated/questionnaire.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public/generated/questionnaire.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/backend.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/backend.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/test.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -85,15 +85,15 @@
     <session id="931848174">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="68" />
+          <entry key="project.closed" value="70" />
           <entry key="project.open.time.0" value="18" />
           <entry key="project.open.time.1" value="7" />
-          <entry key="project.open.time.3" value="9" />
+          <entry key="project.open.time.3" value="10" />
           <entry key="project.open.time.4" value="22" />
           <entry key="project.open.time.5" value="8" />
           <entry key="project.open.time.6" value="3" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.opened" value="69" />
+          <entry key="project.opened" value="70" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -105,10 +105,10 @@
           <entry key="1440" value="1" />
           <entry key="887" value="1" />
           <entry key="css" value="33" />
-          <entry key="ejs" value="104" />
+          <entry key="ejs" value="106" />
           <entry key="html" value="6" />
           <entry key="ico" value="4" />
-          <entry key="js" value="156" />
+          <entry key="js" value="160" />
           <entry key="json" value="12" />
           <entry key="md" value="3" />
           <entry key="png" value="36" />
@@ -121,11 +121,11 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="33" />
-          <entry key="EJS" value="103" />
+          <entry key="EJS" value="105" />
           <entry key="HTML" value="6" />
           <entry key="Image" value="40" />
           <entry key="JSON" value="12" />
-          <entry key="JavaScript" value="168" />
+          <entry key="JavaScript" value="172" />
           <entry key="Markdown" value="3" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="SVG" value="1" />
@@ -135,22 +135,22 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="2471" />
-          <entry key="ejs" value="25236" />
+          <entry key="ejs" value="25510" />
           <entry key="html" value="214" />
-          <entry key="js" value="22831" />
+          <entry key="js" value="23193" />
           <entry key="json" value="217" />
-          <entry key="txt" value="1541" />
+          <entry key="txt" value="1546" />
           <entry key="www" value="97" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="2471" />
-          <entry key="EJS" value="25236" />
+          <entry key="EJS" value="25510" />
           <entry key="HTML" value="214" />
           <entry key="JSON" value="217" />
-          <entry key="JavaScript" value="22928" />
-          <entry key="PLAIN_TEXT" value="1541" />
+          <entry key="JavaScript" value="23290" />
+          <entry key="PLAIN_TEXT" value="1546" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -171,67 +171,111 @@
     <favorites_list name="FlagPrimingNew" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1140">
-              <caret line="76" column="20" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/generated/questionnaire.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24225">
-              <caret line="1615" column="44" selection-start-line="1615" selection-end-line="1616" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/generated/login.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="43" column="7" lean-forward="true" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/generated/signup.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="38" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/signup.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/generated/header.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/generated/questionnaire.ejs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="590">
+                  <caret line="280" column="18" lean-forward="true" selection-start-line="280" selection-start-column="18" selection-end-line="280" selection-end-column="18" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/generated/login.ejs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="615">
+                  <caret line="41" column="7" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/generated/backend.ejs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="291">
+                  <caret line="102" column="17" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="17" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/routes/backend.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="369">
+                  <caret line="87" column="6" selection-start-line="87" selection-start-column="6" selection-end-line="87" selection-end-column="6" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/generated/signup.ejs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="480">
+                  <caret line="32" column="38" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/routes/signup.js">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/routes/test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="824">
+                  <caret line="92" column="9" lean-forward="true" selection-start-line="92" selection-start-column="9" selection-end-line="92" selection-end-column="9" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/node_modules/express/lib/response.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="283">
+                  <caret line="766" column="18" selection-start-line="766" selection-start-column="9" selection-end-line="766" selection-end-column="18" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="249">
+                  <caret line="30" column="37" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="37" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/generated/header.ejs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="195">
+                  <caret line="13" selection-start-line="13" selection-end-line="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/public/generated/questionnaire.ejs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="398">
+                  <caret line="629" column="25" lean-forward="true" selection-start-line="629" selection-start-column="25" selection-end-line="629" selection-end-column="25" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -245,9 +289,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>LeaderBo</find>
-      <find>Popper</find>
-      <find>data</find>
       <find>form</find>
       <find>®</find>
       <find>Dropd</find>
@@ -275,6 +316,9 @@
       <find>Header</find>
       <find>AuditBlock</find>
       <find>blockRole</find>
+      <find>rewards</find>
+      <find>alert</find>
+      <find>SubmitBlock</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot;condition&quot;: {&quot;variable&quot;: &quot;all&quot;, operator: &quot;==&quot;, &quot;value&quot;: true}</replace>
@@ -336,15 +380,15 @@
         <option value="$PROJECT_DIR$/public/resources/css/rubik.css" />
         <option value="$PROJECT_DIR$/public/generated/head.ejs" />
         <option value="$PROJECT_DIR$/bin/www" />
-        <option value="$PROJECT_DIR$/routes/backend.js" />
-        <option value="$PROJECT_DIR$/public/generated/backend.ejs" />
         <option value="$PROJECT_DIR$/database/mdb.js" />
-        <option value="$PROJECT_DIR$/routes/test.js" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/routes/thanks.js" />
         <option value="$PROJECT_DIR$/public/generated/login.ejs" />
         <option value="$PROJECT_DIR$/public/generated/thanks.ejs" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/public/generated/backend.ejs" />
+        <option value="$PROJECT_DIR$/routes/backend.js" />
         <option value="$PROJECT_DIR$/public/generated/questionnaire.ejs" />
+        <option value="$PROJECT_DIR$/routes/test.js" />
       </list>
     </option>
   </component>
@@ -371,8 +415,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-1970" />
     <option name="y" value="-242" />
-    <option name="width" value="1441" />
-    <option name="height" value="965" />
+    <option name="width" value="1664" />
+    <option name="height" value="1188" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -382,7 +426,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -415,6 +458,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -450,7 +494,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.bin/www">
+  <component name="RunManager" selected="npm.run app.js">
     <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-js-file="bin/www">
       <method v="2" />
     </configuration>
@@ -565,7 +609,8 @@
       <workItem from="1543612900660" duration="1029000" />
       <workItem from="1543659252930" duration="1468000" />
       <workItem from="1543684076658" duration="1737000" />
-      <workItem from="1543753271331" duration="3253000" />
+      <workItem from="1543753271331" duration="3303000" />
+      <workItem from="1543777847603" duration="3615000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit.">
       <created>1537516918161</created>
@@ -819,11 +864,18 @@
       <option name="project" value="LOCAL" />
       <updated>1543754479166</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="grml">
+      <created>1543777804616</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1543777804616</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="245038000" />
+    <option name="totallyTimeSpent" value="248703000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -835,17 +887,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1970" y="-242" width="1441" height="965" extended-state="0" />
+    <frame x="-1970" y="-242" width="1664" height="1188" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.115797" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.10110974" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.249668" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" weight="0.32969433" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3262032" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4937656" visible="true" weight="0.14547537" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49792185" weight="0.37457433" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4937656" weight="0.11545455" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49792185" weight="0.37457046" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32902583" />
@@ -862,14 +914,14 @@
       <window_info anchor="right" id="Database" order="3" weight="0.32999164" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.115797" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10110974" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.249668" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" weight="0.32969433" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3262032" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4937656" visible="true" weight="0.14547537" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49792185" weight="0.37457433" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4937656" visible="true" weight="0.11545455" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49792185" weight="0.37457046" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32902583" />
@@ -878,7 +930,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5020781" side_tool="true" weight="0.37457433" />
-      <window_info anchor="bottom" id="Terminal" order="12" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.3298969" />
       <window_info active="true" anchor="bottom" id="Messages" order="13" visible="true" weight="0.32947975" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -921,7 +973,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Displaying logged data works." />
     <MESSAGE value="Switching and retrieving Modes works. Starting work on Plain and Rich display." />
     <MESSAGE value="backend clickable work started." />
     <MESSAGE value="New: Badges, questionnaires, rewards collection now works better. &#10;&#10;Backend: Configure questionnaire works, upload / download of results still needs work." />
@@ -946,7 +997,8 @@
     <MESSAGE value="fewer requirements for email." />
     <MESSAGE value="result saving hotfix" />
     <MESSAGE value="thanks site start." />
-    <option name="LAST_COMMIT_MESSAGE" value="thanks site start." />
+    <MESSAGE value="grml" />
+    <option name="LAST_COMMIT_MESSAGE" value="grml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -957,9 +1009,10 @@
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/routes/test.js</url>
-          <line>8</line>
-          <option name="timeStamp" value="72" />
+          <url>file://$PROJECT_DIR$/routes/backend.js</url>
+          <line>9</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="73" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -968,7 +1021,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/images/banners/banner_tut_audit@2x.png" />
     <entry file="file://$PROJECT_DIR$/public/images/banners/banner_tut_badges@2x.png" />
     <entry file="file://$PROJECT_DIR$/public/images/banners/banner_tut_ecobucks@2x.png" />
     <entry file="file://$PROJECT_DIR$/public/images/banners/banner_welcome@2x.png" />
@@ -1113,13 +1165,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/generated/backend.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1605">
-          <caret line="107" column="19" selection-start-line="107" selection-start-column="19" selection-end-line="107" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/generated/thanks.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1127,31 +1172,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/backend.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="46" column="38" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="64" column="24" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1140">
           <caret line="76" column="20" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/generated/questionnaire.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24225">
-          <caret line="1615" column="44" selection-start-line="1615" selection-end-line="1616" />
         </state>
       </provider>
     </entry>
@@ -1165,13 +1189,6 @@
     <entry file="file://$PROJECT_DIR$/routes/signup.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/generated/header.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -1181,8 +1198,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/generated/login.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="7" lean-forward="true" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
+        <state relative-caret-position="615">
+          <caret line="41" column="7" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/express/lib/response.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="766" column="18" selection-start-line="766" selection-start-column="9" selection-end-line="766" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/generated/backend.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="102" column="17" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/backend.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="87" column="6" selection-start-line="87" selection-start-column="6" selection-end-line="87" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="30" column="37" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="824">
+          <caret line="92" column="9" lean-forward="true" selection-start-line="92" selection-start-column="9" selection-end-line="92" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/generated/questionnaire.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="629" column="25" lean-forward="true" selection-start-line="629" selection-start-column="25" selection-end-line="629" selection-end-column="25" />
         </state>
       </provider>
     </entry>
