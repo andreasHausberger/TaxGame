@@ -70,6 +70,8 @@ router.post('/', function(req, res, next) {
     console.log("Reached Post method in test.js with " + req.body.submittableData);
     let data = JSON.parse(req.body.submittableData);
 
+    data.content = JSON.parse(data.content);
+    data.gameData.badgeArray = JSON.parse(data.gameData.badgeArray);
     let resultsData = {
         "name" : data.name,
         "data" : data

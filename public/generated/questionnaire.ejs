@@ -559,7 +559,7 @@
                     "name" : "Questionnaire",
                     "startTime": this.state.startTime,
                     "endTime": Date(),
-                    "content": this.state.itemBlockResults
+                    "content": JSON.parse(this.state.itemBlockResults)
                 }
 
                 Game.handleSubmit(questionnaireData);
