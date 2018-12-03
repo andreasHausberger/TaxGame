@@ -1156,7 +1156,7 @@
                 "blockID": this.props.blockID,
                 "role": this.props.role,
                 "content": {
-                    "name": this.state.name,
+                    "name": this.state.username,
                     "score": this.props.gameScore
                 }
             }
@@ -1205,7 +1205,7 @@
 
         handleTextInput(event) {
             let value = event.target.value;
-            this.setState({name: value.valueOf()});
+            this.setState({username: value.valueOf()});
         }
 
         handleButtonClick() {

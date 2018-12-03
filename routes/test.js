@@ -85,6 +85,7 @@ router.post('/', function(req, res, next) {
                 }
                 else {
                     console.log("successfully saved questionnaire data!");
+                    savePlayer(data.content, data.gameData.gameScore);
                     res.redirect("/thanks");
                 }
             });
@@ -94,6 +95,35 @@ router.post('/', function(req, res, next) {
             res.redirect("/thanks");
         }
 });
+
+function savePlayer(itemblocks, score) {
+    for (let i = 0; i < itemblocks.length; i++) {
+        let currentBlock = itemblocks[i];
+
+        if (currentBlock.role === "leaderboard") {
+            if (currentBlock.content.name !== "") {
+                let name = currentBlock.content.name;
+
+                let playerData = {
+                    "username": name,
+                    "score" : score,
+                    "date" : Date()
+                };
+
+                player.create(playerData, function(err) {
+                    if (err) {
+                        console.log("Error while saving a player: " +  err);
+                    }
+                    else {
+                        console.log("successfully saved a player to the leaderboard");
+                    }
+                });
+
+            }
+        }
+
+    }
+}
 
 
 
