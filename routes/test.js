@@ -41,11 +41,27 @@ router.get('/', function(req, res, next) {
                                        console.log(error);
                                    }
                                    else {
-                                       let index = configData.questionnaire;
+
+                                       var selectedMode = "";
+                                       if (configData.mode === "Random") {
+                                           let modes = ["Plain", "Rich", "Gamified"];
+                                           let modeIndex = Math.floor(Math.random() * 3);
+                                           selectedMode = modes[modeIndex];
+
+                                           console.log("Random number for selection: " + modeIndex + " should select: " + modes[modeIndex]);
+
+                                       }
+                                       else {
+                                           selectedMode = configData.mode;
+                                       }
+
+                                       let index = selectedMode === "Gamified" ? 1 : 2; // if Gamified, use game questionnaire, else use plain questionnaire
+
+
                                        let selectedQuestionnaire = items[index];
                                        let url = process.env.HEROKU_URL || req.get('host');
-                                       console.log("rendering test with mode: " + configData.mode+ " and questionnaire " + configData.questionnaire);
-                                       res.render('../public/generated/questionnaire.ejs', {items: selectedQuestionnaire, url: url, players: players, config: configData, siteTitle: "Questionnaire"})
+                                       console.log("rendering test with mode: " + selectedMode + " and questionnaire " + selectedQuestionnaire.name);
+                                       res.render('../public/generated/questionnaire.ejs', {items: selectedQuestionnaire, url: url, players: players, globalMode: selectedMode, siteTitle: "Questionnaire"})
                                    }
                                });
                            }

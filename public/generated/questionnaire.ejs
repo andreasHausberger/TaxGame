@@ -1,7 +1,12 @@
 <head>
     <%include head.ejs %>
     <title> Gamification - <%= siteTitle %></title>
-    <% if (config.mode !== "Plain") {%>
+
+    <script>
+        let globalMode = <%- JSON.stringify(globalMode) %>;
+    </script>
+
+    <% if (globalMode !== "Plain") { %>
     <link rel="stylesheet" href="../stylesheets/richStyle.css">
     <% }%>
 </head>
@@ -25,15 +30,7 @@
         <script>
             var questionnaire = <%- JSON.stringify(items) %>;
             var players = <%- JSON.stringify(players) %>;
-            var globalMode = <%- JSON.stringify(config.mode) %>;
             var url = <%- JSON.stringify(url) %>;
-
-            if (globalMode === "Random") {
-                let modes = ["Plain", "Rich", "Gamified"];
-                let randomIndex = Math.floor(Math.random() * 3);
-                globalMode = modes[randomIndex];
-                console.log("Random mode selected: " + globalMode);
-            }
 
 
             function createNotification(imageSource, title, body) {
@@ -1117,7 +1114,7 @@
                         {this.state.feedback}
                     </div>
                     <div className="row auditItemContainer">
-                        {this.props.mode === "Plain" ?  auditButton : auditItems}
+                        {this.props.mode === "Gamified" ?  auditItems : auditButton}
                     </div>
                     {continueButton}
                 </div>
