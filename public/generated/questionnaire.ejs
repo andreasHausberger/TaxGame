@@ -865,6 +865,7 @@
                                          name={question.qname}
                                          questionContent={question.content}
                                          inputType={question.input}
+                                         required={question.required}
                                          updateValidity={this.updateValidity}
                                          buildResults={this.buildResults}
                                          number={number}
@@ -1453,21 +1454,26 @@
 
         name: Name of the item (needed for posting it to server).
          */
+
         constructor(props) {
             super(props);
 
             this.state = {
                 feedback: "",
-                input: "",
+                input: this.props.required ? "" : " ",
                 resultData: null
             };
 
+
             this.validateInput = this.validateInput.bind(this);
             this.reportInput = this.reportInput.bind(this);
+
         }
 
         componentDidMount() {
-            this.props.updateValidity(this.props.number, false);
+            if (this.props.required) {
+                this.props.updateValidity(this.props.number, false);
+            }
         }
 
         componentWillUnmount() {
@@ -1502,6 +1508,8 @@
             else if (input !== "") {
                 this.props.updateValidity(this.props.number, true);
                 this.setState({input: input.valueOf()});
+            }
+            else if (!this.state.required) {
             }
 
             if (inputIsValid) {

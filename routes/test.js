@@ -55,8 +55,7 @@ router.get('/', function(req, res, next) {
                                            selectedMode = configData.mode;
                                        }
 
-                                       let index = selectedMode === "Gamified" ? 1 : 2; // if Gamified, use game questionnaire, else use plain questionnaire
-
+                                       let index = selectedMode === "Gamified" ? 1 : 2; // if Gamified, use game questionnaire on pos 1, else use plain questionnaire on pos 2
 
                                        let selectedQuestionnaire = items[index];
                                        let url = process.env.HEROKU_URL || req.get('host');

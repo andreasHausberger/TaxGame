@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="db8afc5e-f539-4855-98fe-6763b017f333" name="Default Changelist" comment="Leaderboard looks good. Saving and skipping works">
+    <list default="true" id="db8afc5e-f539-4855-98fe-6763b017f333" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/generated/questionnaire.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public/generated/questionnaire.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/test.js" afterDir="false" />
@@ -81,15 +81,15 @@
     <session id="931848174">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="73" />
+          <entry key="project.closed" value="74" />
           <entry key="project.open.time.0" value="21" />
           <entry key="project.open.time.1" value="7" />
-          <entry key="project.open.time.3" value="10" />
-          <entry key="project.open.time.4" value="22" />
+          <entry key="project.open.time.3" value="11" />
+          <entry key="project.open.time.4" value="23" />
           <entry key="project.open.time.5" value="8" />
           <entry key="project.open.time.6" value="3" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.opened" value="73" />
+          <entry key="project.opened" value="75" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -107,7 +107,7 @@
           <entry key="js" value="164" />
           <entry key="json" value="12" />
           <entry key="md" value="3" />
-          <entry key="png" value="36" />
+          <entry key="png" value="37" />
           <entry key="pug" value="3" />
           <entry key="svg" value="1" />
           <entry key="ts" value="2" />
@@ -119,7 +119,7 @@
           <entry key="CSS" value="33" />
           <entry key="EJS" value="111" />
           <entry key="HTML" value="6" />
-          <entry key="Image" value="40" />
+          <entry key="Image" value="41" />
           <entry key="JSON" value="12" />
           <entry key="JavaScript" value="176" />
           <entry key="Markdown" value="3" />
@@ -131,22 +131,22 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="2471" />
-          <entry key="ejs" value="26535" />
+          <entry key="ejs" value="26798" />
           <entry key="html" value="214" />
-          <entry key="js" value="24766" />
+          <entry key="js" value="24848" />
           <entry key="json" value="217" />
-          <entry key="txt" value="1751" />
+          <entry key="txt" value="1776" />
           <entry key="www" value="97" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="2471" />
-          <entry key="EJS" value="26535" />
+          <entry key="EJS" value="26798" />
           <entry key="HTML" value="214" />
           <entry key="JSON" value="217" />
-          <entry key="JavaScript" value="24863" />
-          <entry key="PLAIN_TEXT" value="1751" />
+          <entry key="JavaScript" value="24945" />
+          <entry key="PLAIN_TEXT" value="1776" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -168,29 +168,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/generated/questionnaire.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="1097" column="59" lean-forward="true" selection-start-line="1097" selection-start-column="59" selection-end-line="1097" selection-end-column="59" />
+            <state relative-caret-position="319">
+              <caret line="1475" column="13" lean-forward="true" selection-start-line="1475" selection-start-column="13" selection-end-line="1475" selection-end-column="13" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/images/banners/banner_almost_done@2x.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="63" column="162" selection-start-line="63" selection-start-column="162" selection-end-line="63" selection-end-column="162" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/generated/thanks.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="370">
+              <caret line="60" column="91" lean-forward="true" selection-start-line="60" selection-start-column="91" selection-end-line="60" selection-end-column="91" />
             </state>
           </provider>
         </entry>
@@ -268,8 +264,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Dropd</find>
-      <find>appContainer</find>
       <find>button</find>
       <find>abs</find>
       <find>AuditB</find>
@@ -287,7 +281,6 @@
       <find>timer</find>
       <find>&amp;</find>
       <find>Leader</find>
-      <find>TextItem</find>
       <find>h1</find>
       <find>itemBlockForm</find>
       <find>Header</find>
@@ -298,6 +291,9 @@
       <find>SubmitBlock</find>
       <find>$date</find>
       <find>this.props.data;</find>
+      <find>r</find>
+      <find>ValidateInput</find>
+      <find>TextItem</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot;condition&quot;: {&quot;variable&quot;: &quot;all&quot;, operator: &quot;==&quot;, &quot;value&quot;: true}</replace>
@@ -405,7 +401,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -416,33 +411,26 @@
             <path>
               <item name="FlagPrimingNew" type="b2602c69:ProjectViewProjectNode" />
               <item name="FlagPrimingNew" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FlagPrimingNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlagPrimingNew" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FlagPrimingNew" type="b2602c69:ProjectViewProjectNode" />
               <item name="FlagPrimingNew" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="generated" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FlagPrimingNew" type="b2602c69:ProjectViewProjectNode" />
               <item name="FlagPrimingNew" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FlagPrimingNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlagPrimingNew" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="banners" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -598,6 +586,8 @@
       <workItem from="1543826722029" duration="7884000" />
       <workItem from="1543842216583" duration="1119000" />
       <workItem from="1543845061269" duration="2207000" />
+      <workItem from="1543850498078" duration="1626000" />
+      <workItem from="1543869765528" duration="1674000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit.">
       <created>1537516918161</created>
@@ -893,11 +883,18 @@
       <option name="project" value="LOCAL" />
       <updated>1543843042418</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Random Selection works.">
+      <created>1543850532016</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1543850532016</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="259913000" />
+    <option name="totallyTimeSpent" value="263213000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -912,13 +909,13 @@
     <frame x="382" y="23" width="1293" height="840" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.13429257" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13429257" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.249668" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" weight="0.32969433" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3262032" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4937656" weight="0.2526738" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4937656" visible="true" weight="0.2526738" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49792185" weight="0.3740876" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -935,30 +932,6 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" weight="0.32999164" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13429257" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.249668" />
-      <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" side_tool="true" weight="0.32969433" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3262032" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4937656" weight="0.2526738" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49792185" weight="0.3740876" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32902583" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32796317" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="TypeScript" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5020781" side_tool="true" weight="0.37457433" />
-      <window_info anchor="bottom" id="Terminal" order="12" weight="0.3298969" />
-      <window_info active="true" anchor="bottom" id="Messages" order="13" visible="true" weight="0.32947975" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" weight="0.32999164" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -995,7 +968,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Data Download works." />
     <MESSAGE value="Badge fix 1/2" />
     <MESSAGE value="Badge fix 2/2 --&gt; Badges work properly." />
     <MESSAGE value="Removed Flag stuff." />
@@ -1020,7 +992,8 @@
     <MESSAGE value="date fix. fml" />
     <MESSAGE value="Saving works now. DO NOT TOUCH IT AGAIN!" />
     <MESSAGE value="Leaderboard looks good. Saving and skipping works" />
-    <option name="LAST_COMMIT_MESSAGE" value="Leaderboard looks good. Saving and skipping works" />
+    <MESSAGE value="Random Selection works." />
+    <option name="LAST_COMMIT_MESSAGE" value="Random Selection works." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1037,7 +1010,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/test.js</url>
-          <line>86</line>
+          <line>85</line>
           <option name="timeStamp" value="74" />
         </line-breakpoint>
       </breakpoints>
@@ -1047,7 +1020,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/images/banners/banner_tut_ecobucks@2x.png" />
     <entry file="file://$PROJECT_DIR$/public/images/banners/banner_welcome@2x.png" />
     <entry file="file://$PROJECT_DIR$/public/images/banners/banner_audit@2x.png" />
     <entry file="file://$PROJECT_DIR$/public/images/badges/badge_20@2x.png" />
@@ -1265,17 +1237,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="63" column="162" selection-start-line="63" selection-start-column="162" selection-end-line="63" selection-end-column="162" />
+        <state relative-caret-position="370">
+          <caret line="60" column="91" lean-forward="true" selection-start-line="60" selection-start-column="91" selection-end-line="60" selection-end-column="91" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/generated/questionnaire.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="1097" column="59" lean-forward="true" selection-start-line="1097" selection-start-column="59" selection-end-line="1097" selection-end-column="59" />
+        <state relative-caret-position="319">
+          <caret line="1475" column="13" lean-forward="true" selection-start-line="1475" selection-start-column="13" selection-end-line="1475" selection-end-column="13" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/images/banners/banner_almost_done@2x.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
   </component>
 </project>
