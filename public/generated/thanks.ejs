@@ -1,11 +1,113 @@
 <head>
     <% include head.ejs %>
+    <link rel="stylesheet" href="../stylesheets/richStyle.css">
 </head>
 <body>
 <% include header.ejs %>
 
 <div class="appContainer">
-    <h1> Thank you for participating! </h1>
+    <h1> Danke für's Teilnehmen! </h1>
+
+    <p>
+        Du bist am Ende der Studie angelangt. Deine Daten wurden gespeichert und werden im Zuge der <i>Masterarbeit Gamification und Tax Compliance (2018/19)</i> ausgewertet.
+    </p>
+    <br>
+    <p>
+        Die Punkteanzahl / Geldsumme, die du erspielt hast, wird automatisch in Lose umgewandelt, und du nimmst automatisch am Gewinnspiel teil, wenn du deine E-Mail-Adresse angegeben hast.
+    </p>
+    <br>
+    <p>
+        Im Anschluss findest du noch einige Informationen, die dich zur Studie eventuell interessieren könnten.
+    </p>
+
+    <br>
+    <br>
+    <h2> Allgemein </h2>
+    <div>
+        <p>
+            Das Hauptziel der Studie ist es, zu untersuchen, wie sich die Gestaltung eines Fragebogens auf das Verhalten und die Leistungen der Teilnehmer/innen auswirkt. Der Fokus dieser Studie lag insbesondere auf Spiel-Elementen (virtuelle Währung, Achievement Badges, spielähnliche Elemente).
+        </p>
+        <p>
+            Jede/r Teilnehmer/in wird zu Beginn der Studie zu einem von drei Modi zugeordnet (mithilfe einer Zufallszahl aus {0, 1, 2}). In den beiden ersten Modi waren keine Spiel-Elemente eingebaut, und sie unterscheiden sich lediglich im optischen Design. Im 3. Modus kamen einige Spielelemente zum Einsatz.
+        </p>
+        <p>
+            Wenn du wissen möchtest, welchen der drei Modi du erlebt hast, stelle dir folgende zwei Fragen:
+            <ul>
+            <li>
+                Habe ich während des Spielens Badges erhalten, und musste ich in den Steuerprüfungen eine "Karte ziehen"? Wenn ja, dann warst du in der <i>Gamified</i>-Kondition
+            </li>
+            <li>
+                Sah die Website so aus wie diese Seite hier? Wenn ja (und du keine Spiel-Elemente finden konntest), warst du in der <i>Rich Design</i>-Kondition. Wenn nicht, warst du in der <i>Plain Design</i>-Kondition.
+            </li>
+        </ul>
+        </p>
+    </div>
+    <h2> Bedeutung der Badges </h2>
+    <div class="container badgeExplanationContainer">
+        <div class="row badgeExplanationRow">
+            <div class="col-3">
+                <img src="../images/badges/badge_start@3x.png" alt="badge_honesty" style="width: 100px;">
+            </div>
+            <div class="col-9">
+                <h5>Badge - Start</h5>
+                <p>
+                    Diese Badge bekommen alle Spieler/innen nach Abschluss der Badge-Frage im Tutorial.
+                </p>
+            </div>
+        </div>
+        <div class="row badgeExplanationRow">
+
+            <div class="col-9">
+                <h5>Badge - Money</h5>
+                <p>
+                    Diese Badge bekommen alle Spieler/innen, die eine besonders hohe Geldsumme / Punkteanzahl ( > 10.000 Punkte / Ecobucks) erspielt haben.
+                </p>
+            </div>
+            <div class="col-3">
+                <img src="../images/badges/badge_money@3x.png" alt="badge_money" style="width: 100px;">
+            </div>
+        </div>
+        <div class="row badgeExplanationRow">
+            <div class="col-3">
+                <img src="../images/badges/badge_honesty@3x.png" alt="badge_honesty" style="width: 100px;">
+            </div>
+            <div class="col-9">
+                <h5>Badge - Honesty</h5>
+                <p>
+                    Diese Badge bekommen alle Spieler/innen, die bei allen 10 Steuerprüfungen ehrlich waren, und nie einen geringeren Betrag angegeben haben als den, den sie verdient haben.
+                </p>
+            </div>
+        </div>
+        <div class="row badgeExplanationRow">
+
+            <div class="col-9">
+                <h5>Badge - Evasion</h5>
+                <p>
+                    Diese Badge bekommen alle Spieler/innen, die mindestens einmal hinterzogen haben, aber nicht erwischt wurden.
+                </p>
+            </div>
+            <div class="col-3">
+                <img src="../images/badges/badge_evasion@3x.png" alt="badge_evasion" style="width: 100px;">
+            </div>
+        </div>
+        <div class="row badgeExplanationRow">
+            <div class="col-3">
+                <img src="../images/badges/badge_100@2x.png" alt="badge_completion" style="width: 100px;">
+            </div>
+            <div class="col-9">
+                <h5>Badges - Completion</h5>
+                <p>
+                    Diese Badges (20%, 40%, 60%, 80%, 100%) bekommen Spieler/innen, wenn sie die 2., 4., 6., 8., und 10. Slider-Aufgabe gelöst haben.
+                </p>
+            </div>
+        </div>
+        
+    </div>
+
+    <div>
+        Danke nochmal für deine Teilnahme. Wenn du weitere Fragen zur Studie hast, oder an den Ergebnissen interessiert bist, schreibe mir bitte eine E-Mail an
+        <a href="mailto:a1202123@unet.univie.ac.at">a1202123@unet.univie.ac.at</a>. Du kannst den Tab nun schließen.
+    </div>
 </div>
 
 
