@@ -17,6 +17,7 @@
         <div id="notificationImageContainer">
             <img src="../images/badges/badge_honesty@3x.png" alt="" id="notificationImage">
         </div>
+        </div>
         <div id="notificationTitleContainer">
             <h4 id="notificationTitle">Test</h4>
         </div>
@@ -1556,7 +1557,8 @@
         constructor(props) {
             super(props);
             this.state = {
-                input: ""
+                input: "test",
+                uniqueID: "dropdown_" + this.props.name,
             };
             this.buildResultsData = this.buildResultsData.bind(this);
             this.updateState = this.updateState.bind(this);
@@ -1581,7 +1583,7 @@
         }
 
         updateState() {
-            let dropdown = document.getElementById("dropDownMenu");
+            let dropdown = document.getElementById(this.state.uniqueID);
             let item = dropdown.options[dropdown.selectedIndex].text;
             this.setState({input: item});
         }
@@ -1596,7 +1598,8 @@
                         {this.props.questionContent}
                     </label>
                     <br/>
-                    <select name={this.props.name} onChange={this.buildResultsData} id="dropDownMenu">
+
+                    <select name={this.props.name} onChange={this.buildResultsData} id={this.state.uniqueID}>
                         {dropdownOptions}
                     </select>
                 </div>
