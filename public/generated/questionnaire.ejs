@@ -247,7 +247,7 @@
             console.log("called increaseGS from Questionnaire!");
             this.setState({mostRecentScore: number.valueOf()});
             let currentScore = this.state.gameScore;
-            let newScore = currentScore.valueOf() + number.valueOf();
+            let newScore = Math.floor(currentScore.valueOf() + number.valueOf());
             this.setState({gameScore: newScore.valueOf()});
         }
 
@@ -255,7 +255,7 @@
             console.log("Decreasing Score by " + number);
             let currentScore = this.state.gameScore;
             var newScore = currentScore.valueOf() - number.valueOf();
-            newScore = newScore < 0 ? 0 : newScore;
+            newScore = Math.floor(newScore < 0 ? 0 : newScore);
             this.setState({gameScore: newScore.valueOf()});
         }
 
