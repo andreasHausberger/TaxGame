@@ -10,20 +10,6 @@ let config = require('../database/modeConfigDB');
 
 /* GET test page. */
 router.get('/', function(req, res, next) {
-    user.findById(req.session.userId).exec(function(error, user) {
-       if (error) {
-           return next(error);
-       }
-       else {
-           if (user === null) {
-               var err = new Error('Bitte loggen Sie sich ein, um diese Seite zu sehen!');
-               err.status = 400;
-               res.redirect('/login');
-               return next(err);
-           }
-           else {
-
-               console.log("Questionnaire site reached with valid login!");
                questionnaire.find((error, items) => {
                    if (error) {
                        console.log(error);
@@ -71,10 +57,6 @@ router.get('/', function(req, res, next) {
 
 
                // res.sendFile('/Users/andreas/Developer/Web/FlagPriming/public/sites/test.html');
-
-           }
-       }
-    });
 
     console.log("Questionnaire site reached!");
 
