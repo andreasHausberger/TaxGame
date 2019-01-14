@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="db8afc5e-f539-4855-98fe-6763b017f333" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/generated/questionnaire.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public/generated/questionnaire.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/balanced-match/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/minipass/node_modules/safe-buffer/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bcrypt/node_modules/object-assign/license" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,15 +82,15 @@
     <session id="931848174">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="82" />
+          <entry key="project.closed" value="83" />
           <entry key="project.open.time.0" value="22" />
           <entry key="project.open.time.1" value="10" />
           <entry key="project.open.time.3" value="13" />
-          <entry key="project.open.time.4" value="24" />
+          <entry key="project.open.time.4" value="25" />
           <entry key="project.open.time.5" value="8" />
           <entry key="project.open.time.6" value="3" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.opened" value="83" />
+          <entry key="project.opened" value="84" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -145,7 +147,7 @@
           <entry key="HTML" value="214" />
           <entry key="JSON" value="217" />
           <entry key="JavaScript" value="25088" />
-          <entry key="PLAIN_TEXT" value="2042" />
+          <entry key="PLAIN_TEXT" value="2076" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -170,8 +172,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/generated/questionnaire.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="497" column="37" selection-start-line="497" selection-start-column="37" selection-end-line="497" selection-end-column="37" />
+            <state relative-caret-position="398">
+              <caret line="514" lean-forward="true" selection-start-line="514" selection-end-line="514" />
             </state>
           </provider>
         </entry>
@@ -188,7 +190,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
+            <state relative-caret-position="810">
               <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
             </state>
           </provider>
@@ -206,7 +208,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
+            <state relative-caret-position="2805">
               <caret line="187" column="24" lean-forward="true" selection-start-line="187" selection-start-column="24" selection-end-line="187" selection-end-column="24" />
             </state>
           </provider>
@@ -351,10 +353,10 @@
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1087" />
-    <option name="y" value="145" />
-    <option name="width" value="1473" />
-    <option name="height" value="973" />
+    <option name="x" value="562" />
+    <option name="y" value="23" />
+    <option name="width" value="1118" />
+    <option name="height" value="955" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -563,7 +565,8 @@
       <workItem from="1546870139385" duration="2350000" />
       <workItem from="1547195640677" duration="190000" />
       <workItem from="1547211224993" duration="1536000" />
-      <workItem from="1547230422570" duration="946000" />
+      <workItem from="1547230422570" duration="1489000" />
+      <workItem from="1547465939483" duration="448000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit.">
       <created>1537516918161</created>
@@ -901,11 +904,18 @@
       <option name="project" value="LOCAL" />
       <updated>1547231889459</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="RN &quot;Current Time&quot; =&gt; &quot;Übrige Zeit&quot;">
+      <created>1547231939555</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1547231939555</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="276501000" />
+    <option name="totallyTimeSpent" value="277492000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -917,17 +927,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1087" y="145" width="1473" height="973" extended-state="0" />
+    <frame x="562" y="23" width="1118" height="955" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13277428" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17843866" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.249668" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" weight="0.32969433" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3262032" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4937656" weight="0.19636777" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49792185" visible="true" weight="0.37343928" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49792185" weight="0.37343928" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32902583" />
@@ -1003,7 +1013,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="mongo try" />
     <MESSAGE value="added flags in app." />
     <MESSAGE value="added flag in index router" />
     <MESSAGE value="Downloaded external libraries for local use." />
@@ -1028,7 +1037,8 @@
     <MESSAGE value="Thanks page (Debriefing according to rules) updated." />
     <MESSAGE value="Fix: Score gets rounded down to avoid weird float numbers." />
     <MESSAGE value="User accounts no longer required for test." />
-    <option name="LAST_COMMIT_MESSAGE" value="User accounts no longer required for test." />
+    <MESSAGE value="RN &quot;Current Time&quot; =&gt; &quot;Übrige Zeit&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="RN &quot;Current Time&quot; =&gt; &quot;Übrige Zeit&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1051,19 +1061,16 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/test.js</url>
           <line>25</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/test.js</url>
           <line>28</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/test.js</url>
           <line>18</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="77" />
         </line-breakpoint>
       </breakpoints>
@@ -1286,6 +1293,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/generated/questionnaire.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="514" lean-forward="true" selection-start-line="514" selection-end-line="514" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/thanks.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1293,10 +1307,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/routes/test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="187" column="24" lean-forward="true" selection-start-line="187" selection-start-column="24" selection-end-line="187" selection-end-column="24" />
+        <state relative-caret-position="810">
+          <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -1307,17 +1321,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/test.js">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/generated/questionnaire.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="497" column="37" selection-start-line="497" selection-start-column="37" selection-end-line="497" selection-end-column="37" />
+        <state relative-caret-position="2805">
+          <caret line="187" column="24" lean-forward="true" selection-start-line="187" selection-start-column="24" selection-end-line="187" selection-end-column="24" />
         </state>
       </provider>
     </entry>
