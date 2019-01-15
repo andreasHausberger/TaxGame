@@ -35,7 +35,7 @@
 
 
             function createNotification(imageSource, title, body) {
-                if (globalMode !== "Plain") {
+                if (globalMode === "Gamified") {
                     console.log("Clicked createNotification with " + title);
 
                     $('#notificationImage').attr('src', imageSource);
@@ -134,7 +134,7 @@
             "id": 4,
             "position": 2,
             "title": "Top-Verdiener/in",
-            "text": "Du gehörst zu den 10% der Teilnehmer/innen, die am meisten EcoBucks verdient haben!",
+            "text": "Du gehörst zu den Teilnehmer/innen, die am meisten EcoBucks verdient haben!",
             "image": "../images/badges/badge_money@3x.png",
         },
         {
