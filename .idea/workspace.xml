@@ -141,11 +141,11 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="2726" />
-          <entry key="EJS" value="30540" />
+          <entry key="EJS" value="30776" />
           <entry key="HTML" value="214" />
           <entry key="JSON" value="217" />
           <entry key="JavaScript" value="25091" />
-          <entry key="PLAIN_TEXT" value="2112" />
+          <entry key="PLAIN_TEXT" value="2136" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -170,8 +170,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/generated/questionnaire.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="282">
+              <caret line="1590" selection-start-line="1590" selection-end-line="1590" />
             </state>
           </provider>
         </entry>
@@ -188,8 +188,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="44" selection-start-line="44" selection-end-line="44" />
+            <state relative-caret-position="369">
+              <caret line="43" column="120" selection-start-line="43" selection-start-column="120" selection-end-line="43" selection-end-column="120" />
             </state>
           </provider>
         </entry>
@@ -589,14 +589,7 @@
       <workItem from="1547230422570" duration="1489000" />
       <workItem from="1547465939483" duration="1141000" />
       <workItem from="1547468582124" duration="212000" />
-      <workItem from="1547495716604" duration="1269000" />
-    </task>
-    <task id="LOCAL-00002" summary="Started working on Login functionality.">
-      <created>1537522833288</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1537522833288</updated>
+      <workItem from="1547495716604" duration="3033000" />
     </task>
     <task id="LOCAL-00003" summary="New Version of everything. Start from here.">
       <created>1539769048487</created>
@@ -934,11 +927,18 @@
       <option name="project" value="LOCAL" />
       <updated>1547468130352</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Hotfix: Notifications">
+      <created>1547541383926</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1547541383926</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="279666000" />
+    <option name="totallyTimeSpent" value="281430000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -960,7 +960,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3262032" />
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4937656" visible="true" weight="0.19582851" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49792185" weight="0.37343928" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49792185" weight="0.37311703" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32902583" />
@@ -1036,7 +1036,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="added flag in index router" />
     <MESSAGE value="Downloaded external libraries for local use." />
     <MESSAGE value="small fix. crap." />
     <MESSAGE value="port flag" />
@@ -1061,7 +1060,8 @@
     <MESSAGE value="User accounts no longer required for test." />
     <MESSAGE value="RN &quot;Current Time&quot; =&gt; &quot;Übrige Zeit&quot;" />
     <MESSAGE value="deactivated impressum link." />
-    <option name="LAST_COMMIT_MESSAGE" value="deactivated impressum link." />
+    <MESSAGE value="Hotfix: Notifications" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hotfix: Notifications" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1306,24 +1306,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/generated/questionnaire.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/thanks.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
         </state>
       </provider>
     </entry>
@@ -1352,6 +1338,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2340">
           <caret line="156" column="24" selection-start-line="156" selection-start-column="24" selection-end-line="156" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="43" column="120" selection-start-line="43" selection-start-column="120" selection-end-line="43" selection-end-column="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/generated/questionnaire.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="1590" selection-start-line="1590" selection-end-line="1590" />
         </state>
       </provider>
     </entry>

@@ -1572,6 +1572,8 @@
 
 
         buildResultsData() {
+
+            this.updateState();
             this.updateState();
             let resultsJSON = {
                 "itemIdD": this.props.id,
@@ -1599,7 +1601,7 @@
                     </label>
                     <br/>
 
-                    <select name={this.props.name} onChange={this.buildResultsData} id={this.state.uniqueID}>
+                    <select name={this.props.name} onChange={this.updateState} onBlur={this.buildResultsData} id={this.state.uniqueID}>
                         {dropdownOptions}
                     </select>
                 </div>
