@@ -4,6 +4,7 @@ let questionnaire = require('../database/questionnaireDB');
 let user = require('../database/mdb');
 let results = require('../database/resultsDB');
 let config = require('../database/modeConfigDB.js');
+let study = require('../database/study.js');
 
 
 /* GET test page. */
@@ -26,43 +27,29 @@ router.get('/', function(req, res, next) {
             else {
                 if (user.role === "admin") {
                     console.log("Backend site reached with valid login as Admin");
+                    console.log(user);
                     var questionnaires = [];
                     var resultsData = [];
-                    questionnaire.find(function(error, items) {
+
+                    study.find(function(error, items) {
                         if (error) {
-                            console.log("error while retrieving questionnaires");
+                            console.log("Error while retrieving studies");
                         }
                         else {
-                            // let jsonData = JSON.parse(items);
-                            items.map (item => {
-                                questionnaires.push(item);
+                            let studies = [];
+                            items.map(item => {
+                                studies.push(item);
                             });
-                            console.log("unpacking questionnaires finished: " + questionnaires.length);
-
-                            results.find(function(error, items) {
-                               if (error) {
-                                   console.log("error while retrieving results")
-                               }
-                               else {
-                                   items.map(item => {
-                                       resultsData.push(item);
-                                   });
-                                   console.log("unpacking results data finished: " + resultsData.length);
-                                   let websiteData = {
-                                       "questionnaires": questionnaires,
-                                       "results": resultsData,
-                                       "resultsString": JSON.stringify(resultsData)
-                                   };
-                                   console.log(websiteData.resultsString);
-                                   res.render('../public/generated/backend.ejs', {data: websiteData, siteTitle: "Backend"});
-                               }
-                            });
-
-                            //questionnaires = JSON.parse(items);
+                            console.log("Finished unpacking studies: ", studies.length);
+                            let websiteData = {
+                                "studies": studies,
+                                "user": user
+                            };
+                            res.render('../public/pages/backend.ejs', {data: websiteData, siteTitle: "Backend"})
                         }
-                    });
+                    })
 
-                    // res.render('../public/generated/backend.ejs');
+                    // res.render('../public/pages/backend.ejs');
                 }
                 else {
                     var err = new Error('Sie haben nicht die Berechtigungen, um diese Seite sehen zu können!');
@@ -74,6 +61,36 @@ router.get('/', function(req, res, next) {
             }
         }
     });
+});
+
+router.get("/new", function(req, res, next) {
+
+    res.render("../public/pages/study-form.ejs");
+});
+
+router.post("/new", function(req, res, next) {
+    let data = req.body;
+    let status = 0;
+
+    if (data != null) {
+        let studyData = {
+            "name": data.study_name,
+            "description": data.study_description,
+            "blocks": null
+        }
+
+        study.create(studyData, function(err, config) {
+            if (err) {
+                return next(err);
+            }
+            else {
+                status = 201;
+                res.status = status;
+                console.log("Saved / Updated new Study!");
+                return res.redirect("/backend");
+            }
+        });
+    }
 });
 
 // Posting form data

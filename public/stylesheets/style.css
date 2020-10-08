@@ -2,6 +2,10 @@ body {
   padding: 50px;
 }
 
+.site-container {
+    margin-top: 100px;
+}
+
 @media(max-width: 500px) {
     body {
         padding: 0;

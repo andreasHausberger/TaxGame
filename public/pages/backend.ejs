@@ -1,0 +1,70 @@
+<head>
+    <%include head.ejs %>
+    <title> Gamification - <%= siteTitle %></title>
+</head>
+<body>
+
+
+<style>
+    .clickable:hover {
+        background-color: #ebebeb;
+    }
+</style>
+
+<script>
+    function displayData(event) {
+        alert(event.target.valueOf());
+    }
+
+    function downloadJSON(element) {
+
+        let data = "text/json;charset=utf-8," + encodeURIComponent(results);
+
+        element.setAttribute("href", "data: " + data);
+        element.setAttribute("download", "results.json");
+
+    }
+
+</script>
+<%include header.ejs%>
+<div class="container" id="pageContainer" style="margin-top: 120px">
+
+</div>
+
+<h1>Admin-Page - Willkommen, <%= data.user.username; %></h1>
+
+<p>Erstellen Sie eine neue Studie oder wählen Sie eine bereits existierende aus: </p>
+
+<div class="study_overview_container">
+    <% data.studies.forEach(study => {%>
+        <div class="study_card">
+            <h3> <%= study.name; %></h3>
+            <p> <%= study.description%></p>
+        </div>
+    <% });%>
+</div>
+
+<div id="react_study_container">
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+<!--React Stuff-->
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="../javascripts/backend.js" type="text/babel"></script>
+
+<% include footer.ejs%>
+</body>

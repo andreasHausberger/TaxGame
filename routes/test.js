@@ -20,22 +20,18 @@ router.get('/', function(req, res, next) {
                                console.log(error);
                            }
                            else {
-
                                console.log("Players found");
                                config.findOne({}, {}, {sort: { 'date' : -1 } }, (error, configData) => {
                                    if (error) {
                                        console.log(error);
                                    }
                                    else {
-
                                        var selectedMode = "";
                                        if (configData.mode === "Random") {
                                            let modes = ["Plain", "Rich", "Gamified"];
                                            let modeIndex = Math.floor(Math.random() * 3);
                                            selectedMode = modes[modeIndex];
-
                                            console.log("Random number for selection: " + modeIndex + " should select: " + modes[modeIndex]);
-
                                        }
                                        else {
                                            selectedMode = configData.mode;

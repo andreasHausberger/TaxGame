@@ -131,14 +131,12 @@ app.use(session({
         mongooseConnection: db
     })
 }));
-console.log("made it past mongo setup");
+
+console.log("DB Setup");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-
-console.log("made it past mongo setup");
-
 
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: false }));
@@ -149,7 +147,7 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-console.log("made it past cookie setup ");
+console.log("Cookie Parser Setup");
 
 
 app.use('/', indexRouter);
@@ -161,7 +159,7 @@ app.use('/fail', failRouter);
 app.use('/thanks', thanksRouter);
 app.use('/backend', backendRouter);
 
-console.log("made it past router setup");
+console.log("Router Setup");
 
 
 
@@ -169,13 +167,6 @@ console.log("made it past router setup");
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
-console.log("made it past 404 setup");
-
-
-
-
-
 // error handler
 app.use(function(err, req, res, next) {
     // set locals, only providing error in development
@@ -187,11 +178,6 @@ app.use(function(err, req, res, next) {
     console.log("This error: " + err.status);
     res.render('error');
 });
-
-console.log("made it past error status setup");
-
-
+console.log("Error Setup");
 module.exports = app;
-
-console.log("made it past app export");
-
+console.log("Setup is Complete");
