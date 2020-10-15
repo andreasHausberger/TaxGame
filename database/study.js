@@ -10,7 +10,7 @@ let studySchema = new mongoose.Schema( {
         type: String,
         required: false
     },
-    blocks: {
+    segments: {
         type: JSON,
         required: false
     }

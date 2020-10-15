@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db8afc5e-f539-4855-98fe-6763b017f333" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/study.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/pages/backend.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/study.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/study.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/convertResults.js" beforeDir="false" afterPath="$PROJECT_DIR$/class/Segment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/resultsModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/class/Study.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@babel/code-frame/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/code-frame/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@babel/code-frame/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/code-frame/lib/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@babel/code-frame/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/code-frame/package.json" afterDir="false" />
@@ -22,7 +21,9 @@
       <change beforePath="$PROJECT_DIR$/node_modules/@babel/core/lib/config/files/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/core/lib/config/files/utils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@babel/core/lib/config/full.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/core/lib/config/full.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@babel/core/lib/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/core/lib/config/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@babel/core/lib/config/item.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/core/lib/config/item.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@babel/core/lib/config/partial.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/core/lib/config/partial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@babel/core/lib/config/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/core/lib/config/plugin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@babel/core/lib/config/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/core/lib/config/util.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@babel/core/lib/config/validation/option-assertions.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/core/lib/config/validation/option-assertions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@babel/core/lib/config/validation/options.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/core/lib/config/validation/options.js" afterDir="false" />
@@ -39,6 +40,7 @@
       <change beforePath="$PROJECT_DIR$/node_modules/@babel/core/lib/transformation/file/merge-map.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/core/lib/transformation/file/merge-map.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@babel/core/lib/transformation/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/core/lib/transformation/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@babel/core/lib/transformation/normalize-file.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/core/lib/transformation/normalize-file.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@babel/core/lib/transformation/plugin-pass.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/core/lib/transformation/plugin-pass.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@babel/core/lib/transformation/util/missing-plugin-helper.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@babel/core/node_modules/debug/CHANGELOG.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@babel/core/node_modules/debug/dist/debug.js" beforeDir="false" />
@@ -117,6 +119,7 @@
       <change beforePath="$PROJECT_DIR$/node_modules/@babel/traverse/lib/path/modification.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/traverse/lib/path/modification.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@babel/traverse/lib/path/removal.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/traverse/lib/path/removal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@babel/traverse/lib/path/replacement.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/traverse/lib/path/replacement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@babel/traverse/lib/scope/binding.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/traverse/lib/scope/binding.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@babel/traverse/lib/scope/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/traverse/lib/scope/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@babel/traverse/lib/scope/lib/renamer.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/traverse/lib/scope/lib/renamer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@babel/traverse/lib/visitors.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/traverse/lib/visitors.js" afterDir="false" />
@@ -445,6 +448,7 @@
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/dropdown.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/dropdown.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/dropdown.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/dropdown.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/index.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/modal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/modal.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/modal.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/popover.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/popover.js" afterDir="false" />
@@ -803,6 +807,34 @@
       <change beforePath="$PROJECT_DIR$/node_modules/kareem/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/kareem/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/kareem/test/post.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/kareem/test/post.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/kareem/test/pre.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/kareem/test/pre.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/_baseClone.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/_baseClone.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/_baseMerge.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/_baseMerge.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/_baseMergeDeep.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/_baseMergeDeep.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/_baseOrderBy.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/_baseOrderBy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/_baseSet.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/_baseSet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/_baseSortedIndexBy.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/_baseSortedIndexBy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/_createRound.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/_createRound.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/_equalArrays.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/_equalArrays.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/_equalObjects.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/_equalObjects.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/_hasUnicodeWord.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/_hasUnicodeWord.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/_safeGet.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/_safeGet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/core.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/core.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/core.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/core.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/debounce.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/debounce.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/filter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/fp/_baseConvert.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/fp/_baseConvert.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/fp/_mapping.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/fp/_mapping.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/lodash.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/lodash.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/lodash.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/lodash.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/matches.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/matches.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/matchesProperty.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/matchesProperty.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/overEvery.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/overEvery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/overSome.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/overSome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/sortBy.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/sortBy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/template.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/template.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/memory-pager/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/memory-pager/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/memory-pager/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/memory-pager/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/memory-pager/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/memory-pager/package.json" afterDir="false" />
@@ -2176,8 +2208,7 @@
       <change beforePath="$PROJECT_DIR$/node_modules/npm/node_modules/readdir-scoped-modules/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/npm/node_modules/readdir-scoped-modules/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/npm/node_modules/readdir-scoped-modules/readdir.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/npm/node_modules/readdir-scoped-modules/readdir.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/npm/node_modules/readdir-scoped-modules/test/basic.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/npm/node_modules/readdir-scoped-modules/test/fixtures/@org/x/.keep" beforeDir="false" afterPath="$PROJECT_DIR$/public/template/study_card.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/npm/node_modules/readdir-scoped-modules/test/fixtures/@org/y/.keep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/npm/node_modules/readdir-scoped-modules/test/fixtures/@org/y/.keep" beforeDir="false" afterPath="$PROJECT_DIR$/model/StudyModel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/npm/node_modules/readdir-scoped-modules/test/fixtures/@scope/x/.keep" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/npm/node_modules/readdir-scoped-modules/test/fixtures/@scope/y/.keep" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/npm/node_modules/readdir-scoped-modules/test/fixtures/a/x/.keep" beforeDir="false" />
@@ -2534,20 +2565,7 @@
       <change beforePath="$PROJECT_DIR$/node_modules/uuid/v1.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/uuid/v1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/generated/backend.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/generated/fail.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public/pages/fail.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/generated/footer.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public/pages/footer.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/generated/head.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public/pages/head.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/generated/header.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public/pages/header.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/generated/login.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public/pages/login.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/generated/questionnaire.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public/pages/questionnaire.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/generated/signup.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public/pages/signup.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/generated/thanks.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public/pages/thanks.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/generated/welcome.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public/pages/welcome.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/backend.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/backend.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/test.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -2622,7 +2640,7 @@
       <recent name="$PROJECT_DIR$/public/images/logos" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.bin/www">
+  <component name="RunManager" selected="npm.run app.js">
     <configuration default="true" type="NodeJSConfigurationType" path-to-js-file="bin/www">
       <method v="2" />
     </configuration>
@@ -2758,14 +2776,8 @@
       <workItem from="1600866061937" duration="12271000" />
       <workItem from="1601124929211" duration="1803000" />
       <workItem from="1602079220810" duration="5192000" />
-      <workItem from="1602166275749" duration="2002000" />
-    </task>
-    <task id="LOCAL-00003" summary="New Version of everything. Start from here.">
-      <created>1539769048487</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1539769048487</updated>
+      <workItem from="1602166275749" duration="2636000" />
+      <workItem from="1602418377024" duration="3656000" />
     </task>
     <task id="LOCAL-00004" summary="Audit Block new, Tutorial almost finished. Some logic changes.">
       <created>1540212465629</created>
@@ -3103,7 +3115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547541383926</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="New File Names, Structure, React.js Basics for Backend.">
+      <created>1602172728560</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1602172728560</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3133,7 +3152,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="small fix. crap." />
     <MESSAGE value="port flag" />
     <MESSAGE value="importet bin/www stuff in app.js. Here's to Nothing." />
     <MESSAGE value="File Upload works, redid some bin/www stuff (only relevant for local testing, not for Heroku)" />
@@ -3158,49 +3176,55 @@
     <MESSAGE value="deactivated impressum link." />
     <MESSAGE value="Hotfix: Notifications" />
     <MESSAGE value="First commit V2" />
-    <option name="LAST_COMMIT_MESSAGE" value="First commit V2" />
+    <MESSAGE value="New File Names, Structure, React.js Basics for Backend." />
+    <option name="LAST_COMMIT_MESSAGE" value="New File Names, Structure, React.js Basics for Backend." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="507" y="175" key="CommitChangelistDialog2" timestamp="1601026026134">
-      <screen x="0" y="0" width="1920" height="1200" />
+    <state x="-2380" y="78" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602752557250">
+      <screen x="-3008" y="-367" width="3008" height="1605" />
     </state>
+    <state x="-2380" y="78" key="#com.intellij.execution.impl.EditConfigurationsDialog/-3008.-367.3008.1605/0.23.1920.1177@-3008.-367.3008.1605" timestamp="1602752557250" />
+    <state x="-2214" y="-133" key="CommitChangelistDialog2" timestamp="1602172721849">
+      <screen x="-3008" y="-367" width="3008" height="1605" />
+    </state>
+    <state x="-2214" y="-133" key="CommitChangelistDialog2/-3008.-367.3008.1605/0.23.1920.1177@-3008.-367.3008.1605" timestamp="1602172721849" />
     <state x="507" y="175" key="CommitChangelistDialog2/1920.216.1112.834/0.0.1920.1200@0.0.1920.1200" timestamp="1601026026134" />
     <state x="-2182" y="80" key="EditFileWatcherDialog" timestamp="1602145878579">
       <screen x="-3008" y="-367" width="3008" height="1669" />
     </state>
     <state x="-2182" y="80" key="EditFileWatcherDialog/-3008.-367.3008.1669/0.23.1920.1113@-3008.-367.3008.1669" timestamp="1602145878579" />
-    <state width="1899" height="212" key="GridCell.Tab.0.bottom" timestamp="1602167791476">
+    <state width="2090" height="248" key="GridCell.Tab.0.bottom" timestamp="1602752563201">
       <screen x="-3008" y="-367" width="3008" height="1605" />
     </state>
-    <state width="1899" height="212" key="GridCell.Tab.0.bottom/-3008.-367.3008.1605/0.23.1920.1177@-3008.-367.3008.1605" timestamp="1602167791476" />
-    <state width="1899" height="171" key="GridCell.Tab.0.bottom/-3008.-367.3008.1669/0.23.1920.1113@-3008.-367.3008.1669" timestamp="1602162676767" />
+    <state width="2090" height="248" key="GridCell.Tab.0.bottom/-3008.-367.3008.1605/0.23.1920.1177@-3008.-367.3008.1605" timestamp="1602752563201" />
+    <state width="2090" height="248" key="GridCell.Tab.0.bottom/-3008.-367.3008.1669/0.23.1920.1113@-3008.-367.3008.1669" timestamp="1602752402044" />
     <state width="1899" height="193" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1601131032558" />
     <state width="1899" height="393" key="GridCell.Tab.0.bottom/0.23.1920.1113@0.23.1920.1113" timestamp="1601391609218" />
     <state width="1899" height="193" key="GridCell.Tab.0.bottom/1920.216.1112.834/0.0.1920.1200@0.0.1920.1200" timestamp="1601026030046" />
     <state width="1899" height="193" key="GridCell.Tab.0.bottom/1920.239.1112.811/0.0.1920.1200@0.0.1920.1200" timestamp="1601025375178" />
-    <state width="1899" height="212" key="GridCell.Tab.0.center" timestamp="1602167791475">
+    <state width="2090" height="248" key="GridCell.Tab.0.center" timestamp="1602752563200">
       <screen x="-3008" y="-367" width="3008" height="1605" />
     </state>
-    <state width="1899" height="212" key="GridCell.Tab.0.center/-3008.-367.3008.1605/0.23.1920.1177@-3008.-367.3008.1605" timestamp="1602167791475" />
-    <state width="1899" height="171" key="GridCell.Tab.0.center/-3008.-367.3008.1669/0.23.1920.1113@-3008.-367.3008.1669" timestamp="1602162676767" />
+    <state width="2090" height="248" key="GridCell.Tab.0.center/-3008.-367.3008.1605/0.23.1920.1177@-3008.-367.3008.1605" timestamp="1602752563200" />
+    <state width="2090" height="248" key="GridCell.Tab.0.center/-3008.-367.3008.1669/0.23.1920.1113@-3008.-367.3008.1669" timestamp="1602752402043" />
     <state width="1899" height="193" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1601131032557" />
     <state width="1899" height="393" key="GridCell.Tab.0.center/0.23.1920.1113@0.23.1920.1113" timestamp="1601391609217" />
     <state width="1899" height="193" key="GridCell.Tab.0.center/1920.216.1112.834/0.0.1920.1200@0.0.1920.1200" timestamp="1601026030040" />
     <state width="1899" height="193" key="GridCell.Tab.0.center/1920.239.1112.811/0.0.1920.1200@0.0.1920.1200" timestamp="1601025375177" />
-    <state width="1899" height="212" key="GridCell.Tab.0.left" timestamp="1602167791475">
+    <state width="2090" height="248" key="GridCell.Tab.0.left" timestamp="1602752563199">
       <screen x="-3008" y="-367" width="3008" height="1605" />
     </state>
-    <state width="1899" height="212" key="GridCell.Tab.0.left/-3008.-367.3008.1605/0.23.1920.1177@-3008.-367.3008.1605" timestamp="1602167791475" />
-    <state width="1899" height="171" key="GridCell.Tab.0.left/-3008.-367.3008.1669/0.23.1920.1113@-3008.-367.3008.1669" timestamp="1602162676766" />
+    <state width="2090" height="248" key="GridCell.Tab.0.left/-3008.-367.3008.1605/0.23.1920.1177@-3008.-367.3008.1605" timestamp="1602752563199" />
+    <state width="2090" height="248" key="GridCell.Tab.0.left/-3008.-367.3008.1669/0.23.1920.1113@-3008.-367.3008.1669" timestamp="1602752402042" />
     <state width="1899" height="193" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1601131032557" />
     <state width="1899" height="393" key="GridCell.Tab.0.left/0.23.1920.1113@0.23.1920.1113" timestamp="1601391609216" />
     <state width="1899" height="193" key="GridCell.Tab.0.left/1920.216.1112.834/0.0.1920.1200@0.0.1920.1200" timestamp="1601026030039" />
     <state width="1899" height="193" key="GridCell.Tab.0.left/1920.239.1112.811/0.0.1920.1200@0.0.1920.1200" timestamp="1601025375176" />
-    <state width="1899" height="212" key="GridCell.Tab.0.right" timestamp="1602167791476">
+    <state width="2090" height="248" key="GridCell.Tab.0.right" timestamp="1602752563200">
       <screen x="-3008" y="-367" width="3008" height="1605" />
     </state>
-    <state width="1899" height="212" key="GridCell.Tab.0.right/-3008.-367.3008.1605/0.23.1920.1177@-3008.-367.3008.1605" timestamp="1602167791476" />
-    <state width="1899" height="171" key="GridCell.Tab.0.right/-3008.-367.3008.1669/0.23.1920.1113@-3008.-367.3008.1669" timestamp="1602162676767" />
+    <state width="2090" height="248" key="GridCell.Tab.0.right/-3008.-367.3008.1605/0.23.1920.1177@-3008.-367.3008.1605" timestamp="1602752563200" />
+    <state width="2090" height="248" key="GridCell.Tab.0.right/-3008.-367.3008.1669/0.23.1920.1113@-3008.-367.3008.1669" timestamp="1602752402043" />
     <state width="1899" height="193" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1601131032558" />
     <state width="1899" height="393" key="GridCell.Tab.0.right/0.23.1920.1113@0.23.1920.1113" timestamp="1601391609217" />
     <state width="1899" height="193" key="GridCell.Tab.0.right/1920.216.1112.834/0.0.1920.1200@0.0.1920.1200" timestamp="1601026030041" />
@@ -3256,7 +3280,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/public/javascripts/backend.js</url>
           <line>14</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="75" />
         </line-breakpoint>
       </breakpoints>

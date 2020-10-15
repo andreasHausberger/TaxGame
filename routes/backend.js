@@ -5,6 +5,7 @@ let user = require('../database/mdb');
 let results = require('../database/resultsDB');
 let config = require('../database/modeConfigDB.js');
 let study = require('../database/study.js');
+let studyModel = require('../model/StudyModel');
 
 
 /* GET test page. */
